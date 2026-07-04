@@ -1,0 +1,87 @@
+volunteer_id,volunteer_name,role,availability,can_foster,can_transport,can_handle_medical,can_handle_seniors,can_handle_large_dogs,foster_capacity,current_assignments,location,reliability_score
+VOL-7000,Rowan Patel,Transport,Limited,False,True,False,True,False,0,0,Remote,83
+VOL-7001,Avery Lewis,Adoption Screener,Weeknights,False,False,False,True,False,0,0,Central,64
+VOL-7002,Emerson Brown,Adoption Screener,Weekends,False,False,False,True,False,0,0,South,98
+VOL-7003,Jordan Allen,Social Media,Limited,False,True,False,False,False,0,0,Central,92
+VOL-7004,Quinn Smith,Foster,Limited,True,False,False,False,False,0,0,North,90
+VOL-7005,Reese Johnson,Event Support,Flexible,False,False,True,False,False,0,0,East,74
+VOL-7006,Jordan Nguyen,Fundraising,Weekends,False,False,False,False,True,0,0,Central,83
+VOL-7007,Reese Clark,Foster,Limited,True,True,True,False,False,3,3,South,66
+VOL-7008,Finley King,Adoption Screener,Weekends,False,False,False,False,False,0,0,East,90
+VOL-7009,Jordan Smith,Event Support,Weeknights,True,False,False,True,False,1,0,Remote,83
+VOL-7010,Parker Wright,Medical Coordinator,Weeknights,False,True,True,True,True,0,0,Remote,74
+VOL-7011,Morgan Brown,Medical Coordinator,Weekends,True,False,True,True,True,0,0,Remote,84
+VOL-7012,Logan Nguyen,Social Media,Limited,False,False,False,True,True,0,0,South,86
+VOL-7013,Rowan Young,Foster,Weeknights,True,True,True,True,False,1,0,Central,62
+VOL-7014,Skyler Nguyen,Adoption Screener,Limited,False,False,False,False,False,0,0,West,72
+VOL-7015,Emerson Brown,Adoption Screener,Weekends,True,False,True,True,False,3,2,East,87
+VOL-7016,Reese Young,Medical Coordinator,Weeknights,False,False,True,False,True,0,0,Remote,76
+VOL-7017,Logan Scott,Transport,Weekends,False,True,True,True,False,0,0,West,92
+VOL-7018,Harper Wright,Transport,Flexible,True,True,False,True,False,3,1,East,94
+VOL-7019,Hayden King,Transport,Flexible,False,True,False,True,True,0,0,Central,90
+VOL-7020,Hayden Allen,Foster,Weeknights,True,False,False,True,True,1,1,East,62
+VOL-7021,Rowan Wilson,Adoption Screener,Weeknights,False,False,False,True,False,0,0,East,65
+VOL-7022,Cameron Wilson,Event Support,Weekends,True,False,True,False,False,0,0,North,86
+VOL-7023,Jordan King,Foster,Weekends,True,False,False,False,False,1,1,East,82
+VOL-7024,Skyler Patel,Adoption Screener,Flexible,False,False,True,True,False,0,0,Central,72
+VOL-7025,Harper Lewis,Foster,Limited,True,False,False,False,True,1,0,North,88
+VOL-7026,Emerson Wright,Volunteer Coordinator,Flexible,False,False,False,True,False,0,0,Remote,75
+VOL-7027,Quinn Scott,Medical Coordinator,Weekends,False,False,True,False,False,0,0,West,91
+VOL-7028,Harper Garcia,Social Media,Weeknights,False,False,False,False,True,0,0,West,68
+VOL-7029,Avery Young,Transport,Flexible,False,True,True,True,False,0,0,Remote,70
+VOL-7030,Jamie Johnson,Foster,Flexible,True,False,True,True,False,1,0,West,77
+VOL-7031,Jamie Patel,Adoption Screener,Flexible,True,False,False,False,True,0,0,South,93
+VOL-7032,Finley Allen,Foster,Limited,True,False,False,False,False,2,1,Remote,76
+VOL-7033,Casey Patel,Adoption Screener,Flexible,False,False,False,True,True,0,0,Remote,93
+VOL-7034,Skyler Brown,Foster,Weeknights,True,False,False,False,True,2,2,North,64
+VOL-7035,Cameron Garcia,Medical Coordinator,Weekends,False,True,True,False,False,0,0,East,93
+VOL-7036,Cameron Wilson,Event Support,Limited,False,False,False,False,False,0,0,West,95
+VOL-7037,Taylor Smith,Transport,Flexible,False,True,True,False,False,0,0,Remote,92
+VOL-7038,Hayden Lewis,Social Media,Limited,True,True,False,False,False,3,1,North,65
+VOL-7039,Drew Smith,Fundraising,Weekends,False,False,False,True,False,0,0,West,73
+VOL-7040,Taylor Brown,Social Media,Weeknights,True,True,False,True,False,1,1,South,82
+VOL-7041,Drew Wilson,Volunteer Coordinator,Flexible,False,False,True,False,True,0,0,East,89
+VOL-7042,Taylor Smith,Foster,Weeknights,True,True,False,False,True,2,1,West,91
+VOL-7043,Parker Brown,Volunteer Coordinator,Weekends,False,False,True,False,False,0,0,South,77
+VOL-7044,Riley Brown,Transport,Flexible,False,True,False,False,False,0,0,North,89
+VOL-7045,Jordan Davis,Foster,Flexible,True,True,False,False,False,0,0,East,70
+VOL-7046,Riley Wright,Foster,Flexible,True,False,False,False,True,2,2,South,78
+VOL-7047,Kendall Johnson,Transport,Limited,True,True,False,False,True,0,0,South,98
+VOL-7048,Drew Nguyen,Event Support,Flexible,False,True,False,False,True,0,0,West,91
+VOL-7049,Taylor Nguyen,Foster,Weeknights,True,False,True,True,False,0,0,Central,79
+VOL-7050,Taylor Nguyen,Fundraising,Flexible,False,False,False,True,False,0,0,Remote,71
+VOL-7051,Drew Garcia,Foster,Weekends,True,False,False,False,False,0,0,East,98
+VOL-7052,Rowan Wright,Adoption Screener,Weekends,True,True,False,True,True,3,3,South,81
+VOL-7053,Drew King,Social Media,Weekends,False,True,False,True,True,0,0,Remote,85
+VOL-7054,Kendall Scott,Social Media,Flexible,False,False,False,False,False,0,0,Central,70
+VOL-7055,Riley Young,Medical Coordinator,Weekends,False,False,True,False,False,0,0,West,62
+VOL-7056,Reese Clark,Adoption Screener,Flexible,False,False,False,True,True,0,0,West,89
+VOL-7057,Emerson Miller,Foster,Flexible,True,False,False,False,True,2,1,South,95
+VOL-7058,Parker Miller,Fundraising,Weekends,False,False,False,True,False,0,0,Central,79
+VOL-7059,Harper King,Volunteer Coordinator,Weekends,False,False,True,False,True,0,0,Remote,94
+VOL-7060,Morgan Scott,Foster,Flexible,True,True,True,True,True,2,0,North,69
+VOL-7061,Finley King,Adoption Screener,Weekends,False,True,False,True,True,0,0,North,65
+VOL-7062,Jordan Johnson,Transport,Flexible,False,True,False,False,True,0,0,North,67
+VOL-7063,Emerson Scott,Event Support,Flexible,False,True,False,False,True,0,0,Central,68
+VOL-7064,Reese Garcia,Volunteer Coordinator,Flexible,True,True,False,False,False,3,3,East,87
+VOL-7065,Logan Patel,Foster,Weekends,True,False,True,True,False,0,0,South,87
+VOL-7066,Hayden Lewis,Foster,Weeknights,True,False,False,True,False,0,0,Central,91
+VOL-7067,Harper Brown,Transport,Weeknights,False,True,False,False,True,0,0,Central,78
+VOL-7068,Casey Wilson,Foster,Weeknights,True,True,False,True,True,3,2,West,92
+VOL-7069,Taylor Johnson,Medical Coordinator,Limited,False,False,True,True,False,0,0,North,70
+VOL-7070,Hayden Miller,Foster,Weekends,True,False,False,True,False,0,0,Central,82
+VOL-7071,Cameron Brown,Foster,Weeknights,True,False,False,True,True,3,2,Remote,88
+VOL-7072,Drew Clark,Event Support,Weekends,False,False,True,True,False,0,0,Central,72
+VOL-7073,Finley Wilson,Event Support,Limited,False,False,False,False,False,0,0,Central,93
+VOL-7074,Casey Wright,Transport,Weekends,False,True,False,True,False,0,0,South,74
+VOL-7075,Parker Patel,Volunteer Coordinator,Limited,True,True,False,False,False,0,0,West,65
+VOL-7076,Jamie Wright,Medical Coordinator,Flexible,False,True,True,False,True,0,0,South,63
+VOL-7077,Harper Patel,Adoption Screener,Limited,False,False,False,False,True,0,0,West,72
+VOL-7078,Casey Miller,Transport,Limited,True,True,False,True,True,2,2,West,74
+VOL-7079,Taylor Scott,Volunteer Coordinator,Flexible,False,False,False,True,False,0,0,Central,92
+VOL-7080,Reese Johnson,Transport,Flexible,True,True,True,False,True,3,2,South,65
+VOL-7081,Emerson Young,Fundraising,Flexible,True,False,False,False,True,3,0,North,76
+VOL-7082,Reese Wright,Transport,Flexible,False,True,False,False,False,0,0,Remote,78
+VOL-7083,Casey Brown,Event Support,Weeknights,False,False,False,True,True,0,0,West,86
+VOL-7084,Emerson Johnson,Event Support,Flexible,True,True,False,False,False,2,0,Remote,69
+VOL-7085,Logan Miller,Social Media,Weekends,True,False,True,True,True,2,0,West,70

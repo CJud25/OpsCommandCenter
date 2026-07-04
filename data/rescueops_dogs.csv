@@ -1,0 +1,97 @@
+dog_id,dog_name,age_group,breed_mix,intake_date,current_status,foster_status,adoption_status,medical_status,behavior_notes,special_needs,good_with_dogs,good_with_cats,good_with_children,energy_level,priority_level,days_in_care,estimated_monthly_cost,adoption_ready,bio_needed,social_post_needed
+DOG-1000,Summer,Adult,Terrier mix,2026-03-14,Foster Needed,Needs Foster,Needs Review,Routine Care,Leash work in progress,False,Yes,Yes,Yes,High,High,112,86,False,False,False
+DOG-1001,Murphy,Adult,Cattle Dog mix,2026-02-04,Adopted,In Foster,Adopted,Heartworm Treatment,Shy at first,True,Yes,Unknown,Unknown,Medium,High,150,289,False,False,False
+DOG-1002,Cookie,Adult,Mastiff mix,2026-03-30,Medical Hold,Needs Backup,Not Ready,Medical Hold,Friendly and energetic,True,Yes,Unknown,Unknown,Medium,High,96,273,False,False,False
+DOG-1003,Molly,Senior,Pit mix,2026-05-04,Medical Hold,Needs Backup,Not Ready,Clear,Friendly and energetic,False,Yes,Yes,Yes,Low,Medium,61,72,False,False,False
+DOG-1004,Jasper,Senior,Labrador mix,2026-05-02,In Foster,In Foster,Not Ready,Clear,Crate trained,False,Unknown,No,Yes,High,Low,63,64,False,False,False
+DOG-1005,Maple,Puppy,Spaniel mix,2026-03-23,Adoption Ready,In Foster,Available,Routine Care,Friendly and energetic,False,Yes,Unknown,Yes,Low,Medium,103,98,True,True,False
+DOG-1006,Honey,Young,Boxer mix,2026-05-31,Medical Hold,In Foster,Not Ready,Dental Needed,High play drive,False,Yes,No,Yes,Medium,Low,34,251,False,False,False
+DOG-1007,Remy,Senior,Terrier mix,2026-01-28,In Foster,In Foster,Needs Review,Medical Hold,Shy at first,True,Yes,Yes,Unknown,Low,Critical,157,406,False,False,False
+DOG-1008,Scout,Senior,Great Pyrenees mix,2026-03-01,Pending Adoption,In Foster,Application Pending,Clear,Needs slow introductions,False,Yes,No,Yes,Medium,High,125,57,True,True,False
+DOG-1009,Luna,Puppy,Boxer mix,2026-06-22,In Foster,Short-Term Foster,Not Ready,Clear,High play drive,True,No,Unknown,Yes,Medium,Critical,12,63,False,False,False
+DOG-1010,Wally,Young,Husky mix,2026-06-23,Pending Adoption,In Foster,Application Pending,Vaccines Needed,Crate trained,False,Yes,No,Unknown,Medium,Medium,11,125,True,False,True
+DOG-1011,Bonnie,Adult,Chihuahua mix,2026-04-06,Intake,Needs Foster,Needs Review,Heartworm Treatment,Leash work in progress,True,No,Unknown,Yes,Low,High,89,349,False,False,False
+DOG-1012,Ruby,Young,Boxer mix,2026-04-05,Medical Hold,In Foster,Available Soon,Vaccines Needed,Crate trained,False,Yes,Yes,Yes,Medium,Low,90,97,False,False,False
+DOG-1013,Ember,Puppy,Retriever mix,2026-04-18,In Foster,Needs Backup,Available Soon,Routine Care,Needs slow introductions,True,Unknown,Yes,Unknown,Medium,Critical,77,83,False,False,False
+DOG-1014,Bella,Senior,Beagle mix,2026-03-30,Adopted,Needs Backup,Adopted,Routine Care,Loves quiet routines,False,Yes,No,Yes,High,Low,96,97,False,False,False
+DOG-1015,June,Adult,Boxer mix,2026-04-30,In Foster,In Foster,Needs Review,Heartworm Treatment,Needs slow introductions,True,Yes,Yes,Unknown,Medium,High,65,266,False,False,False
+DOG-1016,Nora,Young,Mastiff mix,2026-02-05,Adopted,Needs Backup,Adopted,Routine Care,Shy at first,False,Yes,Yes,Unknown,High,High,149,99,False,False,False
+DOG-1017,Oakley,Adult,Spaniel mix,2026-03-20,In Foster,Needs Backup,Available Soon,Clear,Needs slow introductions,False,Yes,Unknown,No,Medium,Medium,106,71,False,False,False
+DOG-1018,Tucker,Adult,Pit mix,2026-04-03,Medical Hold,Needs Backup,Not Ready,Surgery Needed,Friendly and energetic,True,Yes,No,Unknown,Medium,Critical,92,587,False,False,False
+DOG-1019,Sadie,Young,Retriever mix,2026-01-07,Adopted,In Foster,Adopted,Vaccines Needed,Leash work in progress,False,Yes,No,Unknown,Medium,High,178,72,False,False,False
+DOG-1020,Frankie,Young,Labrador mix,2026-02-26,Adopted,Short-Term Foster,Adopted,Vaccines Needed,Friendly and energetic,False,No,Unknown,Unknown,Low,High,128,111,False,False,False
+DOG-1021,Nala,Adult,Labrador mix,2026-04-28,Foster Needed,Needs Foster,Needs Review,Routine Care,Crate trained,False,Yes,No,Unknown,Medium,High,67,76,False,False,False
+DOG-1022,Blue,Adult,Great Pyrenees mix,2025-12-28,Medical Hold,In Foster,Available Soon,Heartworm Treatment,Crate trained,True,Yes,Unknown,Yes,Medium,High,188,207,False,False,False
+DOG-1023,Zoe,Puppy,Labrador mix,2026-06-16,Foster Needed,Needs Foster,Not Ready,Clear,Shy at first,False,Yes,No,Yes,Medium,High,18,72,False,False,True
+DOG-1024,Georgia,Adult,Chihuahua mix,2026-06-09,Intake,Needs Foster,Not Ready,Emergency,High play drive,True,No,Unknown,No,Medium,Critical,25,679,False,False,False
+DOG-1025,Ivy,Puppy,Beagle mix,2026-05-22,Adoption Ready,Boarding,Available,Routine Care,Needs slow introductions,False,Yes,No,No,Low,Medium,43,81,True,True,False
+DOG-1026,Atlas,Adult,Hound mix,2026-03-24,Adoption Ready,In Foster,Available,Heartworm Treatment,Needs slow introductions,True,Unknown,No,Yes,Low,High,102,255,True,False,True
+DOG-1027,Theo,Adult,Pit mix,2026-04-28,In Foster,Boarding,Not Ready,Routine Care,Crate trained,True,Yes,Unknown,Yes,Medium,High,67,128,False,False,False
+DOG-1028,Rex,Adult,Spaniel mix,2026-03-14,Medical Hold,In Foster,Needs Review,Medical Hold,Needs slow introductions,True,Yes,Yes,Unknown,Low,Critical,112,335,False,False,False
+DOG-1029,Rudy,Senior,Boxer mix,2026-02-23,Intake,Needs Foster,Not Ready,Clear,Loves quiet routines,False,Unknown,No,Yes,Medium,High,131,38,False,False,False
+DOG-1030,Jack,Adult,Labrador mix,2026-06-03,Adoption Ready,In Foster,Available,Medical Hold,High play drive,True,Yes,Yes,Yes,Medium,High,31,259,True,False,False
+DOG-1031,Sunny,Adult,Cattle Dog mix,2026-05-21,Medical Hold,Needs Backup,Not Ready,Clear,Shy at first,False,No,Yes,No,Low,Medium,44,73,False,False,False
+DOG-1032,Olive,Senior,Pit mix,2026-02-07,Intake,Needs Foster,Not Ready,Medical Hold,Loves quiet routines,True,Yes,Unknown,Unknown,High,Critical,147,278,False,False,False
+DOG-1033,Fiona,Adult,Retriever mix,2026-01-03,Medical Hold,Short-Term Foster,Not Ready,Clear,Loves quiet routines,False,Yes,Unknown,No,High,High,182,71,False,False,False
+DOG-1034,Beau,Puppy,Terrier mix,2026-03-27,In Foster,Short-Term Foster,Needs Review,Routine Care,Leash work in progress,False,Yes,No,Unknown,Medium,Medium,99,151,False,False,False
+DOG-1035,Tessa,Adult,Shepherd mix,2026-01-27,Foster Needed,Needs Foster,Not Ready,Heartworm Treatment,Leash work in progress,True,No,Yes,Yes,Medium,High,158,292,False,False,False
+DOG-1036,Cooper,Puppy,Pit mix,2026-05-11,Adoption Ready,Boarding,Available,Medical Hold,Needs slow introductions,True,Yes,No,No,High,Critical,54,396,True,True,False
+DOG-1037,Louie,Puppy,Spaniel mix,2026-03-02,Intake,Needs Foster,Not Ready,Surgery Needed,Loves quiet routines,True,Yes,No,Unknown,Low,Critical,124,323,False,False,False
+DOG-1038,Boomer,Adult,Terrier mix,2026-01-09,Adoption Ready,Needs Backup,Available,Routine Care,Crate trained,False,Yes,No,Unknown,Medium,High,176,139,True,False,True
+DOG-1039,Maisie,Young,Beagle mix,2026-03-17,In Foster,In Foster,Available Soon,Clear,Crate trained,False,Unknown,Yes,No,Low,Medium,109,57,False,False,False
+DOG-1040,Ranger,Adult,Beagle mix,2025-12-09,Adopted,In Foster,Adopted,Heartworm Treatment,Friendly and energetic,True,Unknown,Unknown,Unknown,High,High,207,148,False,False,False
+DOG-1041,Annie,Puppy,Pit mix,2026-06-17,Adopted,Needs Backup,Adopted,Routine Care,Needs slow introductions,False,Yes,Unknown,Yes,Medium,Low,17,108,False,False,False
+DOG-1042,Hazel,Adult,Mastiff mix,2026-03-26,Medical Hold,In Foster,Available Soon,Clear,High play drive,False,No,Yes,Yes,High,Medium,100,69,False,False,False
+DOG-1043,Baxter,Young,Retriever mix,2026-03-21,Adoption Ready,Short-Term Foster,Available,Clear,High play drive,False,Unknown,Unknown,No,Medium,Medium,105,77,True,False,False
+DOG-1044,Milo,Adult,Boxer mix,2026-05-23,Adopted,Boarding,Adopted,Medical Hold,Crate trained,True,Yes,Unknown,Yes,Medium,High,42,317,False,False,False
+DOG-1045,Toby,Adult,Terrier mix,2026-02-01,In Foster,In Foster,Available Soon,Heartworm Treatment,Crate trained,True,Unknown,Yes,No,Medium,Critical,153,152,False,False,False
+DOG-1046,Sasha,Adult,Terrier mix,2026-01-17,Intake,Needs Foster,Not Ready,Clear,Crate trained,False,Yes,No,Unknown,Low,High,168,66,False,False,False
+DOG-1047,Phoebe,Adult,Spaniel mix,2025-12-17,Medical Hold,In Foster,Needs Review,Vaccines Needed,Loves quiet routines,False,Unknown,No,Unknown,High,High,199,150,False,False,False
+DOG-1048,Gus,Adult,Hound mix,2026-02-05,Adoption Ready,In Foster,Available,Clear,Friendly and energetic,True,Unknown,No,Yes,Medium,Critical,149,80,True,True,True
+DOG-1049,Poppy,Adult,Terrier mix,2026-01-07,Foster Needed,Needs Foster,Available Soon,Vaccines Needed,Loves quiet routines,False,Yes,Yes,No,High,High,178,214,False,False,True
+DOG-1050,George,Puppy,Hound mix,2026-04-06,Adoption Ready,Needs Backup,Available,Clear,Friendly and energetic,False,Yes,Unknown,Unknown,Medium,Medium,89,91,True,True,False
+DOG-1051,Rocco,Young,Spaniel mix,2026-02-02,Foster Needed,Needs Foster,Not Ready,Clear,Needs slow introductions,False,Unknown,Yes,Unknown,High,Critical,152,65,False,False,True
+DOG-1052,Ollie,Puppy,Beagle mix,2026-01-22,Adoption Ready,In Foster,Available,Dental Needed,Crate trained,False,No,No,Unknown,Medium,High,163,256,True,False,False
+DOG-1053,Comet,Adult,Labrador mix,2026-05-25,In Foster,In Foster,Not Ready,Heartworm Treatment,Leash work in progress,True,Unknown,Unknown,Yes,Medium,High,40,183,False,False,False
+DOG-1054,Penny,Senior,Boxer mix,2026-06-16,Medical Hold,Short-Term Foster,Not Ready,Vaccines Needed,Loves quiet routines,False,Yes,Yes,Unknown,High,Medium,18,116,False,False,False
+DOG-1055,Lola,Puppy,Retriever mix,2026-02-23,Pending Adoption,Boarding,Application Pending,Clear,Shy at first,False,Unknown,Yes,No,Low,High,131,63,True,True,False
+DOG-1056,Biscuit,Adult,Hound mix,2026-01-16,Adopted,In Foster,Adopted,Clear,Needs slow introductions,True,Yes,Unknown,Yes,Medium,High,169,77,False,False,False
+DOG-1057,Charlie,Adult,Labrador mix,2026-05-02,Medical Hold,In Foster,Not Ready,Surgery Needed,Loves quiet routines,True,Unknown,Yes,Yes,Medium,Critical,63,588,False,False,False
+DOG-1058,Bruno,Adult,Husky mix,2026-04-28,In Foster,In Foster,Available Soon,Heartworm Treatment,Friendly and energetic,True,No,Yes,Yes,Medium,High,67,249,False,False,False
+DOG-1059,Mabel,Adult,Hound mix,2026-04-28,Pending Adoption,In Foster,Application Pending,Clear,Loves quiet routines,False,Yes,Unknown,Unknown,Low,Medium,67,73,True,False,True
+DOG-1060,Archie,Senior,Cattle Dog mix,2026-05-11,Medical Hold,Short-Term Foster,Available Soon,Routine Care,Friendly and energetic,False,Yes,Unknown,Yes,Low,Medium,54,127,False,False,False
+DOG-1061,Knox,Puppy,Shepherd mix,2026-03-21,Adoption Ready,Needs Backup,Available,Clear,Friendly and energetic,False,Yes,Unknown,Yes,High,Medium,105,90,True,False,True
+DOG-1062,Macy,Puppy,Cattle Dog mix,2026-06-06,Adoption Ready,Boarding,Available,Routine Care,Needs slow introductions,False,Yes,No,Unknown,Medium,Medium,28,132,True,True,True
+DOG-1063,Tilly,Adult,Cattle Dog mix,2025-12-28,In Foster,Boarding,Not Ready,Dental Needed,High play drive,False,Yes,Yes,Yes,Medium,High,188,235,False,False,False
+DOG-1064,Callie,Puppy,Great Pyrenees mix,2026-01-30,Medical Hold,Needs Backup,Not Ready,Clear,Needs slow introductions,False,No,Unknown,Unknown,High,High,155,73,False,False,False
+DOG-1065,Benny,Puppy,Hound mix,2026-02-28,Medical Hold,Short-Term Foster,Needs Review,Heartworm Treatment,Crate trained,True,Yes,Yes,No,High,High,126,379,False,False,False
+DOG-1066,Sophie,Adult,Hound mix,2026-06-03,Adopted,In Foster,Adopted,Routine Care,High play drive,False,Yes,No,Unknown,Medium,Low,31,95,False,False,False
+DOG-1067,Sam,Senior,Boxer mix,2026-01-20,Foster Needed,Needs Foster,Not Ready,Vaccines Needed,High play drive,False,Yes,No,Unknown,Medium,High,165,110,False,False,False
+DOG-1068,Dexter,Senior,Pit mix,2026-05-25,Foster Needed,Needs Foster,Available Soon,Medical Hold,High play drive,True,No,No,Yes,Medium,High,40,435,False,False,False
+DOG-1069,Ellie,Adult,Hound mix,2025-12-14,Adoption Ready,In Foster,Available,Routine Care,High play drive,False,Yes,No,Yes,Medium,High,202,80,True,False,True
+DOG-1070,Hank,Young,Great Pyrenees mix,2026-04-16,In Foster,Needs Backup,Not Ready,Clear,Crate trained,True,No,No,Yes,High,Critical,79,62,False,False,False
+DOG-1071,Minnie,Adult,Labrador mix,2026-02-25,Adopted,Boarding,Adopted,Routine Care,Crate trained,False,Unknown,Unknown,Unknown,Low,High,129,96,False,False,False
+DOG-1072,Willow,Senior,Boxer mix,2026-01-21,Adopted,In Foster,Adopted,Heartworm Treatment,Loves quiet routines,True,Unknown,No,No,Medium,High,164,367,False,False,False
+DOG-1073,Violet,Senior,Great Pyrenees mix,2026-05-03,In Foster,Boarding,Not Ready,Heartworm Treatment,High play drive,True,Yes,Unknown,No,High,High,62,319,False,False,False
+DOG-1074,Mia,Senior,Husky mix,2026-01-05,Medical Hold,In Foster,Needs Review,Clear,Shy at first,False,Unknown,Unknown,Yes,High,High,180,45,False,False,False
+DOG-1075,Otis,Senior,Great Pyrenees mix,2026-03-09,In Foster,In Foster,Needs Review,Heartworm Treatment,Crate trained,True,Yes,Unknown,Yes,Medium,High,117,264,False,False,False
+DOG-1076,Cash,Senior,Hound mix,2026-06-15,Pending Adoption,In Foster,Application Pending,Clear,Crate trained,True,Yes,Yes,Unknown,Medium,High,19,57,True,True,True
+DOG-1077,Buddy,Young,Chihuahua mix,2026-05-04,Foster Needed,Needs Foster,Needs Review,Clear,High play drive,False,Yes,Unknown,Unknown,Medium,High,61,58,False,False,True
+DOG-1078,Kona,Adult,Mastiff mix,2025-12-31,Pending Adoption,Boarding,Application Pending,Routine Care,Leash work in progress,False,Yes,Unknown,Yes,Low,High,185,80,True,False,True
+DOG-1079,Chase,Adult,Cattle Dog mix,2026-03-09,Adoption Ready,Short-Term Foster,Available,Clear,High play drive,True,Yes,Unknown,Yes,Medium,Critical,117,46,True,True,True
+DOG-1080,Cleo,Adult,Beagle mix,2026-01-27,Adoption Ready,In Foster,Available,Clear,Friendly and energetic,False,No,Unknown,No,Medium,High,158,46,True,True,False
+DOG-1081,Grace,Puppy,Mastiff mix,2026-04-01,In Foster,In Foster,Not Ready,Routine Care,Loves quiet routines,False,Unknown,Unknown,Unknown,High,Medium,94,127,False,False,False
+DOG-1082,Rory,Adult,Boxer mix,2026-06-10,Medical Hold,In Foster,Not Ready,Clear,Loves quiet routines,True,Yes,Unknown,Yes,Low,High,24,56,False,False,False
+DOG-1083,Lucky,Senior,Terrier mix,2026-06-22,Medical Hold,In Foster,Not Ready,Surgery Needed,High play drive,True,Yes,Unknown,Yes,High,Critical,12,389,False,False,False
+DOG-1084,Maggie,Senior,Labrador mix,2026-01-11,Adopted,Boarding,Adopted,Vaccines Needed,Needs slow introductions,False,Unknown,Unknown,No,Medium,High,174,142,False,False,False
+DOG-1085,Clover,Young,Retriever mix,2026-02-05,Medical Hold,Short-Term Foster,Available Soon,Surgery Needed,Friendly and energetic,True,Yes,No,Unknown,Medium,Critical,149,591,False,False,False
+DOG-1086,Diesel,Adult,Shepherd mix,2026-03-03,In Foster,Short-Term Foster,Not Ready,Routine Care,Friendly and energetic,False,Yes,Yes,Yes,High,High,123,59,False,False,False
+DOG-1087,Moose,Puppy,Beagle mix,2026-06-28,In Foster,In Foster,Not Ready,Heartworm Treatment,Shy at first,True,Yes,Unknown,Unknown,Medium,Critical,6,256,False,False,False
+DOG-1088,Marley,Young,Spaniel mix,2026-04-17,Intake,Needs Foster,Not Ready,Clear,Needs slow introductions,False,Yes,No,Yes,Medium,Low,78,66,False,False,False
+DOG-1089,Pearl,Puppy,Boxer mix,2026-02-17,In Foster,In Foster,Available Soon,Surgery Needed,High play drive,True,No,No,Yes,High,Critical,137,563,False,False,False
+DOG-1090,Finn,Puppy,Retriever mix,2026-06-08,Pending Adoption,Short-Term Foster,Application Pending,Clear,Shy at first,False,Yes,No,Yes,Medium,Medium,26,49,True,True,False
+DOG-1091,Winnie,Puppy,Cattle Dog mix,2026-03-28,In Foster,In Foster,Not Ready,Clear,Shy at first,False,Unknown,No,Yes,Low,Medium,98,61,False,False,False
+DOG-1092,Rosie,Young,Labrador mix,2026-05-16,In Foster,In Foster,Available Soon,Vaccines Needed,Needs slow introductions,False,Yes,Yes,Yes,Medium,Low,49,161,False,False,False
+DOG-1093,Millie,Adult,Great Pyrenees mix,2026-06-19,In Foster,In Foster,Available Soon,Clear,Friendly and energetic,False,Yes,Yes,Unknown,Medium,Medium,15,57,False,False,False
+DOG-1094,Birdie,Adult,Retriever mix,2026-03-16,In Foster,Short-Term Foster,Not Ready,Vaccines Needed,Crate trained,False,Unknown,Unknown,Unknown,Medium,Medium,110,126,False,False,False
+DOG-1095,Joy,Young,Mastiff mix,2025-12-09,In Foster,In Foster,Not Ready,Dental Needed,Needs slow introductions,False,Yes,Yes,Yes,Low,High,207,229,False,False,False
