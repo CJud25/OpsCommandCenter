@@ -15,7 +15,6 @@ OPSPILOT_AUTOMATION_SPECS = {
         "first_step": "Define required fields by request type and create a follow-up template.",
         "repeatability": 92,
         "rule_clarity": 90,
-        "save_rate": 0.62,
     },
     "Approval Reminder Automation": {
         "problem": "Approvals sit in queues without timely nudges or escalation.",
@@ -26,7 +25,6 @@ OPSPILOT_AUTOMATION_SPECS = {
         "first_step": "Map approval owners, escalation windows, and exception paths.",
         "repeatability": 86,
         "rule_clarity": 82,
-        "save_rate": 0.48,
     },
     "Duplicate Request Detection": {
         "problem": "Teams spend time reviewing duplicate or near-duplicate requests.",
@@ -37,7 +35,6 @@ OPSPILOT_AUTOMATION_SPECS = {
         "first_step": "Create duplicate checks using requester, request type, and recent submission window.",
         "repeatability": 78,
         "rule_clarity": 74,
-        "save_rate": 0.52,
     },
     "Auto-Routing by Request Type": {
         "problem": "Requests are manually routed even when assignment rules are stable.",
@@ -48,7 +45,6 @@ OPSPILOT_AUTOMATION_SPECS = {
         "first_step": "Build a request-type-to-owner routing matrix.",
         "repeatability": 94,
         "rule_clarity": 88,
-        "save_rate": 0.55,
     },
     "SLA Escalation Alerts": {
         "problem": "Aging work is not escalated until it is already late.",
@@ -59,7 +55,6 @@ OPSPILOT_AUTOMATION_SPECS = {
         "first_step": "Define alert thresholds by priority and process stage.",
         "repeatability": 88,
         "rule_clarity": 86,
-        "save_rate": 0.44,
     },
     "Request Intake Validation": {
         "problem": "Incomplete requests enter the workflow and create downstream rework.",
@@ -70,7 +65,6 @@ OPSPILOT_AUTOMATION_SPECS = {
         "first_step": "Identify required fields and validation rules for the top request types.",
         "repeatability": 90,
         "rule_clarity": 84,
-        "save_rate": 0.58,
     },
     "Recurring Status Summary": {
         "problem": "Leaders lack predictable visibility into work volume and aging.",
@@ -81,7 +75,6 @@ OPSPILOT_AUTOMATION_SPECS = {
         "first_step": "Create weekly summary fields and audience list.",
         "repeatability": 84,
         "rule_clarity": 80,
-        "save_rate": 0.36,
     },
     "Rework Prevention Checklist": {
         "problem": "Common quality misses cause requests to bounce between teams.",
@@ -92,7 +85,6 @@ OPSPILOT_AUTOMATION_SPECS = {
         "first_step": "Identify the top five rework causes and convert them into validation checks.",
         "repeatability": 82,
         "rule_clarity": 78,
-        "save_rate": 0.5,
     },
 }
 
@@ -226,7 +218,7 @@ def build_opspilot_automation_ranker(df: pd.DataFrame) -> pd.DataFrame:
                 "Automation Candidate": item["automation_name"],
                 "Problem Solved": spec["problem"],
                 "Volume": int(item["volume"]),
-                "Estimated Hours Saved": round(item["manual_hours"] * spec["save_rate"], 1),
+                "Estimated Hours Saved": round(item["manual_hours"] * scoring.OPSPILOT_SAVE_RATES[item["automation_name"]], 1),
                 "Complexity": spec["complexity"],
                 "Risk": spec["risk"],
                 "Business/Mission Impact": spec["impact"],

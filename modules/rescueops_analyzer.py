@@ -61,9 +61,8 @@ def summarize_rescueops(
     recent_medical = medical[medical["expense_date"] >= recent_cutoff]
     open_capacity = (volunteers["foster_capacity"] - volunteers["current_assignments"]).clip(lower=0).sum()
 
-    priority_order = {"Critical": 4, "High": 3, "Medium": 2, "Low": 1}
     highest_priority = (
-        in_care.assign(priority_rank=in_care["priority_level"].map(priority_order).fillna(0))
+        in_care.assign(priority_rank=in_care["priority_level"].map(scoring.PRIORITY_ORDER).fillna(0))
         .sort_values(["priority_rank", "days_in_care", "estimated_monthly_cost"], ascending=False)
         .head(1)
     )
@@ -371,8 +370,8 @@ def medical_priority_scoring(dogs: pd.DataFrame, medical: pd.DataFrame) -> pd.Da
             "Emergency": 100,
         }
     ).fillna(30)
-    amount_score = _normalize(joined["funding_needed"])
-    days_score = _normalize(joined["days_in_care"])
+    amount_score = scoring._normalize(joined["funding_needed"])
+    days_score = scoring._normalize(joined["days_in_care"])
     adoption_impact = np.where((~joined["adoption_ready"]) & (status_score >= 55), 100, 35)
 
     joined["medical_priority_score"] = (
@@ -396,17 +395,8 @@ def medical_priority_scoring(dogs: pd.DataFrame, medical: pd.DataFrame) -> pd.Da
     ].sort_values("medical_priority_score", ascending=False)
 
 
-def _normalize(series: pd.Series) -> pd.Series:
-    series = series.astype(float)
-    span = series.max() - series.min()
-    if span == 0:
-        return pd.Series(np.ones(len(series)) * 50, index=series.index)
-    return ((series - series.min()) / span) * 100
-
-
 def _highest_urgency(values: pd.Series) -> str:
-    order = {"Low": 1, "Medium": 2, "High": 3, "Critical": 4}
-    return sorted(values, key=lambda item: order.get(item, 0), reverse=True)[0]
+    return sorted(values, key=lambda item: scoring.PRIORITY_ORDER.get(item, 0), reverse=True)[0]
 
 
 def _campaign_focus(row: pd.Series) -> str:

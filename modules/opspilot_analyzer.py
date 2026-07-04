@@ -25,15 +25,9 @@ def load_opspilot_data(path: Path) -> pd.DataFrame:
     return df
 
 
-def _normalize(series: pd.Series) -> pd.Series:
-    series = series.astype(float)
-    span = series.max() - series.min()
-    if span == 0:
-        return pd.Series(np.ones(len(series)) * 50, index=series.index)
-    return ((series - series.min()) / span) * 100
-
-
-def summarize_opspilot(df: pd.DataFrame, assumed_hourly_rate: float = 45.0) -> dict:
+def summarize_opspilot(
+    df: pd.DataFrame, assumed_hourly_rate: float = 45.0, bottlenecks: pd.DataFrame | None = None
+) -> dict:
     open_df = df[df["current_status"] != "Closed"]
     # Anchor the 30-day recency window to the newest record in the dataset, not the
     # wall clock, so the "monthly waste" figure does not decay to $0 as the committed
@@ -41,7 +35,9 @@ def summarize_opspilot(df: pd.DataFrame, assumed_hourly_rate: float = 45.0) -> d
     reference_date = scoring.data_today(df, "submitted_date")
     recent_cutoff = reference_date.normalize() - pd.Timedelta(days=30)
     recent_df = df[df["submitted_date"] >= recent_cutoff]
-    bottlenecks = detect_bottlenecks(df)
+    # Accept a precomputed frame to avoid recomputing it when the caller already has one.
+    if bottlenecks is None:
+        bottlenecks = detect_bottlenecks(df)
 
     manual_hours = df["estimated_manual_minutes"].sum() / 60
     recent_manual_hours = recent_df["estimated_manual_minutes"].sum() / 60
@@ -110,7 +106,7 @@ def detect_bottlenecks(df: pd.DataFrame) -> pd.DataFrame:
     grouped["manual_hours"] = grouped["manual_minutes"] / 60
 
     grouped["bottleneck_score"] = (
-        _normalize(grouped["avg_days_open"]) * 0.3
+        scoring._normalize(grouped["avg_days_open"]) * 0.3
         + grouped["open_pct"].fillna(0) * 100 * 0.22
         + grouped["breach_rate"].fillna(0) * 100 * 0.22
         + grouped["delay_contribution"].fillna(0) * 100 * 0.16

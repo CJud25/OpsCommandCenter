@@ -20,8 +20,6 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-import pandas as pd
-
 # Read-only reuse of the analyzers' load functions so bool coercion matches prod.
 from modules.opspilot_analyzer import load_opspilot_data
 from modules.rescueops_analyzer import load_rescueops_data

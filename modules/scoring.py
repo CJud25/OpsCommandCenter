@@ -91,7 +91,7 @@ def absolute_automation_score(
     Anchored (not min-max normalized), so a score means the same thing regardless
     of which other candidates are present and is comparable across domains.
 
-    Weights sum to 1.0 and every term is additive, so 0 and 100 are both reachable:
+    Weights sum to 1.0 and every term is additive; 100 is reachable at max inputs.
       35% effort saved, 20% repeatability, 15% impact, 15% rule clarity, 15% ease.
     """
     effort = min(100.0, (manual_hours / EFFORT_SATURATION_HOURS) * 100.0)

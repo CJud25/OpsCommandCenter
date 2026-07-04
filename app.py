@@ -28,7 +28,7 @@ from modules.report_generator import (
     generate_rescueops_report,
     markdown_to_html,
     markdown_to_text,
-    optional_ai_polish,
+    optional_ai_polish_with_status,
 )
 from modules.rescueops_analyzer import (
     foster_matching,
@@ -42,7 +42,7 @@ from modules.rescueops_analyzer import (
     weekly_founder_brief,
 )
 from modules.roi_calculator import calculate_opspilot_roi, calculate_rescueops_roi
-from modules.scoring import PRIORITY_ORDER
+from modules.scoring import PRIORITY_ORDER, data_today
 from modules import ui_components as ui
 
 
@@ -201,8 +201,8 @@ def render_home(
 
 
 def render_opspilot_demo(opspilot_df: pd.DataFrame) -> None:
-    summary = summarize_opspilot(opspilot_df)
     bottlenecks = detect_bottlenecks(opspilot_df)
+    summary = summarize_opspilot(opspilot_df, bottlenecks=bottlenecks)
     insight = bottleneck_insight(bottlenecks)
     chart_data = get_opspilot_chart_data(opspilot_df, bottlenecks)
     automations = build_opspilot_automation_ranker(opspilot_df)
@@ -444,7 +444,7 @@ def render_automation_ranker(
 
     ui.insight_box(
         "Scoring Formula",
-        "Automation score weighs volume, estimated hours saved, repeatability, impact, rule clarity, and complexity penalty. The formula is intentionally explainable for leadership review.",
+        "Automation score weighs effort saved, repeatability, impact, rule clarity, and an ease-of-implementation credit on an absolute 0-100 scale, so it is comparable across domains and stable as candidates change.",
         "info",
     )
     st.dataframe(ui.score_style(view), width="stretch", hide_index=True)
@@ -582,8 +582,8 @@ def render_report_generator(
     report_type = st.radio("Report type", ["OpsPilot", "RescueOps"], horizontal=True)
 
     if report_type == "OpsPilot":
-        summary = summarize_opspilot(opspilot_df)
         bottlenecks = detect_bottlenecks(opspilot_df)
+        summary = summarize_opspilot(opspilot_df, bottlenecks=bottlenecks)
         automations = build_opspilot_automation_ranker(opspilot_df)
         roi = default_opspilot_roi(opspilot_df, summary)
         report = generate_opspilot_report(summary, bottlenecks, automations, roi, recommendation_mode)
@@ -599,7 +599,7 @@ def render_report_generator(
         title = "rescueops-leadership-brief"
 
     if recommendation_mode.startswith("Optional"):
-        polished = optional_ai_polish(
+        polished, status = optional_ai_polish_with_status(
             report,
             "You are an executive operations consultant. Polish this brief while preserving facts, numbers, and safety boundaries.",
         )
@@ -607,7 +607,14 @@ def render_report_generator(
             report = polished
             st.success("AI-enhanced phrasing applied.")
         else:
-            st.info("Optional AI enhancement is unavailable, so the rule-based brief is shown.")
+            reason = {
+                "no_key": "No API key detected",
+                "no_sdk": "AI SDK not installed",
+                "auth_error": "API key was rejected",
+                "network_error": "Could not reach the AI service",
+                "empty_response": "The AI service returned no content",
+            }.get(status, "AI enhancement is unavailable")
+            st.info(f"{reason}; showing the rule-based brief.")
 
     st.text_area("Report preview", report, height=520)
     html_report = markdown_to_html(report, title.replace("-", " ").title())
@@ -723,19 +730,21 @@ def style_chart(fig):
 
 
 def monthly_opspilot_volume(opspilot_df: pd.DataFrame) -> int:
-    cutoff = pd.Timestamp.today().normalize() - pd.Timedelta(days=30)
+    # Anchor the window to the dataset, not the wall clock, so defaults do not
+    # decay as the committed synthetic data ages.
+    cutoff = data_today(opspilot_df, "submitted_date").normalize() - pd.Timedelta(days=30)
     volume = int((opspilot_df["submitted_date"] >= cutoff).sum())
     return max(volume, int(len(opspilot_df) / 3), 1)
 
 
 def monthly_inquiry_volume(inquiries: pd.DataFrame) -> int:
-    cutoff = pd.Timestamp.today().normalize() - pd.Timedelta(days=30)
+    cutoff = data_today(inquiries, "inquiry_date").normalize() - pd.Timedelta(days=30)
     volume = int((inquiries["inquiry_date"] >= cutoff).sum())
     return max(volume, int(len(inquiries) / 3), 1)
 
 
 def recent_medical_costs(medical: pd.DataFrame) -> float:
-    cutoff = pd.Timestamp.today().normalize() - pd.Timedelta(days=30)
+    cutoff = data_today(medical, "expense_date").normalize() - pd.Timedelta(days=30)
     return float(medical.loc[medical["expense_date"] >= cutoff, "amount"].sum())
 
 
