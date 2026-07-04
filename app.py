@@ -42,23 +42,26 @@ from modules.rescueops_analyzer import (
     weekly_founder_brief,
 )
 from modules.roi_calculator import calculate_opspilot_roi, calculate_rescueops_roi
+from modules.scoring import PRIORITY_ORDER
 from modules import ui_components as ui
 
 
 BASE_DIR = Path(__file__).resolve().parent
 COLOR_SEQUENCE = ["#0f766e", "#2563eb", "#b7791f", "#be123c", "#4b5563", "#0e7490", "#7c3aed"]
+# Bump when the data schema changes so the cached loader below is invalidated.
+SCHEMA_VERSION = 2
 
 
 st.set_page_config(
     page_title="OpsPilot Command Center",
-    page_icon="OP",
+    page_icon="🧭",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
 
 @st.cache_data(show_spinner="Preparing synthetic operations data...")
-def load_demo_data(base_dir: str):
+def load_demo_data(base_dir: str, schema_version: int = SCHEMA_VERSION):
     paths = ensure_data(Path(base_dir) / "data")
     opspilot = load_opspilot_data(paths["opspilot"])
     dogs, inquiries, volunteers, medical = load_rescueops_data(paths)
@@ -148,13 +151,18 @@ def render_home(
             "success",
         )
 
+    top_auto = combined_ranker.iloc[0] if not combined_ranker.empty else None
     ui.metric_cards(
         [
             ("Ops requests analyzed", ui.number(ops_summary["total_requests"]), "Synthetic operational request volume"),
             ("Ops SLA breach rate", ui.percent(ops_summary["sla_breach_rate"]), "Process reliability signal"),
             ("Rescue dogs in care", ui.number(rescue_summary["dogs_in_care"]), "Active rescue pipeline"),
             ("Rescue unanswered messages", ui.number(rescue_summary["unanswered_messages"]), "Volunteer response burden"),
-            ("Top automation score", f"{combined_ranker.iloc[0]['Automation Score']:.1f}", combined_ranker.iloc[0]["Automation Candidate"]),
+            (
+                "Top automation score",
+                f"{top_auto['Automation Score']:.1f}" if top_auto is not None else "n/a",
+                top_auto["Automation Candidate"] if top_auto is not None else "No candidates yet",
+            ),
             ("Potential ops savings", ui.money(ops_summary["potential_monthly_savings"]), "Estimated monthly opportunity"),
         ],
         columns=3,
@@ -187,7 +195,7 @@ def render_home(
                     ]
                 ].head(7)
             ),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
 
@@ -228,11 +236,11 @@ def render_opspilot_demo(opspilot_df: pd.DataFrame) -> None:
         ui.insight_box("Executive Insight", get_operational_problem_statement(summary, insight), "info")
         left, right = st.columns(2)
         with left:
-            st.plotly_chart(bar_chart(chart_data["requests_by_department"], "department", "requests", "Requests by Department"), use_container_width=True)
-            st.plotly_chart(horizontal_bar(chart_data["avg_cycle_by_type"], "request_type", "avg_cycle_time", "Average Cycle Time by Request Type"), use_container_width=True)
+            st.plotly_chart(bar_chart(chart_data["requests_by_department"], "department", "requests", "Requests by Department"), width="stretch")
+            st.plotly_chart(horizontal_bar(chart_data["avg_cycle_by_type"], "request_type", "avg_cycle_time", "Average Cycle Time by Request Type"), width="stretch")
         with right:
-            st.plotly_chart(bar_chart(chart_data["requests_by_stage"], "process_stage", "requests", "Requests by Process Stage"), use_container_width=True)
-            st.plotly_chart(bar_chart(chart_data["breaches_by_department"], "department", "sla_breaches", "SLA Breaches by Department"), use_container_width=True)
+            st.plotly_chart(bar_chart(chart_data["requests_by_stage"], "process_stage", "requests", "Requests by Process Stage"), width="stretch")
+            st.plotly_chart(bar_chart(chart_data["breaches_by_department"], "department", "sla_breaches", "SLA Breaches by Department"), width="stretch")
 
     with tab_bottlenecks:
         ui.insight_box("Bottleneck Detection", insight, "warning")
@@ -264,14 +272,14 @@ def render_opspilot_demo(opspilot_df: pd.DataFrame) -> None:
                     "bottleneck_score": "Bottleneck Score",
                 }
             ),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
         left, right = st.columns(2)
         with left:
-            st.plotly_chart(horizontal_bar(bottlenecks, "process_stage", "bottleneck_score", "Bottleneck Stage Breakdown"), use_container_width=True)
+            st.plotly_chart(horizontal_bar(bottlenecks, "process_stage", "bottleneck_score", "Bottleneck Stage Breakdown"), width="stretch")
         with right:
-            st.plotly_chart(horizontal_bar(chart_data["manual_hours_by_type"], "request_type", "manual_hours", "Manual Hours by Request Type"), use_container_width=True)
+            st.plotly_chart(horizontal_bar(chart_data["manual_hours_by_type"], "request_type", "manual_hours", "Manual Hours by Request Type"), width="stretch")
 
     with tab_automations:
         ui.insight_box(
@@ -281,12 +289,12 @@ def render_opspilot_demo(opspilot_df: pd.DataFrame) -> None:
         )
         st.dataframe(
             ui.score_style(automations),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
         st.plotly_chart(
             horizontal_bar(chart_data["automation_impact"], "automation_candidate_type", "manual_hours", "Automation Candidates by Estimated Impact"),
-            use_container_width=True,
+            width="stretch",
         )
 
     with tab_workflow:
@@ -337,13 +345,13 @@ def render_rescueops_demo(
         )
         left, right = st.columns(2)
         with left:
-            st.plotly_chart(bar_chart(chart_data["dogs_by_status"], "current_status", "dogs", "Dogs by Status"), use_container_width=True)
-            st.plotly_chart(bar_chart(chart_data["adoption_pipeline"], "adoption_status", "dogs", "Adoption Pipeline"), use_container_width=True)
-            st.plotly_chart(bar_chart(chart_data["foster_capacity_vs_need"], "category", "count", "Foster Capacity vs Foster Need"), use_container_width=True)
+            st.plotly_chart(bar_chart(chart_data["dogs_by_status"], "current_status", "dogs", "Dogs by Status"), width="stretch")
+            st.plotly_chart(bar_chart(chart_data["adoption_pipeline"], "adoption_status", "dogs", "Adoption Pipeline"), width="stretch")
+            st.plotly_chart(bar_chart(chart_data["foster_capacity_vs_need"], "category", "count", "Foster Capacity vs Foster Need"), width="stretch")
         with right:
-            st.plotly_chart(horizontal_bar(chart_data["dogs_by_medical_status"], "medical_status", "dogs", "Dogs by Medical Status"), use_container_width=True)
-            st.plotly_chart(bar_chart(chart_data["inquiry_types"], "inquiry_type", "inquiries", "Inquiry Types"), use_container_width=True)
-            st.plotly_chart(horizontal_bar(chart_data["volunteer_role_coverage"], "role", "volunteers", "Volunteer Role Coverage"), use_container_width=True)
+            st.plotly_chart(horizontal_bar(chart_data["dogs_by_medical_status"], "medical_status", "dogs", "Dogs by Medical Status"), width="stretch")
+            st.plotly_chart(bar_chart(chart_data["inquiry_types"], "inquiry_type", "inquiries", "Inquiry Types"), width="stretch")
+            st.plotly_chart(horizontal_bar(chart_data["volunteer_role_coverage"], "role", "volunteers", "Volunteer Role Coverage"), width="stretch")
 
         ui.section_title("Safety & Responsibility Boundaries")
         for boundary in safety_boundaries():
@@ -367,8 +375,8 @@ def render_rescueops_demo(
                 "follow_up_questions",
             ]
         ].head(60)
-        st.dataframe(triage_display, use_container_width=True, hide_index=True)
-        st.plotly_chart(bar_chart(chart_data["inquiry_response_aging"], "aging_bucket", "inquiries", "Inquiry Response Aging"), use_container_width=True)
+        st.dataframe(triage_display, width="stretch", hide_index=True)
+        st.plotly_chart(bar_chart(chart_data["inquiry_response_aging"], "aging_bucket", "inquiries", "Inquiry Response Aging"), width="stretch")
 
     with tab_foster:
         ui.insight_box(
@@ -376,7 +384,7 @@ def render_rescueops_demo(
             "Matches consider capacity, transport, medical handling, senior experience, large-dog comfort, reliability, and availability.",
             "info",
         )
-        st.dataframe(matches.head(60), use_container_width=True, hide_index=True)
+        st.dataframe(matches.head(60), width="stretch", hide_index=True)
 
     with tab_medical:
         ui.insight_box(
@@ -384,17 +392,21 @@ def render_rescueops_demo(
             "Scores combine urgency, funding need, medical status, days in care, and adoption-readiness impact.",
             "risk",
         )
-        st.dataframe(medical_priority.head(60), use_container_width=True, hide_index=True)
+        st.dataframe(medical_priority.head(60), width="stretch", hide_index=True)
         left, right = st.columns(2)
         with left:
-            st.plotly_chart(horizontal_bar(chart_data["medical_costs_by_dog"], "dog_name", "amount", "Medical Costs by Dog"), use_container_width=True)
+            st.plotly_chart(horizontal_bar(chart_data["medical_costs_by_dog"], "dog_name", "amount", "Top 15 Dogs by Medical Cost"), width="stretch")
         with right:
-            st.plotly_chart(horizontal_bar(chart_data["medical_costs_by_type"], "expense_type", "amount", "Medical Costs by Expense Type"), use_container_width=True)
+            st.plotly_chart(horizontal_bar(chart_data["medical_costs_by_type"], "expense_type", "amount", "Medical Costs by Expense Type"), width="stretch")
 
     with tab_social:
-        content_queue = dogs[(dogs["bio_needed"]) | (dogs["social_post_needed"])].sort_values(
-            ["priority_level", "days_in_care"], ascending=False
-        )
+        content_queue = dogs[(dogs["bio_needed"]) | (dogs["social_post_needed"])].copy()
+        # Sort by true severity rank, not the alphabetical string (Medium would
+        # otherwise outrank Critical). Drop the helper column before display.
+        content_queue["_priority_rank"] = content_queue["priority_level"].map(PRIORITY_ORDER).fillna(0)
+        content_queue = content_queue.sort_values(
+            ["_priority_rank", "days_in_care"], ascending=False
+        ).drop(columns="_priority_rank")
         if content_queue.empty:
             st.info("No dogs are currently flagged for generated bios or social posts.")
         else:
@@ -410,7 +422,7 @@ def render_rescueops_demo(
         st.markdown(founder_brief)
 
         ui.section_title("RescueOps Automation Opportunities")
-        st.dataframe(ui.score_style(automations), use_container_width=True, hide_index=True)
+        st.dataframe(ui.score_style(automations), width="stretch", hide_index=True)
 
 
 def render_automation_ranker(
@@ -434,7 +446,7 @@ def render_automation_ranker(
         "Automation score weighs volume, estimated hours saved, repeatability, impact, rule clarity, and complexity penalty. The formula is intentionally explainable for leadership review.",
         "info",
     )
-    st.dataframe(ui.score_style(view), use_container_width=True, hide_index=True)
+    st.dataframe(ui.score_style(view), width="stretch", hide_index=True)
 
     if not view.empty:
         selected = st.selectbox(
@@ -470,11 +482,14 @@ def render_roi_page(
             manual_minutes = st.number_input("Manual minutes per request", min_value=5.0, max_value=180.0, value=round(default_minutes, 1), step=5.0)
             monthly_volume = st.number_input("Monthly request volume", min_value=1, max_value=5000, value=recent_volume, step=25)
         with right:
-            percent_automated = st.slider("Percent automated", 5, 90, 35)
+            percent_automated = st.slider("Percent automated (coverage)", 5, 90, 35)
+            time_saved_pct = st.slider("Time saved per automated request", 20, 95, 70)
             current_cycle = st.number_input("Current cycle time", min_value=1.0, max_value=90.0, value=round(default_cycle, 1), step=1.0)
             cycle_reduction = st.slider("Expected cycle-time reduction", 5, 70, 25)
 
-        roi = calculate_opspilot_roi(hourly_rate, manual_minutes, monthly_volume, percent_automated, current_cycle, cycle_reduction)
+        roi = calculate_opspilot_roi(
+            hourly_rate, manual_minutes, monthly_volume, percent_automated, current_cycle, cycle_reduction, time_saved_pct
+        )
         ui.metric_cards(
             [
                 ("Monthly Hours Saved", ui.number(roi["monthly_hours_saved"], 1), "Estimated labor capacity"),
@@ -487,6 +502,23 @@ def render_roi_page(
             columns=3,
         )
         ui.insight_box("Qualitative Business Value", roi["qualitative_business_value"], "success")
+
+        ui.section_title("Sensitivity Analysis")
+        st.caption("Annual labor savings across conservative / expected / optimistic assumptions.")
+        st.dataframe(
+            opspilot_sensitivity(hourly_rate, manual_minutes, monthly_volume, percent_automated, current_cycle, cycle_reduction),
+            width="stretch",
+            hide_index=True,
+        )
+        ui.assumptions_panel(
+            [
+                f"Staff hourly rate: ${hourly_rate:,.0f}",
+                f"Automation coverage (share of volume automated): {percent_automated}%",
+                f"Time saved per automated request: {time_saved_pct}%",
+                f"Monthly request volume: {monthly_volume:,}",
+                "Labor savings only; qualitative benefits (fewer errors, faster response) are not dollarized.",
+            ]
+        )
         st.caption("ROI is an estimate for demo purposes and should be validated against real operational data.")
 
     with tab_rescue:
@@ -497,7 +529,8 @@ def render_roi_page(
             monthly_inquiries = st.number_input("Monthly inquiries", min_value=1, max_value=3000, value=recent_inquiries, step=10)
             response_minutes = st.number_input("Minutes per manual response", min_value=2.0, max_value=90.0, value=14.0, step=2.0)
         with right:
-            dogs_in_care = st.number_input("Dogs in care", min_value=1, max_value=500, value=int((dogs["current_status"] != "Adopted").sum()), step=1)
+            active_dogs = int((dogs["current_status"] != "Adopted").sum())
+            dogs_in_care = st.number_input("Dogs in care", min_value=0, max_value=500, value=active_dogs, step=1)
             medical_expenses = st.number_input("Monthly medical expenses", min_value=0.0, max_value=100000.0, value=float(recent_medical_costs(medical)), step=250.0)
             admin_reduction = st.slider("Expected admin reduction", 5, 80, 35)
             faster_response = st.slider("Expected faster response rate", 5, 90, 45)
@@ -514,15 +547,21 @@ def render_roi_page(
         ui.metric_cards(
             [
                 ("Volunteer Hours Saved", ui.number(roi["volunteer_hours_saved"], 1), "Monthly estimate"),
-                ("Volunteer Time Value", ui.money(roi["monthly_volunteer_value"]), "Illustrative equivalent"),
-                ("Response Capacity", ui.number(roi["improved_response_capacity"], 1), "Hours available"),
-                ("Inquiries Faster", ui.number(roi["estimated_inquiries_handled_faster"], 0), "Monthly estimate"),
-                ("Admin Burden Reduced", f"{roi['estimated_admin_burden_reduced']:.0f}%", "Directional estimate"),
-                ("Funding Visibility", f"{roi['medical_funding_visibility_improvement']:.0f}%", "Visibility improvement"),
+                ("Monthly Volunteer Value", ui.money(roi["monthly_volunteer_value"]), "Illustrative equivalent"),
+                ("Annual Volunteer Value", ui.money(roi["monthly_volunteer_value"] * 12), "Run-rate estimate"),
+                ("Inquiries Handled Faster", ui.number(roi["estimated_inquiries_handled_faster"], 0), "Monthly estimate"),
             ],
-            columns=3,
+            columns=2,
         )
         ui.insight_box("Mission Impact Summary", roi["mission_impact_summary"], "success")
+        ui.assumptions_panel(
+            [
+                f"Volunteer time valued at ${volunteer_value:,.0f}/hour (illustrative, not paid wages)",
+                f"Monthly inquiries: {monthly_inquiries:,}; minutes per manual response: {response_minutes:.0f}",
+                f"Expected admin reduction: {admin_reduction}%; faster response rate: {faster_response}%",
+                "Value is volunteer-time and response-capacity only; medical funding needs are tracked separately.",
+            ]
+        )
         st.caption("Mission impact is an estimate for demo purposes and should be validated with actual rescue operations data.")
 
 
@@ -704,6 +743,41 @@ def default_rescueops_roi(dogs: pd.DataFrame, inquiries: pd.DataFrame, medical: 
         expected_admin_reduction=35,
         expected_faster_response_rate=45,
     )
+
+
+def opspilot_sensitivity(
+    hourly_rate: float,
+    manual_minutes: float,
+    monthly_volume: int,
+    percent_automated: int,
+    current_cycle: float,
+    cycle_reduction: int,
+) -> pd.DataFrame:
+    """Three-scenario ROI sensitivity by flexing coverage and time-saved-per-request.
+
+    Point estimates read as overconfident; a conservative/expected/optimistic band
+    is the standard way to present a value case for a decision.
+    """
+    scenarios = [
+        ("Conservative", max(5, percent_automated - 15), 50),
+        ("Expected", percent_automated, 70),
+        ("Optimistic", min(90, percent_automated + 15), 90),
+    ]
+    rows = []
+    for name, coverage, time_saved in scenarios:
+        roi = calculate_opspilot_roi(
+            hourly_rate, manual_minutes, monthly_volume, coverage, current_cycle, cycle_reduction, time_saved
+        )
+        rows.append(
+            {
+                "Scenario": name,
+                "Coverage": f"{coverage}%",
+                "Time Saved / Request": f"{time_saved}%",
+                "Monthly Hours Saved": round(roi["monthly_hours_saved"], 1),
+                "Annual Labor Savings": ui.money(roi["annual_labor_savings"]),
+            }
+        )
+    return pd.DataFrame(rows)
 
 
 if __name__ == "__main__":

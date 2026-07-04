@@ -167,6 +167,17 @@ def insight_box(title: str, body: str, tone: str = "info") -> None:
     )
 
 
+def assumptions_panel(items: Iterable[str], title: str = "Assumptions and confidence") -> None:
+    """Collapsible list of the load-bearing assumptions behind an estimate.
+
+    Surfacing assumptions turns "trust me" numbers into numbers a reviewer can
+    interrogate -- the difference between a demo figure and a defensible one.
+    """
+    with st.expander(title):
+        for item in items:
+            st.markdown(f"- {item}")
+
+
 def section_title(title: str, caption: str | None = None) -> None:
     st.subheader(title)
     if caption:
