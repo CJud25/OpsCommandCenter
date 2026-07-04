@@ -72,6 +72,15 @@ The goal is to show that the same process-improvement framework works across mul
 - Local CSV storage
 - Optional AI polish path: Anthropic (Claude) or OpenAI SDK, used only if a key and the SDK are present
 
+### Privacy note
+
+The default experience is fully local: no data leaves the machine. Enabling
+"AI-Enhanced" mode sends the generated report text to Anthropic or OpenAI for
+rewriting, so it should only be used with data you are comfortable transmitting to
+a third-party API. A production deployment on real data would add encrypted storage
+and access controls before writing any personal information to disk (for example the
+follow-up messages the sample automation produces).
+
 ### Tested Versions
 
 - Python 3.14

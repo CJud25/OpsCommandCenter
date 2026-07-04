@@ -91,8 +91,13 @@ def main() -> None:
             "Recommendation mode",
             ["Rule-Based Recommendation Mode", "Optional AI-Enhanced Mode"],
         )
-        if recommendation_mode.startswith("Optional") and not os.getenv("OPENAI_API_KEY"):
-            st.caption("No API key detected. Rule-based recommendations remain active.")
+        if recommendation_mode.startswith("Optional"):
+            st.caption(
+                "AI-Enhanced mode sends the generated report text to Anthropic or OpenAI "
+                "for rewriting. Rule-based mode is fully local."
+            )
+            if not (os.getenv("ANTHROPIC_API_KEY") or os.getenv("OPENAI_API_KEY")):
+                st.caption("No API key detected. Rule-based recommendations remain active.")
         st.caption("All demo data is synthetic and generated locally.")
 
     if page == "Home / Executive Overview":

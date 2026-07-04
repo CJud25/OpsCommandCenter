@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import csv
 import datetime as _dt
+import re
 from pathlib import Path
 
 
@@ -45,6 +46,17 @@ def _is_true(value: str | None) -> bool:
 
 def idempotency_key(request_id: str, rule_name: str) -> str:
     return f"{request_id}::{rule_name}"
+
+
+def _safe_slug(value: str) -> str:
+    """Reduce an untrusted field to a filename-safe slug.
+
+    Prevents a crafted request_id (e.g. "../../x") from escaping the outbox
+    directory when it is used to build an output filename. Harmless for the
+    synthetic "REQ-#####" ids, but the automation is designed to point at real
+    data next.
+    """
+    return re.sub(r"[^A-Za-z0-9._-]", "_", value)[:120] or "unknown"
 
 
 def load_existing_keys(audit_log: Path) -> set[str]:
@@ -126,7 +138,10 @@ def run(
             # same file cannot double-write within a single run.
             existing_keys.add(key)
 
-            outbox_file = outbox_dir / f"{request_id}_{rule_name}.txt"
+            outbox_file = outbox_dir / f"{_safe_slug(request_id)}_{_safe_slug(rule_name)}.txt"
+            # Defense in depth: never write outside the outbox directory.
+            if not outbox_file.resolve().is_relative_to(outbox_dir.resolve()):
+                raise ValueError(f"Refusing to write outside outbox: {outbox_file}")
             outbox_file.write_text(build_followup_message(row, rule_name), encoding="utf-8")
             written += 1
 

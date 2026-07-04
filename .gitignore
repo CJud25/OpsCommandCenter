@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 outbox/
 *.zip
+audit_log.csv
