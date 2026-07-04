@@ -5,6 +5,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from modules import classification, scoring
+
 
 BOOL_COLUMNS = [
     "required_documents_missing",
@@ -33,20 +35,33 @@ def _normalize(series: pd.Series) -> pd.Series:
 
 def summarize_opspilot(df: pd.DataFrame, assumed_hourly_rate: float = 45.0) -> dict:
     open_df = df[df["current_status"] != "Closed"]
-    recent_cutoff = pd.Timestamp.today().normalize() - pd.Timedelta(days=30)
+    # Anchor the 30-day recency window to the newest record in the dataset, not the
+    # wall clock, so the "monthly waste" figure does not decay to $0 as the committed
+    # synthetic data ages.
+    reference_date = scoring.data_today(df, "submitted_date")
+    recent_cutoff = reference_date.normalize() - pd.Timedelta(days=30)
     recent_df = df[df["submitted_date"] >= recent_cutoff]
     bottlenecks = detect_bottlenecks(df)
 
     manual_hours = df["estimated_manual_minutes"].sum() / 60
     recent_manual_hours = recent_df["estimated_manual_minutes"].sum() / 60
     monthly_waste = recent_manual_hours * assumed_hourly_rate
-    top_automation = (
-        df.groupby("automation_candidate_type")["estimated_manual_minutes"].sum().sort_values(ascending=False).index[0]
+    # Top candidate is the automation with the largest removable manual-hour pool,
+    # derived from the raw request fields (overlapping opportunity sizing).
+    impact = classification.aggregate_candidate_impact(df).sort_values(
+        ["manual_hours", "sla_breaches"], ascending=False
     )
+    top_automation = impact.iloc[0]["automation_name"] if len(impact) else "Unclassified"
+    # Savings = recoverable waste. Only ASSUMED_AUTOMATION_COVERAGE of the eligible
+    # work is actually automated, and each automated request removes blended_save_rate
+    # of its manual time -- coverage x save-rate, not a single magic multiplier.
+    savings_factor = scoring.ASSUMED_AUTOMATION_COVERAGE * classification.blended_save_rate(df)
 
     return {
         "total_requests": int(len(df)),
         "open_requests": int(len(open_df)),
+        # Closed-request cycle time (cycle_time_days). This is the completed-work
+        # duration, distinct from oldest_open_request which is open-request age.
         "average_cycle_time": float(df["cycle_time_days"].mean()),
         "sla_breach_rate": float(df["sla_breached"].mean()),
         "oldest_open_request": int(open_df["days_open"].max() if len(open_df) else 0),
@@ -54,8 +69,14 @@ def summarize_opspilot(df: pd.DataFrame, assumed_hourly_rate: float = 45.0) -> d
         "estimated_monthly_waste": float(monthly_waste),
         "top_bottleneck_stage": str(bottlenecks.iloc[0]["process_stage"]),
         "top_automation_candidate": str(top_automation),
-        "potential_monthly_savings": float(monthly_waste * 0.42),
+        "potential_monthly_savings": float(monthly_waste * savings_factor),
+        "reference_date": reference_date.date().isoformat(),
     }
+
+
+# A stage carrying less than this share of total volume is a low-traffic side queue,
+# not the operation's primary bottleneck, however slow its handful of rows look.
+MIN_PRIMARY_VOLUME_SHARE = 0.05
 
 
 def detect_bottlenecks(df: pd.DataFrame) -> pd.DataFrame:
@@ -68,7 +89,6 @@ def detect_bottlenecks(df: pd.DataFrame) -> pd.DataFrame:
         .agg(
             volume=("request_id", "count"),
             open_count=("current_status", lambda values: int((values != "Closed").sum())),
-            avg_days_open=("days_open", "mean"),
             breach_rate=("sla_breached", "mean"),
             rework_rate=("rework_flag", "mean"),
             missing_doc_rate=("required_documents_missing", "mean"),
@@ -76,6 +96,11 @@ def detect_bottlenecks(df: pd.DataFrame) -> pd.DataFrame:
         )
         .reset_index()
     )
+
+    # avg_days_open over OPEN rows only. Closed rows carry days_open == 0, which would
+    # otherwise dilute a stage's true open-request age toward zero.
+    open_age_by_stage = df.loc[open_mask].groupby("process_stage")["days_open"].mean()
+    grouped["avg_days_open"] = grouped["process_stage"].map(open_age_by_stage).fillna(0)
 
     delay_by_stage = df.loc[open_mask].groupby("process_stage")["days_open"].sum()
     grouped["delay_days"] = grouped["process_stage"].map(delay_by_stage).fillna(0)
@@ -92,7 +117,17 @@ def detect_bottlenecks(df: pd.DataFrame) -> pd.DataFrame:
         + (grouped["rework_rate"].fillna(0) + grouped["missing_doc_rate"].fillna(0)) * 50 * 0.1
     )
     grouped["bottleneck_score"] = grouped["bottleneck_score"].round(1)
-    return grouped.sort_values("bottleneck_score", ascending=False).reset_index(drop=True)
+
+    # Rank primarily by share of total open-request delay (the honest "where is the
+    # time actually stuck" signal), with the composite score as a tiebreaker. A stage
+    # below the minimum volume share is guarded out of the top slot so a slow but
+    # tiny queue cannot be labeled the primary bottleneck.
+    grouped["_eligible_primary"] = grouped["volume_pct"] >= MIN_PRIMARY_VOLUME_SHARE
+    ranked = grouped.sort_values(
+        ["_eligible_primary", "delay_contribution", "bottleneck_score"],
+        ascending=False,
+    ).reset_index(drop=True)
+    return ranked.drop(columns="_eligible_primary")
 
 
 def bottleneck_insight(bottlenecks: pd.DataFrame) -> str:
@@ -140,12 +175,14 @@ def get_opspilot_chart_data(df: pd.DataFrame, bottlenecks: pd.DataFrame) -> dict
         "bottleneck_breakdown": bottlenecks[
             ["process_stage", "volume", "open_count", "breach_rate", "delay_contribution", "bottleneck_score"]
         ],
+        # Per-candidate impact derived from the raw request fields (overlapping
+        # opportunity sizing). Column kept as automation_candidate_type for the
+        # existing chart consumer.
         "automation_impact": (
-            df.assign(manual_hours=df["estimated_manual_minutes"] / 60)
-            .groupby("automation_candidate_type")
-            .agg(volume=("request_id", "count"), manual_hours=("manual_hours", "sum"), sla_breaches=("sla_breached", "sum"))
-            .reset_index()
+            classification.aggregate_candidate_impact(df)
+            .rename(columns={"automation_name": "automation_candidate_type"})
             .sort_values(["manual_hours", "sla_breaches"], ascending=False)
+            .reset_index(drop=True)
         ),
     }
 

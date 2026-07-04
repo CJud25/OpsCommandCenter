@@ -5,6 +5,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from modules import scoring
+
 
 DOG_BOOL_COLUMNS = [
     "special_needs",
@@ -52,7 +54,10 @@ def summarize_rescueops(
     ]
     urgent_medical = dogs[dogs["medical_status"].isin(["Emergency", "Surgery Needed", "Medical Hold"])]
     unanswered = inquiries[inquiries["response_status"].isin(["New", "In Review", "Overdue", "Escalated"])]
-    recent_cutoff = pd.Timestamp.today().normalize() - pd.Timedelta(days=30)
+    # Anchor the 30-day recency window to the newest expense in the dataset, not the
+    # wall clock, so "monthly medical costs" does not decay to $0 as the data ages.
+    reference_date = scoring.data_today(medical, "expense_date")
+    recent_cutoff = reference_date.normalize() - pd.Timedelta(days=30)
     recent_medical = medical[medical["expense_date"] >= recent_cutoff]
     open_capacity = (volunteers["foster_capacity"] - volunteers["current_assignments"]).clip(lower=0).sum()
 
@@ -83,11 +88,14 @@ def summarize_rescueops(
         "unfunded_medical_need": float(unfunded_amount),
         "volunteer_capacity": int(open_capacity),
         "highest_priority_dog": str(highest_priority.iloc[0]["dog_name"] if len(highest_priority) else "No active cases"),
+        "reference_date": reference_date.date().isoformat(),
     }
 
 
 def _unfunded_amount(medical: pd.DataFrame) -> float:
     unfunded = medical.loc[medical["funded_status"] == "Unfunded", "amount"].sum()
+    # Partially funded expenses are counted at 0.5: on average about half of a
+    # partially-funded bill is still an open funding gap.
     partial = medical.loc[medical["funded_status"] == "Partially Funded", "amount"].sum() * 0.5
     return float(unfunded + partial)
 
@@ -159,10 +167,45 @@ def triage_adoption_inquiries(inquiries: pd.DataFrame, dogs: pd.DataFrame) -> pd
         on="dog_name",
         how="left",
     )
+    # Classification is computed here from raw request + dog fields (ported from the
+    # generator's adoption cascade) rather than read from a pre-baked column, so the
+    # same logic runs unchanged on real inquiry data.
+    triaged = joined.apply(_adoption_triage, axis=1, result_type="expand")
+    joined["triage_category"] = triaged[0]
+    joined["priority_score"] = triaged[1]
+    joined["recommended_action"] = triaged[2]
+
     joined["overdue"] = joined["days_waiting"] > 3
     joined["follow_up_questions"] = joined.apply(_follow_up_questions, axis=1)
     joined["review_flag"] = joined["triage_category"].isin(["Not Ideal Fit", "Urgent Human Review", "Medical/Safety Escalation"])
     return joined.sort_values(["priority_score", "days_waiting"], ascending=False)
+
+
+_ADOPTION_ACTIONS = {
+    "Strong Match": "Send application link and schedule screening call.",
+    "Needs Follow-Up": "Send targeted follow-up questions within 24 hours.",
+    "Missing Information": "Request missing household and pet compatibility details.",
+    "Not Ideal Fit": "Route to adoption lead for careful human review.",
+}
+
+
+def _adoption_triage(row: pd.Series) -> tuple[str, int, str]:
+    """Classify a single adoption inquiry into (triage_category, priority_score,
+    recommended_action) from the joined raw request + dog fields."""
+    incompatible_children = bool(row["has_children"]) and row.get("good_with_children") == "No"
+    incompatible_pets = bool(row["has_other_pets"]) and row.get("good_with_dogs") == "No"
+    if incompatible_children or incompatible_pets:
+        triage, base = "Not Ideal Fit", 55
+    elif row.get("experience_level") == "First-Time" and bool(row.get("special_needs")):
+        triage, base = "Needs Follow-Up", 66
+    elif bool(row.get("adoption_ready")):
+        triage, base = "Strong Match", 70
+    else:
+        triage, base = "Missing Information", 60
+    # Wait time raises urgency (an overdue inquiry needs attention sooner), capped so
+    # it never dominates the fit signal.
+    priority_score = int(min(base + min(int(row["days_waiting"]) * 4, 24), 100))
+    return triage, priority_score, _ADOPTION_ACTIONS[triage]
 
 
 def _follow_up_questions(row: pd.Series) -> str:
@@ -180,6 +223,9 @@ def _follow_up_questions(row: pd.Series) -> str:
     return " ".join(questions) if questions else "Confirm availability, adoption timeline, and best contact method."
 
 
+_MEDICAL_FOSTER_DOG = {"Emergency", "Surgery Needed"}
+
+
 def foster_matching(dogs: pd.DataFrame, volunteers: pd.DataFrame) -> pd.DataFrame:
     need = dogs[
         (dogs["current_status"].isin(["Foster Needed", "Intake", "Medical Hold"]))
@@ -188,26 +234,45 @@ def foster_matching(dogs: pd.DataFrame, volunteers: pd.DataFrame) -> pd.DataFram
     candidates = volunteers[
         (volunteers["can_foster"]) & ((volunteers["foster_capacity"] - volunteers["current_assignments"]) > 0)
     ].copy()
+    candidates["available_capacity"] = candidates["foster_capacity"] - candidates["current_assignments"]
+
+    # Assign iteratively, most urgent dogs first, decrementing a volunteer's remaining
+    # capacity as they are matched so one volunteer is not returned as "best match" for
+    # more dogs than they can actually take.
+    remaining = dict(zip(candidates["volunteer_id"], candidates["available_capacity"]))
+    need = need.assign(_priority_rank=need["priority_level"].map(scoring.PRIORITY_ORDER).fillna(0))
+    need = need.sort_values(["_priority_rank", "days_in_care"], ascending=False)
 
     rows: list[dict] = []
     for _, dog in need.iterrows():
-        if candidates.empty:
+        needs_medical = dog["medical_status"] in _MEDICAL_FOSTER_DOG
+        pool = candidates[candidates["volunteer_id"].map(lambda vid: remaining.get(vid, 0) > 0)].copy()
+        # Medical capability is a HARD constraint for Emergency/Surgery dogs: a
+        # volunteer who cannot handle medical is ineligible, not merely penalized.
+        if needs_medical:
+            pool = pool[pool["can_handle_medical"]]
+
+        if pool.empty:
             rows.append(
                 {
                     "dog_name": dog["dog_name"],
-                    "best_foster_match": "No open foster capacity",
+                    "best_foster_match": "No eligible foster available",
                     "match_score": 0,
-                    "reason_for_match": "All active foster capacity is currently assigned.",
+                    "reason_for_match": (
+                        "No medical-capable foster has open capacity for this case."
+                        if needs_medical
+                        else "All active foster capacity is currently assigned."
+                    ),
                     "caution_notes": "Recruit backup foster or temporary boarding support.",
                     "recommended_next_step": "Escalate foster need in the weekly volunteer brief.",
                 }
             )
             continue
 
-        scored = candidates.copy()
-        scored["available_capacity"] = scored["foster_capacity"] - scored["current_assignments"]
-        scored["match_score"] = scored.apply(lambda volunteer: _foster_score(dog, volunteer), axis=1)
-        best = scored.sort_values("match_score", ascending=False).iloc[0]
+        pool["available_capacity"] = pool["volunteer_id"].map(remaining)
+        pool["match_score"] = pool.apply(lambda volunteer: _foster_score(dog, volunteer), axis=1)
+        best = pool.sort_values("match_score", ascending=False).iloc[0]
+        remaining[best["volunteer_id"]] -= 1
         reason, caution = _foster_reason(dog, best)
         rows.append(
             {
@@ -229,21 +294,26 @@ def _is_large_breed(breed: str) -> bool:
 
 
 def _foster_score(dog: pd.Series, volunteer: pd.Series) -> float:
-    score = 25 + volunteer["available_capacity"] * 10 + volunteer["reliability_score"] * 0.25
+    # Weights are tuned so a realistic strong match lands in the low-to-mid 90s rather
+    # than saturating at the 100 clip, keeping the top end spread and comparable.
+    # Medical incapacity is handled upstream as a hard eligibility filter, so there is
+    # no medical penalty term here.
+    score = 12 + volunteer["available_capacity"] * 6 + volunteer["reliability_score"] * 0.20
     if volunteer["can_transport"]:
-        score += 8
+        score += 6
     if dog["medical_status"] not in {"Clear", "Routine Care"} and volunteer["can_handle_medical"]:
-        score += 18
+        score += 14
     if dog["age_group"] == "Senior" and volunteer["can_handle_seniors"]:
-        score += 12
-    if _is_large_breed(dog["breed_mix"]) and volunteer["can_handle_large_dogs"]:
-        score += 10
-    if volunteer["availability"] == "Flexible":
         score += 8
+    if _is_large_breed(dog["breed_mix"]) and volunteer["can_handle_large_dogs"]:
+        score += 7
+    if volunteer["availability"] == "Flexible":
+        score += 6
     if volunteer["availability"] == "Limited":
-        score -= 10
-    if dog["medical_status"] in {"Emergency", "Surgery Needed"} and not volunteer["can_handle_medical"]:
-        score -= 20
+        score -= 8
+    # Location: remote volunteers can rarely take an in-person foster placement, so
+    # they are down-weighted relative to local coverage.
+    score += -8 if volunteer["location"] == "Remote" else 4
     return max(0, min(100, round(score, 1)))
 
 
@@ -266,6 +336,8 @@ def _foster_reason(dog: pd.Series, volunteer: pd.Series) -> tuple[str, str]:
 
 def medical_priority_scoring(dogs: pd.DataFrame, medical: pd.DataFrame) -> pd.DataFrame:
     medical_copy = medical.copy()
+    # Partially funded expenses count at 0.5 of their amount toward the funding gap
+    # (roughly half of a partially-funded bill is still unmet); unfunded count fully.
     medical_copy["unfunded_estimate"] = np.select(
         [
             medical_copy["funded_status"] == "Unfunded",
