@@ -29,8 +29,12 @@ Keys (stable): `dogs_in_care`, `dogs_needing_foster`, `dogs_adoption_ready`,
 `monthly_volunteer_value`, `estimated_inquiries_handled_faster`,
 `mission_impact_summary`. REMOVED: `improved_response_capacity`,
 `estimated_admin_burden_reduced`, `medical_funding_visibility_improvement`.
-The two roi-text formatters (`_opspilot_roi_text`, `_rescueops_roi_text`) live in
-`roi_calculator.py` (moved out of `report_generator.py`) and must match these keys.
+
+File ownership to keep workstreams disjoint: `roi_calculator.py` is owned by
+Workstream B; `report_generator.py` (including the `_opspilot_roi_text` /
+`_rescueops_roi_text` formatters) is owned by Workstream C. B does NOT edit
+`report_generator.py`. C aligns the two formatters to the ROI keys above using this
+contract -- no code moves across the B/C boundary.
 
 ## automations DataFrame (automation_ranker.py builders)
 
