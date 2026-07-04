@@ -1,421 +1,421 @@
-inquiry_id,inquiry_date,inquiry_type,dog_name,applicant_name,household_type,has_children,has_other_pets,experience_level,message,response_status,days_waiting,triage_category,priority_score,recommended_action
-INQ-5000,2026-07-02,Donation Question,Kona,Jamie King,Apartment,False,True,Some Experience,Checking on availability and response timeline.,Overdue,2,Strong Match,76,Send application link and schedule screening call.
-INQ-5001,2026-06-22,Adoption Inquiry,Boomer,Quinn Smith,Apartment,False,False,Rescue/Foster Experience,Interested in learning more and next steps.,Overdue,9,Strong Match,94,Send application link and schedule screening call.
-INQ-5002,2026-07-01,Adoption Inquiry,Bonnie,Morgan Clark,Apartment,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,2,Not Ideal Fit,63,Route to adoption lead for careful human review.
-INQ-5003,2026-06-25,Adoption Inquiry,Atlas,Kendall Brown,Apartment,False,False,First-Time,Interested in learning more and next steps.,Responded,8,Needs Follow-Up,90,Send targeted follow-up questions within 24 hours.
-INQ-5004,2026-07-03,Foster Inquiry,Cash,Riley Johnson,Rural Property,True,True,First-Time,Interested in learning more and next steps.,Responded,0,Missing Information,52,Request missing household and pet compatibility details.
-INQ-5005,2026-06-28,Surrender Request,Millie,Morgan Miller,Apartment,False,True,Experienced,Looking for the best way to support the rescue.,Overdue,5,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5006,2026-06-22,Volunteer Inquiry,Penny,Jordan Smith,Condo,True,True,First-Time,Interested in learning more and next steps.,Escalated,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5007,2026-06-30,Medical Question,Ruby,Reese Nguyen,House with Yard,False,True,Experienced,We would like to help but need guidance.,In Review,3,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5008,2026-06-28,Adoption Inquiry,Otis,Jamie Allen,Townhome,True,False,First-Time,We would like to help but need guidance.,In Review,3,Needs Follow-Up,78,Send targeted follow-up questions within 24 hours.
-INQ-5009,2026-06-28,Donation Question,Kona,Taylor Wright,House with Yard,False,False,Experienced,Looking for the best way to support the rescue.,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5010,2026-06-27,Surrender Request,Joy,Rowan Davis,Townhome,True,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,6,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5011,2026-07-02,Foster Inquiry,Remy,Skyler Wright,Rural Property,True,True,Experienced,Checking on availability and response timeline.,Responded,2,Missing Information,56,Request missing household and pet compatibility details.
-INQ-5012,2026-06-22,Foster Inquiry,Mia,Taylor Miller,Condo,False,False,First-Time,Interested in learning more and next steps.,Responded,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5013,2026-06-24,Donation Question,Theo,Avery Allen,Townhome,True,True,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5014,2026-06-25,Surrender Request,Georgia,Logan Wright,House with Yard,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,6,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5015,2026-06-28,Adoption Inquiry,Biscuit,Casey Patel,Townhome,True,True,First-Time,Checking on availability and response timeline.,Responded,3,Needs Follow-Up,78,Send targeted follow-up questions within 24 hours.
-INQ-5016,2026-06-23,Foster Inquiry,Olive,Avery Miller,Condo,False,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5017,2026-06-22,Adoption Inquiry,Honey,Casey Young,Rural Property,True,True,Some Experience,Looking for the best way to support the rescue.,Responded,10,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5018,2026-06-27,Donation Question,Maggie,Jamie King,Condo,False,False,Experienced,Interested in learning more and next steps.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5019,2026-07-01,Adoption Inquiry,Georgia,Logan Scott,Townhome,True,True,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,0,Not Ideal Fit,55,Route to adoption lead for careful human review.
-INQ-5020,2026-07-02,Volunteer Inquiry,Cooper,Riley Lewis,Apartment,False,True,Some Experience,Checking on availability and response timeline.,Escalated,1,Missing Information,54,Request missing household and pet compatibility details.
-INQ-5021,2026-07-01,Adoption Inquiry,Benny,Avery Brown,Townhome,True,True,Experienced,Looking for the best way to support the rescue.,In Review,0,Not Ideal Fit,55,Route to adoption lead for careful human review.
-INQ-5022,2026-06-27,Foster Inquiry,Hazel,Harper Allen,House with Yard,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5023,2026-07-04,Foster Inquiry,Phoebe,Taylor Wilson,Condo,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Escalated,0,Needs Follow-Up,62,Send targeted follow-up questions within 24 hours.
-INQ-5024,2026-06-21,Adoption Inquiry,Phoebe,Jordan Patel,Condo,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5025,2026-06-22,Adoption Inquiry,Poppy,Hayden Johnson,Townhome,False,True,Experienced,We would like to help but need guidance.,Responded,10,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5026,2026-07-03,Adoption Inquiry,Frankie,Morgan Smith,Rural Property,False,True,Some Experience,Checking on availability and response timeline.,Responded,0,Not Ideal Fit,55,Route to adoption lead for careful human review.
-INQ-5027,2026-06-21,Surrender Request,Moose,Rowan Scott,Rural Property,True,True,Experienced,We would like to help but need guidance.,Overdue,10,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5028,2026-06-28,Adoption Inquiry,Boomer,Taylor Garcia,Condo,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,3,Strong Match,82,Send application link and schedule screening call.
-INQ-5029,2026-07-02,Foster Inquiry,Sam,Quinn King,Townhome,False,False,Experienced,Interested in learning more and next steps.,Overdue,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5030,2026-06-29,Adoption Inquiry,Sophie,Logan Lewis,Apartment,False,False,Some Experience,Looking for the best way to support the rescue.,Responded,5,Missing Information,80,Request missing household and pet compatibility details.
-INQ-5031,2026-06-24,Adoption Inquiry,Tucker,Rowan Smith,Townhome,False,True,Some Experience,We would like to help but need guidance.,Overdue,10,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5032,2026-06-23,Foster Inquiry,Rosie,Emerson Davis,Townhome,True,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Escalated,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5033,2026-06-30,Adoption Inquiry,Buddy,Quinn Brown,Condo,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,2,Missing Information,68,Request missing household and pet compatibility details.
-INQ-5034,2026-06-26,Foster Inquiry,Olive,Casey Garcia,Condo,False,True,Experienced,Looking for the best way to support the rescue.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5035,2026-07-01,Adoption Inquiry,Otis,Jordan Clark,House with Yard,False,True,First-Time,We would like to help but need guidance.,New,1,Needs Follow-Up,70,Send targeted follow-up questions within 24 hours.
-INQ-5036,2026-06-22,Adoption Inquiry,Cleo,Casey Allen,Townhome,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,9,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5037,2026-06-29,Surrender Request,Gus,Riley Nguyen,Condo,False,False,Experienced,Looking for the best way to support the rescue.,Overdue,4,Urgent Human Review,90,Escalate to intake coordinator today.
-INQ-5038,2026-06-26,Adoption Inquiry,Tessa,Reese Allen,Rural Property,False,True,Some Experience,We would like to help but need guidance.,Overdue,8,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5039,2026-06-26,Surrender Request,Cooper,Quinn Patel,Apartment,False,False,Experienced,Checking on availability and response timeline.,Overdue,8,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5040,2026-06-30,Volunteer Inquiry,Sadie,Cameron Davis,Condo,False,True,Some Experience,We would like to help but need guidance.,Overdue,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5041,2026-06-29,Volunteer Inquiry,Mia,Emerson Wilson,Apartment,False,True,Experienced,We would like to help but need guidance.,New,2,Missing Information,56,Request missing household and pet compatibility details.
-INQ-5042,2026-06-29,Adoption Inquiry,Lucky,Reese Nguyen,Townhome,False,False,Experienced,Checking on availability and response timeline.,Overdue,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5043,2026-06-26,Foster Inquiry,June,Casey Scott,Apartment,False,False,First-Time,Looking for the best way to support the rescue.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5044,2026-06-30,Foster Inquiry,Chase,Logan Scott,House with Yard,False,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Escalated,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5045,2026-07-01,Adoption Inquiry,Tessa,Morgan Wright,Rural Property,False,False,First-Time,Can you tell me whether this dog may fit our home?,Responded,3,Needs Follow-Up,78,Send targeted follow-up questions within 24 hours.
-INQ-5046,2026-06-21,Adoption Inquiry,George,Parker Young,Rural Property,False,True,Experienced,Checking on availability and response timeline.,Overdue,10,Strong Match,94,Send application link and schedule screening call.
-INQ-5047,2026-06-27,Adoption Inquiry,Rosie,Reese Smith,Rural Property,True,True,Some Experience,Checking on availability and response timeline.,Overdue,6,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5048,2026-07-03,Volunteer Inquiry,Diesel,Skyler Miller,Apartment,True,True,Experienced,We would like to help but need guidance.,Overdue,0,Needs Follow-Up,62,Send targeted follow-up questions within 24 hours.
-INQ-5049,2026-07-01,General Info,Jasper,Reese Patel,Condo,False,False,Some Experience,Checking on availability and response timeline.,New,1,Strong Match,74,Send application link and schedule screening call.
-INQ-5050,2026-06-29,Donation Question,Bonnie,Finley Nguyen,Apartment,False,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,New,2,Missing Information,56,Request missing household and pet compatibility details.
-INQ-5051,2026-06-29,Surrender Request,Maggie,Casey Young,Condo,False,False,Some Experience,We would like to help but need guidance.,Escalated,4,Urgent Human Review,90,Escalate to intake coordinator today.
-INQ-5052,2026-07-01,Medical Question,Joy,Taylor Smith,Rural Property,True,True,Experienced,Checking on availability and response timeline.,Overdue,3,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5053,2026-06-26,Volunteer Inquiry,Ranger,Drew Clark,Rural Property,False,False,Some Experience,We would like to help but need guidance.,Overdue,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5054,2026-07-02,Foster Inquiry,Milo,Avery Garcia,Rural Property,True,False,First-Time,Can you tell me whether this dog may fit our home?,Responded,0,Missing Information,52,Request missing household and pet compatibility details.
-INQ-5055,2026-06-25,Adoption Inquiry,Sadie,Avery Johnson,Rural Property,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,6,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5056,2026-06-22,Adoption Inquiry,Cookie,Hayden Young,House with Yard,True,True,Experienced,Interested in learning more and next steps.,Responded,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5057,2026-06-28,Volunteer Inquiry,Archie,Morgan Davis,Apartment,False,True,Experienced,Checking on availability and response timeline.,Responded,3,Needs Follow-Up,68,Send targeted follow-up questions within 24 hours.
-INQ-5058,2026-06-26,Donation Question,Olive,Quinn Garcia,Condo,False,True,Some Experience,Checking on availability and response timeline.,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5059,2026-06-23,Donation Question,Ollie,Logan King,Townhome,False,False,Some Experience,Looking for the best way to support the rescue.,Overdue,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5060,2026-06-23,Foster Inquiry,Maggie,Riley Allen,Condo,False,True,Experienced,Interested in learning more and next steps.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5061,2026-06-23,Foster Inquiry,Honey,Casey Allen,Condo,True,False,Experienced,We would like to help but need guidance.,Responded,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5062,2026-07-02,Adoption Inquiry,Pearl,Quinn King,Townhome,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,2,Not Ideal Fit,63,Route to adoption lead for careful human review.
-INQ-5063,2026-06-27,Medical Question,Maggie,Harper Nguyen,Condo,False,False,First-Time,Checking on availability and response timeline.,Overdue,6,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5064,2026-06-28,Foster Inquiry,Maisie,Jordan Nguyen,Condo,False,False,Some Experience,Interested in learning more and next steps.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5065,2026-06-29,Adoption Inquiry,Sadie,Cameron Scott,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Overdue,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5066,2026-06-21,Foster Inquiry,Baxter,Drew Clark,Condo,False,False,Experienced,Can you tell me whether this dog may fit our home?,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5067,2026-07-01,Surrender Request,Cleo,Avery Patel,Rural Property,True,True,Experienced,We would like to help but need guidance.,Responded,2,Urgent Human Review,84,Escalate to intake coordinator today.
-INQ-5068,2026-06-22,Adoption Inquiry,Clover,Logan Clark,Townhome,True,True,Experienced,We would like to help but need guidance.,Responded,9,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5069,2026-06-30,General Info,Violet,Reese Allen,Apartment,False,False,First-Time,Interested in learning more and next steps.,Responded,3,Strong Match,78,Send application link and schedule screening call.
-INQ-5070,2026-06-22,Volunteer Inquiry,Ollie,Parker Lewis,Condo,True,True,Some Experience,Looking for the best way to support the rescue.,Overdue,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5071,2026-06-29,Adoption Inquiry,Sam,Hayden Brown,Condo,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,5,Missing Information,80,Request missing household and pet compatibility details.
-INQ-5072,2026-06-26,Foster Inquiry,Summer,Kendall Allen,Rural Property,False,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5073,2026-06-23,Surrender Request,Archie,Skyler Lewis,Condo,False,True,Experienced,Checking on availability and response timeline.,Responded,8,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5074,2026-06-29,Adoption Inquiry,Joy,Emerson Young,House with Yard,False,False,Experienced,We would like to help but need guidance.,Overdue,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5075,2026-06-26,Adoption Inquiry,Toby,Parker Nguyen,Rural Property,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Escalated,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5076,2026-06-28,Foster Inquiry,Knox,Taylor King,Condo,True,True,First-Time,We would like to help but need guidance.,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5077,2026-06-28,Foster Inquiry,Gus,Logan Scott,Rural Property,False,True,First-Time,Checking on availability and response timeline.,Escalated,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5078,2026-06-30,Donation Question,Luna,Riley Scott,Townhome,False,True,Some Experience,Can you tell me whether this dog may fit our home?,New,1,Missing Information,54,Request missing household and pet compatibility details.
-INQ-5079,2026-06-24,Adoption Inquiry,Finn,Riley Davis,Rural Property,True,True,Some Experience,Looking for the best way to support the rescue.,Responded,8,Strong Match,94,Send application link and schedule screening call.
-INQ-5080,2026-07-01,Adoption Inquiry,Remy,Harper Allen,Rural Property,True,True,Some Experience,We would like to help but need guidance.,In Review,1,Missing Information,64,Request missing household and pet compatibility details.
-INQ-5081,2026-06-27,Adoption Inquiry,Charlie,Morgan Young,Rural Property,True,True,Some Experience,Looking for the best way to support the rescue.,Overdue,5,Missing Information,80,Request missing household and pet compatibility details.
-INQ-5082,2026-06-22,Volunteer Inquiry,Buddy,Logan Patel,Townhome,True,False,Some Experience,Interested in learning more and next steps.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5083,2026-06-24,Foster Inquiry,Louie,Kendall King,Townhome,False,True,Some Experience,Interested in learning more and next steps.,Overdue,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5084,2026-07-01,Adoption Inquiry,George,Jordan Johnson,Rural Property,False,False,Some Experience,Looking for the best way to support the rescue.,Escalated,2,Strong Match,78,Send application link and schedule screening call.
-INQ-5085,2026-06-27,Adoption Inquiry,Gus,Riley Brown,Condo,True,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,4,Strong Match,86,Send application link and schedule screening call.
-INQ-5086,2026-06-29,Foster Inquiry,Charlie,Jamie Scott,Condo,True,False,Experienced,We would like to help but need guidance.,Overdue,3,Needs Follow-Up,68,Send targeted follow-up questions within 24 hours.
-INQ-5087,2026-06-26,Adoption Inquiry,Maisie,Cameron Patel,House with Yard,False,True,Some Experience,We would like to help but need guidance.,Overdue,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5088,2026-06-26,Donation Question,Millie,Taylor Miller,Apartment,True,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5089,2026-06-30,Volunteer Inquiry,Minnie,Jordan Young,Apartment,False,False,Some Experience,We would like to help but need guidance.,Overdue,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5090,2026-06-28,General Info,Violet,Taylor Brown,Apartment,False,False,Some Experience,Checking on availability and response timeline.,Responded,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5091,2026-06-25,Donation Question,Cooper,Jordan Allen,Condo,True,True,First-Time,Checking on availability and response timeline.,Escalated,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5092,2026-07-02,Donation Question,Dexter,Kendall Young,Apartment,False,True,Some Experience,Interested in learning more and next steps.,Escalated,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5093,2026-06-24,Foster Inquiry,Phoebe,Emerson Brown,Apartment,False,True,Experienced,Checking on availability and response timeline.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5094,2026-07-03,Adoption Inquiry,Wally,Parker King,House with Yard,False,True,Some Experience,We would like to help but need guidance.,In Review,0,Strong Match,70,Send application link and schedule screening call.
-INQ-5095,2026-06-27,Foster Inquiry,Mabel,Quinn Wilson,Condo,True,False,Experienced,We would like to help but need guidance.,Overdue,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5096,2026-06-27,Volunteer Inquiry,Tucker,Avery Brown,Rural Property,False,False,First-Time,We would like to help but need guidance.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5097,2026-06-25,Foster Inquiry,Sophie,Skyler Miller,Rural Property,True,False,Some Experience,Interested in learning more and next steps.,Overdue,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5098,2026-06-30,Adoption Inquiry,Mabel,Logan Miller,Condo,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Escalated,4,Strong Match,86,Send application link and schedule screening call.
-INQ-5099,2026-07-04,Volunteer Inquiry,Lucky,Harper Miller,Apartment,False,True,First-Time,We would like to help but need guidance.,In Review,0,Missing Information,52,Request missing household and pet compatibility details.
-INQ-5100,2026-06-22,Foster Inquiry,Ranger,Harper Nguyen,Apartment,False,False,Some Experience,Interested in learning more and next steps.,Responded,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5101,2026-07-03,Foster Inquiry,Lola,Harper Wright,Apartment,False,False,First-Time,Looking for the best way to support the rescue.,Responded,0,Strong Match,72,Send application link and schedule screening call.
-INQ-5102,2026-06-26,Foster Inquiry,Knox,Kendall Clark,Apartment,True,False,Experienced,Interested in learning more and next steps.,Overdue,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5103,2026-06-30,Volunteer Inquiry,Marley,Casey Davis,House with Yard,False,True,First-Time,Checking on availability and response timeline.,Responded,2,Missing Information,56,Request missing household and pet compatibility details.
-INQ-5104,2026-06-23,Foster Inquiry,Violet,Quinn Young,Apartment,True,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5105,2026-06-28,Adoption Inquiry,Ollie,Hayden Wilson,Condo,True,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,4,Strong Match,86,Send application link and schedule screening call.
-INQ-5106,2026-06-30,Adoption Inquiry,Phoebe,Jordan Allen,Rural Property,True,True,Experienced,Can you tell me whether this dog may fit our home?,New,2,Missing Information,68,Request missing household and pet compatibility details.
-INQ-5107,2026-07-01,Adoption Inquiry,Theo,Harper Johnson,House with Yard,True,True,Some Experience,Checking on availability and response timeline.,Responded,1,Missing Information,64,Request missing household and pet compatibility details.
-INQ-5108,2026-06-23,Volunteer Inquiry,Phoebe,Jamie Lewis,House with Yard,False,False,Some Experience,Interested in learning more and next steps.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5109,2026-07-01,Surrender Request,Baxter,Quinn Clark,Townhome,False,False,Some Experience,Can you tell me whether this dog may fit our home?,New,0,Needs Follow-Up,78,Send targeted follow-up questions within 24 hours.
-INQ-5110,2026-06-24,General Info,Kona,Jordan Brown,Townhome,False,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5111,2026-06-26,Adoption Inquiry,Ellie,Morgan Wilson,Rural Property,False,False,Some Experience,Interested in learning more and next steps.,Overdue,6,Strong Match,94,Send application link and schedule screening call.
-INQ-5112,2026-06-23,Medical Question,Cash,Rowan Wilson,Townhome,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,10,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5113,2026-06-24,Foster Inquiry,Cleo,Cameron Clark,Rural Property,False,False,Some Experience,We would like to help but need guidance.,Responded,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5114,2026-06-30,Adoption Inquiry,Lucky,Skyler Patel,Condo,False,True,First-Time,Interested in learning more and next steps.,Overdue,1,Needs Follow-Up,70,Send targeted follow-up questions within 24 hours.
-INQ-5115,2026-06-24,Adoption Inquiry,Sophie,Skyler Miller,Condo,False,True,Some Experience,Interested in learning more and next steps.,Overdue,9,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5116,2026-07-02,Foster Inquiry,Sam,Taylor Young,House with Yard,True,True,Rescue/Foster Experience,Checking on availability and response timeline.,New,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5117,2026-06-20,Foster Inquiry,Olive,Kendall Johnson,Rural Property,False,True,Experienced,Looking for the best way to support the rescue.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5118,2026-06-25,Adoption Inquiry,Bruno,Jamie Young,House with Yard,True,True,Experienced,Checking on availability and response timeline.,Overdue,7,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5119,2026-07-01,Donation Question,Comet,Riley Johnson,Townhome,False,False,Experienced,Interested in learning more and next steps.,Escalated,2,Strong Match,76,Send application link and schedule screening call.
-INQ-5120,2026-06-26,Adoption Inquiry,Mabel,Jamie Miller,Apartment,False,True,Experienced,Looking for the best way to support the rescue.,Overdue,5,Strong Match,90,Send application link and schedule screening call.
-INQ-5121,2026-06-28,Volunteer Inquiry,Archie,Rowan Wilson,Condo,False,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5122,2026-06-28,Surrender Request,Violet,Taylor Patel,Rural Property,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,6,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5123,2026-07-01,Foster Inquiry,Joy,Hayden Young,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Responded,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5124,2026-07-03,Adoption Inquiry,Luna,Hayden Miller,Condo,False,True,Some Experience,We would like to help but need guidance.,Responded,1,Not Ideal Fit,59,Route to adoption lead for careful human review.
-INQ-5125,2026-07-01,General Info,Ollie,Finley Miller,Condo,False,False,Some Experience,Can you tell me whether this dog may fit our home?,New,1,Strong Match,74,Send application link and schedule screening call.
-INQ-5126,2026-06-27,Medical Question,Cleo,Finley Young,Apartment,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,6,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5127,2026-06-21,General Info,Rudy,Kendall Young,House with Yard,True,True,First-Time,Looking for the best way to support the rescue.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5128,2026-07-01,General Info,Otis,Avery Garcia,Rural Property,False,True,Rescue/Foster Experience,Interested in learning more and next steps.,In Review,2,Strong Match,76,Send application link and schedule screening call.
-INQ-5129,2026-07-04,Adoption Inquiry,Oakley,Quinn Wilson,Apartment,False,False,Some Experience,Checking on availability and response timeline.,Responded,0,Missing Information,60,Request missing household and pet compatibility details.
-INQ-5130,2026-06-26,Adoption Inquiry,Jack,Emerson Johnson,Townhome,False,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,6,Strong Match,94,Send application link and schedule screening call.
-INQ-5131,2026-06-23,Foster Inquiry,Rudy,Parker Wilson,Condo,True,True,Some Experience,Interested in learning more and next steps.,Overdue,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5132,2026-06-23,Volunteer Inquiry,Knox,Skyler Davis,Townhome,False,False,Some Experience,We would like to help but need guidance.,Overdue,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5133,2026-06-24,Adoption Inquiry,Winnie,Finley Wright,Apartment,False,False,Experienced,Checking on availability and response timeline.,Overdue,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5134,2026-06-23,General Info,Ollie,Casey Wright,Condo,True,False,First-Time,We would like to help but need guidance.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5135,2026-06-30,Adoption Inquiry,Birdie,Quinn Wright,Apartment,True,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Escalated,2,Missing Information,68,Request missing household and pet compatibility details.
-INQ-5136,2026-06-30,Surrender Request,Luna,Avery Brown,Condo,False,False,Some Experience,We would like to help but need guidance.,New,1,Needs Follow-Up,81,Send targeted follow-up questions within 24 hours.
-INQ-5137,2026-06-21,Foster Inquiry,Otis,Morgan Smith,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Responded,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5138,2026-06-24,Volunteer Inquiry,George,Skyler Nguyen,Rural Property,False,True,Experienced,We would like to help but need guidance.,Responded,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5139,2026-06-29,Medical Question,June,Parker Johnson,Condo,False,False,First-Time,Interested in learning more and next steps.,Overdue,2,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5140,2026-06-21,Adoption Inquiry,Knox,Riley Smith,Apartment,False,True,First-Time,Checking on availability and response timeline.,Overdue,10,Strong Match,94,Send application link and schedule screening call.
-INQ-5141,2026-07-02,Adoption Inquiry,Sam,Drew Brown,Rural Property,True,False,Experienced,Looking for the best way to support the rescue.,Responded,2,Missing Information,68,Request missing household and pet compatibility details.
-INQ-5142,2026-06-21,Foster Inquiry,Toby,Rowan Patel,Condo,False,True,Experienced,Interested in learning more and next steps.,Responded,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5143,2026-06-21,Foster Inquiry,Lucky,Logan Miller,Rural Property,True,True,Some Experience,Checking on availability and response timeline.,Responded,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5144,2026-06-28,Medical Question,Honey,Jordan Clark,Apartment,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,5,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5145,2026-06-28,Medical Question,Bonnie,Rowan Lewis,Condo,True,False,Some Experience,Interested in learning more and next steps.,Overdue,6,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5146,2026-07-01,Adoption Inquiry,Sasha,Jamie Davis,Townhome,False,True,Experienced,Interested in learning more and next steps.,Responded,3,Missing Information,72,Request missing household and pet compatibility details.
-INQ-5147,2026-06-30,Adoption Inquiry,Millie,Morgan Johnson,Apartment,False,False,Some Experience,Checking on availability and response timeline.,Responded,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5148,2026-06-27,Adoption Inquiry,Minnie,Reese Miller,Rural Property,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5149,2026-07-01,General Info,Blue,Jordan Lewis,Townhome,False,False,Experienced,We would like to help but need guidance.,In Review,3,Needs Follow-Up,68,Send targeted follow-up questions within 24 hours.
-INQ-5150,2026-06-24,Foster Inquiry,Maisie,Cameron Lewis,Apartment,False,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5151,2026-06-26,Volunteer Inquiry,Lola,Hayden Patel,Townhome,False,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5152,2026-06-30,Adoption Inquiry,Phoebe,Quinn Miller,Rural Property,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5153,2026-06-27,General Info,Birdie,Hayden Nguyen,Townhome,False,False,Experienced,We would like to help but need guidance.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5154,2026-06-23,Foster Inquiry,Bella,Hayden Patel,House with Yard,True,True,First-Time,Checking on availability and response timeline.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5155,2026-06-28,Volunteer Inquiry,Scout,Harper Miller,House with Yard,True,True,Some Experience,Checking on availability and response timeline.,Responded,3,Needs Follow-Up,68,Send targeted follow-up questions within 24 hours.
-INQ-5156,2026-06-24,Adoption Inquiry,Lucky,Parker King,House with Yard,False,False,Some Experience,Checking on availability and response timeline.,Responded,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5157,2026-06-22,Medical Question,Bella,Finley Patel,Apartment,True,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,11,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5158,2026-06-23,Surrender Request,Rocco,Emerson Scott,Apartment,True,True,Experienced,We would like to help but need guidance.,Overdue,8,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5159,2026-06-30,Foster Inquiry,Cooper,Finley Young,Rural Property,False,False,Experienced,We would like to help but need guidance.,Responded,3,Needs Follow-Up,68,Send targeted follow-up questions within 24 hours.
-INQ-5160,2026-06-28,Foster Inquiry,Mia,Quinn Young,House with Yard,True,False,Some Experience,Interested in learning more and next steps.,Responded,3,Missing Information,58,Request missing household and pet compatibility details.
-INQ-5161,2026-07-02,Volunteer Inquiry,Sophie,Jamie Wilson,Rural Property,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,0,Needs Follow-Up,62,Send targeted follow-up questions within 24 hours.
-INQ-5162,2026-06-24,Foster Inquiry,Dexter,Taylor Lewis,Rural Property,True,True,First-Time,Checking on availability and response timeline.,Responded,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5163,2026-06-26,Adoption Inquiry,Beau,Finley Wright,House with Yard,True,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5164,2026-06-29,General Info,Biscuit,Rowan Wright,House with Yard,False,False,First-Time,We would like to help but need guidance.,Responded,3,Strong Match,78,Send application link and schedule screening call.
-INQ-5165,2026-07-01,Medical Question,Otis,Morgan Lewis,Townhome,False,True,Experienced,Interested in learning more and next steps.,In Review,3,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5166,2026-07-02,Volunteer Inquiry,Chase,Taylor Miller,Apartment,False,False,Some Experience,We would like to help but need guidance.,New,2,Strong Match,76,Send application link and schedule screening call.
-INQ-5167,2026-07-01,Donation Question,Murphy,Casey King,Rural Property,True,False,Some Experience,We would like to help but need guidance.,Responded,3,Missing Information,58,Request missing household and pet compatibility details.
-INQ-5168,2026-06-25,Surrender Request,Nala,Skyler Miller,House with Yard,False,False,Some Experience,Checking on availability and response timeline.,Responded,8,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5169,2026-06-30,Volunteer Inquiry,Ranger,Casey Patel,Apartment,False,True,First-Time,Checking on availability and response timeline.,Overdue,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5170,2026-06-24,Adoption Inquiry,Lucky,Skyler Lewis,House with Yard,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5171,2026-06-28,Adoption Inquiry,Kona,Taylor Wilson,Townhome,True,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,New,3,Strong Match,82,Send application link and schedule screening call.
-INQ-5172,2026-06-27,Volunteer Inquiry,Cooper,Harper Garcia,Apartment,False,False,First-Time,Checking on availability and response timeline.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5173,2026-07-01,General Info,Tilly,Riley Patel,Rural Property,False,True,Experienced,We would like to help but need guidance.,Overdue,3,Strong Match,78,Send application link and schedule screening call.
-INQ-5174,2026-07-03,Surrender Request,Kona,Finley Garcia,Apartment,False,True,Some Experience,Interested in learning more and next steps.,In Review,0,Needs Follow-Up,78,Send targeted follow-up questions within 24 hours.
-INQ-5175,2026-07-01,Volunteer Inquiry,Comet,Quinn Patel,Townhome,False,False,Some Experience,Looking for the best way to support the rescue.,In Review,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5176,2026-06-27,Volunteer Inquiry,Buddy,Jamie Davis,House with Yard,False,True,First-Time,Checking on availability and response timeline.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5177,2026-06-25,Adoption Inquiry,Comet,Jordan Johnson,Condo,True,False,First-Time,Can you tell me whether this dog may fit our home?,Responded,6,Needs Follow-Up,90,Send targeted follow-up questions within 24 hours.
-INQ-5178,2026-06-27,Adoption Inquiry,Atlas,Cameron Patel,Condo,False,True,Experienced,We would like to help but need guidance.,Responded,5,Strong Match,90,Send application link and schedule screening call.
-INQ-5179,2026-06-23,Adoption Inquiry,Phoebe,Taylor Wright,Apartment,False,False,Some Experience,We would like to help but need guidance.,Responded,8,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5180,2026-07-01,Adoption Inquiry,Maggie,Hayden Allen,House with Yard,False,False,First-Time,Looking for the best way to support the rescue.,Responded,2,Missing Information,68,Request missing household and pet compatibility details.
-INQ-5181,2026-07-01,Volunteer Inquiry,George,Finley Wright,Condo,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,1,Missing Information,54,Request missing household and pet compatibility details.
-INQ-5182,2026-06-24,Donation Question,Remy,Kendall Johnson,Rural Property,True,True,First-Time,Looking for the best way to support the rescue.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5183,2026-06-26,Adoption Inquiry,Marley,Rowan Nguyen,Condo,True,True,First-Time,Looking for the best way to support the rescue.,Responded,6,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5184,2026-07-03,Medical Question,Winnie,Avery Wright,House with Yard,False,True,Some Experience,Interested in learning more and next steps.,Responded,1,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5185,2026-06-30,Adoption Inquiry,Archie,Drew Brown,Apartment,False,True,Some Experience,We would like to help but need guidance.,Escalated,1,Missing Information,64,Request missing household and pet compatibility details.
-INQ-5186,2026-06-30,General Info,Hank,Hayden Brown,Rural Property,True,True,Some Experience,Checking on availability and response timeline.,Responded,2,Strong Match,76,Send application link and schedule screening call.
-INQ-5187,2026-06-30,General Info,Joy,Emerson Allen,Apartment,True,False,Experienced,We would like to help but need guidance.,New,1,Strong Match,74,Send application link and schedule screening call.
-INQ-5188,2026-06-24,Volunteer Inquiry,Diesel,Casey Smith,Rural Property,True,True,Experienced,Checking on availability and response timeline.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5189,2026-07-01,Adoption Inquiry,Sasha,Parker Smith,House with Yard,False,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,2,Missing Information,68,Request missing household and pet compatibility details.
-INQ-5190,2026-07-01,Surrender Request,Sadie,Jamie Brown,Townhome,False,True,First-Time,Looking for the best way to support the rescue.,Responded,2,Urgent Human Review,84,Escalate to intake coordinator today.
-INQ-5191,2026-06-21,Medical Question,Maple,Skyler Nguyen,Townhome,True,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,10,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5192,2026-07-03,Adoption Inquiry,Murphy,Emerson Young,Townhome,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,1,Missing Information,64,Request missing household and pet compatibility details.
-INQ-5193,2026-06-25,Adoption Inquiry,Murphy,Emerson Smith,Rural Property,False,False,First-Time,Checking on availability and response timeline.,Overdue,8,Needs Follow-Up,90,Send targeted follow-up questions within 24 hours.
-INQ-5194,2026-07-02,Adoption Inquiry,Comet,Morgan Johnson,House with Yard,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,0,Missing Information,60,Request missing household and pet compatibility details.
-INQ-5195,2026-06-22,Foster Inquiry,Charlie,Morgan Clark,Apartment,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5196,2026-07-02,General Info,Hazel,Drew Wilson,House with Yard,False,True,First-Time,We would like to help but need guidance.,Responded,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5197,2026-06-20,Donation Question,Bella,Jamie Wright,House with Yard,True,True,Some Experience,Checking on availability and response timeline.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5198,2026-06-24,Foster Inquiry,Nala,Cameron Brown,House with Yard,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5199,2026-06-27,Surrender Request,Rosie,Jamie Johnson,Apartment,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,4,Urgent Human Review,90,Escalate to intake coordinator today.
-INQ-5200,2026-06-23,Foster Inquiry,Kona,Emerson Brown,Condo,False,True,Experienced,We would like to help but need guidance.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5201,2026-06-26,Donation Question,Maggie,Parker Scott,Apartment,True,True,Some Experience,Looking for the best way to support the rescue.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5202,2026-07-04,Surrender Request,Cash,Logan Patel,Townhome,True,False,Some Experience,Can you tell me whether this dog may fit our home?,New,0,Needs Follow-Up,78,Send targeted follow-up questions within 24 hours.
-INQ-5203,2026-06-23,Adoption Inquiry,Georgia,Avery Lewis,Apartment,False,True,Experienced,Checking on availability and response timeline.,Overdue,8,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5204,2026-06-28,Adoption Inquiry,Minnie,Parker Clark,Condo,False,True,First-Time,Looking for the best way to support the rescue.,Overdue,5,Missing Information,80,Request missing household and pet compatibility details.
-INQ-5205,2026-06-23,Adoption Inquiry,Maisie,Reese Lewis,Condo,False,True,Experienced,We would like to help but need guidance.,Responded,10,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5206,2026-06-24,Volunteer Inquiry,Phoebe,Hayden Patel,Condo,False,False,Some Experience,Looking for the best way to support the rescue.,Responded,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5207,2026-07-01,Adoption Inquiry,Cleo,Riley Patel,Apartment,True,False,Some Experience,Looking for the best way to support the rescue.,In Review,2,Not Ideal Fit,63,Route to adoption lead for careful human review.
-INQ-5208,2026-06-27,Foster Inquiry,Chase,Reese Wilson,House with Yard,True,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5209,2026-07-01,Adoption Inquiry,Boomer,Rowan Scott,Condo,False,True,First-Time,Looking for the best way to support the rescue.,New,0,Strong Match,70,Send application link and schedule screening call.
-INQ-5210,2026-07-02,Volunteer Inquiry,Cleo,Kendall Garcia,Apartment,False,False,Some Experience,Checking on availability and response timeline.,New,1,Missing Information,54,Request missing household and pet compatibility details.
-INQ-5211,2026-06-27,Volunteer Inquiry,Molly,Taylor Scott,Apartment,False,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5212,2026-07-01,Adoption Inquiry,Phoebe,Jamie Patel,Condo,True,False,Some Experience,Looking for the best way to support the rescue.,Responded,2,Missing Information,68,Request missing household and pet compatibility details.
-INQ-5213,2026-06-23,Volunteer Inquiry,Rocco,Jordan Nguyen,Apartment,False,True,Experienced,Checking on availability and response timeline.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5214,2026-07-01,Volunteer Inquiry,Clover,Emerson Lewis,Condo,False,True,First-Time,Checking on availability and response timeline.,Overdue,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5215,2026-06-29,General Info,Pearl,Skyler Clark,Townhome,False,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5216,2026-06-23,Adoption Inquiry,Violet,Emerson Garcia,Townhome,False,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,10,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5217,2026-07-01,Foster Inquiry,Ember,Quinn Garcia,Apartment,True,False,Some Experience,Checking on availability and response timeline.,New,0,Strong Match,72,Send application link and schedule screening call.
-INQ-5218,2026-06-23,Adoption Inquiry,Gus,Quinn Smith,House with Yard,False,True,Experienced,Interested in learning more and next steps.,Overdue,8,Strong Match,94,Send application link and schedule screening call.
-INQ-5219,2026-07-03,Adoption Inquiry,Joy,Cameron Young,Condo,True,False,Some Experience,Checking on availability and response timeline.,Escalated,0,Missing Information,60,Request missing household and pet compatibility details.
-INQ-5220,2026-06-25,Adoption Inquiry,Milo,Hayden Miller,Condo,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,6,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5221,2026-07-01,Volunteer Inquiry,Willow,Finley Clark,Apartment,False,False,Some Experience,Interested in learning more and next steps.,Responded,1,Strong Match,74,Send application link and schedule screening call.
-INQ-5222,2026-06-29,Adoption Inquiry,Bonnie,Emerson Johnson,Condo,False,False,First-Time,We would like to help but need guidance.,In Review,3,Needs Follow-Up,78,Send targeted follow-up questions within 24 hours.
-INQ-5223,2026-06-22,Adoption Inquiry,Hazel,Emerson Davis,Townhome,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,11,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5224,2026-06-22,Volunteer Inquiry,Theo,Avery Lewis,Apartment,False,True,Some Experience,Interested in learning more and next steps.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5225,2026-06-23,Adoption Inquiry,Cooper,Jamie Johnson,Apartment,True,True,Experienced,We would like to help but need guidance.,Overdue,9,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5226,2026-06-23,Adoption Inquiry,Otis,Taylor Brown,Apartment,True,False,Some Experience,We would like to help but need guidance.,Overdue,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5227,2026-06-30,Adoption Inquiry,Georgia,Morgan Lewis,Apartment,False,True,Rescue/Foster Experience,We would like to help but need guidance.,New,2,Not Ideal Fit,63,Route to adoption lead for careful human review.
-INQ-5228,2026-07-02,Adoption Inquiry,Knox,Kendall Clark,Rural Property,True,True,Experienced,Interested in learning more and next steps.,In Review,2,Strong Match,78,Send application link and schedule screening call.
-INQ-5229,2026-06-29,Adoption Inquiry,Tilly,Quinn Nguyen,Condo,False,False,Experienced,Looking for the best way to support the rescue.,Overdue,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5230,2026-06-26,Adoption Inquiry,George,Harper King,Apartment,True,True,Some Experience,We would like to help but need guidance.,Overdue,6,Strong Match,94,Send application link and schedule screening call.
-INQ-5231,2026-06-26,Medical Question,Maple,Morgan Young,Condo,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,8,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5232,2026-06-27,Volunteer Inquiry,Beau,Riley Smith,Condo,False,False,Experienced,We would like to help but need guidance.,Responded,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5233,2026-06-25,Adoption Inquiry,Birdie,Drew Johnson,Rural Property,False,True,Experienced,Checking on availability and response timeline.,Responded,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5234,2026-06-25,Volunteer Inquiry,Jack,Taylor Smith,Rural Property,True,True,Experienced,Interested in learning more and next steps.,Overdue,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5235,2026-06-23,Adoption Inquiry,Rosie,Riley Clark,Townhome,True,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Escalated,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5236,2026-06-25,Adoption Inquiry,Zoe,Avery Brown,House with Yard,True,True,Some Experience,We would like to help but need guidance.,Responded,9,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5237,2026-07-02,Donation Question,Nora,Morgan Wright,Apartment,False,True,First-Time,We would like to help but need guidance.,In Review,0,Needs Follow-Up,62,Send targeted follow-up questions within 24 hours.
-INQ-5238,2026-06-27,Volunteer Inquiry,Willow,Harper King,Rural Property,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5239,2026-06-22,Volunteer Inquiry,Lucky,Jamie Garcia,Apartment,False,False,Some Experience,Interested in learning more and next steps.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5240,2026-06-29,General Info,Rex,Kendall Wright,Townhome,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Escalated,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5241,2026-06-26,Foster Inquiry,Olive,Riley Davis,Condo,True,True,Some Experience,We would like to help but need guidance.,Responded,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5242,2026-06-25,Volunteer Inquiry,Buddy,Riley Patel,Apartment,False,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5243,2026-07-01,Adoption Inquiry,Charlie,Emerson Davis,Townhome,True,False,Experienced,Interested in learning more and next steps.,New,1,Missing Information,64,Request missing household and pet compatibility details.
-INQ-5244,2026-06-28,Adoption Inquiry,Violet,Avery Wilson,Apartment,True,False,First-Time,Checking on availability and response timeline.,In Review,3,Not Ideal Fit,67,Route to adoption lead for careful human review.
-INQ-5245,2026-06-24,General Info,Nala,Cameron Garcia,Rural Property,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5246,2026-06-26,Foster Inquiry,Ranger,Harper Brown,Apartment,True,True,Some Experience,Checking on availability and response timeline.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5247,2026-06-30,Adoption Inquiry,Rory,Logan Wright,Rural Property,True,True,First-Time,Looking for the best way to support the rescue.,New,1,Needs Follow-Up,70,Send targeted follow-up questions within 24 hours.
-INQ-5248,2026-06-24,Surrender Request,Nala,Skyler Allen,Apartment,False,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,7,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5249,2026-07-02,Foster Inquiry,Olive,Jamie Johnson,Townhome,True,True,First-Time,Looking for the best way to support the rescue.,New,2,Strong Match,76,Send application link and schedule screening call.
-INQ-5250,2026-06-30,Adoption Inquiry,Cleo,Avery Davis,Condo,False,True,Experienced,We would like to help but need guidance.,Responded,2,Not Ideal Fit,63,Route to adoption lead for careful human review.
-INQ-5251,2026-06-26,Adoption Inquiry,Violet,Emerson King,Townhome,False,False,First-Time,Looking for the best way to support the rescue.,Responded,8,Needs Follow-Up,90,Send targeted follow-up questions within 24 hours.
-INQ-5252,2026-06-27,Adoption Inquiry,Fiona,Riley Wright,Condo,True,True,Experienced,Looking for the best way to support the rescue.,Responded,5,Not Ideal Fit,75,Route to adoption lead for careful human review.
-INQ-5253,2026-06-23,Foster Inquiry,Olive,Jordan Smith,Rural Property,False,False,Experienced,Looking for the best way to support the rescue.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5254,2026-06-30,Adoption Inquiry,Sasha,Parker Garcia,Apartment,False,True,Some Experience,Checking on availability and response timeline.,Responded,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5255,2026-06-26,Adoption Inquiry,Jasper,Logan Patel,House with Yard,True,False,First-Time,Can you tell me whether this dog may fit our home?,Overdue,5,Missing Information,80,Request missing household and pet compatibility details.
-INQ-5256,2026-06-30,Donation Question,Marley,Cameron Allen,Rural Property,True,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,In Review,3,Strong Match,78,Send application link and schedule screening call.
-INQ-5257,2026-06-23,Surrender Request,Bonnie,Reese Lewis,House with Yard,False,True,Some Experience,Interested in learning more and next steps.,Escalated,11,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5258,2026-06-23,General Info,Toby,Reese Wright,Rural Property,False,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5259,2026-07-01,Adoption Inquiry,Rex,Logan Allen,Apartment,True,False,First-Time,We would like to help but need guidance.,In Review,3,Needs Follow-Up,78,Send targeted follow-up questions within 24 hours.
-INQ-5260,2026-06-21,Adoption Inquiry,Jasper,Hayden Lewis,Apartment,True,False,First-Time,Can you tell me whether this dog may fit our home?,Overdue,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5261,2026-07-01,Foster Inquiry,Jack,Jordan Patel,Apartment,False,True,Experienced,We would like to help but need guidance.,Responded,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5262,2026-06-28,Volunteer Inquiry,Sophie,Riley Scott,Rural Property,False,True,First-Time,Checking on availability and response timeline.,Responded,3,Strong Match,78,Send application link and schedule screening call.
-INQ-5263,2026-07-02,Donation Question,Sam,Emerson Patel,Apartment,True,True,Experienced,Looking for the best way to support the rescue.,Responded,0,Needs Follow-Up,62,Send targeted follow-up questions within 24 hours.
-INQ-5264,2026-07-03,Adoption Inquiry,Ollie,Jamie Wright,Condo,True,True,Some Experience,Interested in learning more and next steps.,Overdue,1,Not Ideal Fit,59,Route to adoption lead for careful human review.
-INQ-5265,2026-06-22,Foster Inquiry,Cookie,Hayden Miller,Rural Property,True,False,Experienced,We would like to help but need guidance.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5266,2026-06-27,Adoption Inquiry,George,Drew Brown,Condo,True,False,Experienced,Can you tell me whether this dog may fit our home?,Overdue,5,Strong Match,90,Send application link and schedule screening call.
-INQ-5267,2026-06-26,Adoption Inquiry,Nora,Parker Brown,Rural Property,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5268,2026-06-28,Donation Question,Sunny,Quinn Brown,Condo,True,False,Some Experience,We would like to help but need guidance.,Overdue,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5269,2026-06-22,Volunteer Inquiry,Rory,Skyler Allen,Townhome,False,True,Some Experience,Interested in learning more and next steps.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5270,2026-06-27,Volunteer Inquiry,Rory,Drew Wilson,Apartment,False,True,First-Time,We would like to help but need guidance.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5271,2026-06-23,Donation Question,Honey,Morgan Smith,Apartment,True,False,First-Time,Can you tell me whether this dog may fit our home?,Escalated,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5272,2026-06-22,Adoption Inquiry,Knox,Morgan Patel,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Overdue,9,Strong Match,94,Send application link and schedule screening call.
-INQ-5273,2026-06-21,Adoption Inquiry,Rex,Harper Johnson,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Escalated,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5274,2026-07-03,Adoption Inquiry,Knox,Quinn Wilson,Apartment,False,True,Experienced,Interested in learning more and next steps.,Responded,0,Strong Match,70,Send application link and schedule screening call.
-INQ-5275,2026-06-23,Foster Inquiry,Joy,Cameron King,Condo,True,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5276,2026-06-20,Foster Inquiry,Jasper,Rowan Nguyen,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5277,2026-06-20,Foster Inquiry,Finn,Avery King,Townhome,False,False,Experienced,Checking on availability and response timeline.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5278,2026-07-01,Volunteer Inquiry,Diesel,Hayden Miller,Condo,False,True,Some Experience,Checking on availability and response timeline.,Overdue,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5279,2026-06-27,Adoption Inquiry,Rosie,Kendall Miller,Condo,True,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,5,Missing Information,80,Request missing household and pet compatibility details.
-INQ-5280,2026-06-23,Adoption Inquiry,Clover,Taylor Clark,Condo,False,False,Experienced,Interested in learning more and next steps.,Overdue,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5281,2026-07-01,General Info,Baxter,Avery Wright,House with Yard,False,False,Some Experience,Checking on availability and response timeline.,Responded,0,Missing Information,52,Request missing household and pet compatibility details.
-INQ-5282,2026-06-28,Donation Question,Lola,Jordan Wright,Townhome,False,True,First-Time,Checking on availability and response timeline.,Overdue,3,Missing Information,58,Request missing household and pet compatibility details.
-INQ-5283,2026-07-03,Adoption Inquiry,Jasper,Skyler Young,Apartment,True,False,First-Time,We would like to help but need guidance.,New,0,Missing Information,60,Request missing household and pet compatibility details.
-INQ-5284,2026-06-29,Adoption Inquiry,Maple,Reese Nguyen,Townhome,False,False,Experienced,Checking on availability and response timeline.,New,2,Strong Match,78,Send application link and schedule screening call.
-INQ-5285,2026-07-01,Adoption Inquiry,Murphy,Reese Lewis,Condo,False,True,First-Time,Checking on availability and response timeline.,Escalated,2,Needs Follow-Up,74,Send targeted follow-up questions within 24 hours.
-INQ-5286,2026-06-25,Adoption Inquiry,Pearl,Jamie Patel,Rural Property,False,False,Some Experience,We would like to help but need guidance.,Responded,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5287,2026-06-27,General Info,Cooper,Morgan Scott,House with Yard,False,False,Rescue/Foster Experience,We would like to help but need guidance.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5288,2026-06-29,General Info,Benny,Taylor Wright,Apartment,True,True,First-Time,Interested in learning more and next steps.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5289,2026-06-28,Donation Question,June,Avery Patel,Townhome,True,True,Some Experience,Checking on availability and response timeline.,In Review,3,Needs Follow-Up,68,Send targeted follow-up questions within 24 hours.
-INQ-5290,2026-06-30,Adoption Inquiry,Comet,Riley King,Apartment,True,True,First-Time,Interested in learning more and next steps.,In Review,2,Needs Follow-Up,74,Send targeted follow-up questions within 24 hours.
-INQ-5291,2026-06-30,Medical Question,Ivy,Jordan Garcia,Townhome,True,True,First-Time,We would like to help but need guidance.,Responded,3,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5292,2026-07-02,General Info,Rocco,Morgan Johnson,Apartment,True,False,Rescue/Foster Experience,Checking on availability and response timeline.,In Review,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5293,2026-06-25,Adoption Inquiry,Frankie,Skyler Wright,Apartment,True,True,Some Experience,Looking for the best way to support the rescue.,Responded,7,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5294,2026-06-28,General Info,Lucky,Quinn Miller,House with Yard,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5295,2026-06-24,Donation Question,Cooper,Hayden Lewis,Condo,False,True,Some Experience,We would like to help but need guidance.,Escalated,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5296,2026-06-25,Volunteer Inquiry,Gus,Quinn King,Rural Property,False,False,Rescue/Foster Experience,Interested in learning more and next steps.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5297,2026-06-27,Volunteer Inquiry,Clover,Harper Brown,Condo,False,False,First-Time,Looking for the best way to support the rescue.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5298,2026-07-01,Foster Inquiry,Mia,Rowan Patel,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,In Review,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5299,2026-06-29,Volunteer Inquiry,Wally,Hayden Patel,Condo,True,True,Rescue/Foster Experience,We would like to help but need guidance.,Overdue,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5300,2026-06-30,Medical Question,Willow,Parker Wright,House with Yard,False,False,First-Time,Looking for the best way to support the rescue.,Responded,4,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5301,2026-07-03,Donation Question,Poppy,Hayden Clark,Condo,False,False,Some Experience,We would like to help but need guidance.,In Review,0,Strong Match,72,Send application link and schedule screening call.
-INQ-5302,2026-06-28,Medical Question,Benny,Parker King,Rural Property,False,True,Experienced,Interested in learning more and next steps.,New,3,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5303,2026-07-01,Volunteer Inquiry,Bonnie,Avery Allen,Townhome,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,3,Strong Match,78,Send application link and schedule screening call.
-INQ-5304,2026-06-20,Volunteer Inquiry,Tessa,Cameron Brown,Rural Property,True,False,Experienced,Looking for the best way to support the rescue.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5305,2026-06-22,Foster Inquiry,Phoebe,Jamie Patel,Apartment,True,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5306,2026-06-23,Adoption Inquiry,Otis,Riley Lewis,Condo,False,False,Some Experience,Interested in learning more and next steps.,Overdue,8,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5307,2026-06-24,Foster Inquiry,Buddy,Cameron Patel,Apartment,False,False,Experienced,We would like to help but need guidance.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5308,2026-06-26,Adoption Inquiry,Diesel,Emerson Garcia,Condo,False,False,Experienced,Can you tell me whether this dog may fit our home?,Overdue,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5309,2026-06-30,Medical Question,Jack,Morgan Allen,Apartment,False,True,Some Experience,We would like to help but need guidance.,In Review,2,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5310,2026-07-01,Medical Question,Rosie,Quinn Scott,Condo,False,False,Some Experience,We would like to help but need guidance.,Overdue,3,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5311,2026-07-03,Adoption Inquiry,Bruno,Parker Nguyen,House with Yard,False,False,First-Time,We would like to help but need guidance.,Overdue,1,Needs Follow-Up,70,Send targeted follow-up questions within 24 hours.
-INQ-5312,2026-06-24,Medical Question,Macy,Emerson Clark,Apartment,False,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,10,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5313,2026-06-30,Donation Question,Cleo,Harper Wright,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Responded,2,Missing Information,56,Request missing household and pet compatibility details.
-INQ-5314,2026-06-22,Adoption Inquiry,Penny,Emerson Patel,Townhome,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5315,2026-06-28,Adoption Inquiry,Buddy,Cameron Nguyen,Condo,False,True,Experienced,Interested in learning more and next steps.,Responded,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5316,2026-06-29,General Info,Clover,Avery Smith,Apartment,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5317,2026-06-23,Adoption Inquiry,Finn,Kendall Johnson,Rural Property,False,True,Some Experience,Checking on availability and response timeline.,Overdue,11,Strong Match,94,Send application link and schedule screening call.
-INQ-5318,2026-06-27,Foster Inquiry,Hazel,Jamie Wilson,Apartment,False,False,Some Experience,Checking on availability and response timeline.,Overdue,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5319,2026-06-23,Volunteer Inquiry,Biscuit,Quinn Smith,Townhome,False,False,Some Experience,Looking for the best way to support the rescue.,Responded,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5320,2026-06-24,Adoption Inquiry,Charlie,Riley Nguyen,Apartment,False,False,Some Experience,Interested in learning more and next steps.,Responded,8,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5321,2026-06-25,Surrender Request,Otis,Emerson Young,Condo,True,False,Some Experience,Looking for the best way to support the rescue.,Overdue,9,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5322,2026-06-20,Surrender Request,Chase,Morgan Nguyen,House with Yard,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,11,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5323,2026-06-23,Adoption Inquiry,Charlie,Rowan Scott,Apartment,False,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,10,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5324,2026-06-22,Surrender Request,Kona,Logan Brown,Apartment,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,9,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5325,2026-06-22,General Info,Otis,Skyler Johnson,House with Yard,False,False,Some Experience,Looking for the best way to support the rescue.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5326,2026-07-03,Adoption Inquiry,Toby,Avery Johnson,Apartment,False,False,Some Experience,We would like to help but need guidance.,Responded,0,Missing Information,60,Request missing household and pet compatibility details.
-INQ-5327,2026-06-29,Adoption Inquiry,Joy,Reese Brown,House with Yard,True,True,Some Experience,We would like to help but need guidance.,Overdue,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5328,2026-06-24,Donation Question,Rudy,Kendall Clark,Condo,True,True,Experienced,Looking for the best way to support the rescue.,Overdue,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5329,2026-06-22,Volunteer Inquiry,Nora,Quinn Brown,Condo,False,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5330,2026-06-27,Adoption Inquiry,Sasha,Parker Clark,House with Yard,False,False,Some Experience,We would like to help but need guidance.,Responded,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5331,2026-06-27,Adoption Inquiry,Atlas,Rowan Young,House with Yard,False,False,Experienced,Can you tell me whether this dog may fit our home?,Overdue,6,Strong Match,94,Send application link and schedule screening call.
-INQ-5332,2026-06-27,Foster Inquiry,Minnie,Jamie Garcia,Apartment,False,False,Some Experience,We would like to help but need guidance.,Overdue,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5333,2026-06-24,Surrender Request,Minnie,Finley Allen,Rural Property,False,False,Some Experience,We would like to help but need guidance.,Escalated,8,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5334,2026-07-01,Adoption Inquiry,Cash,Jordan Nguyen,Condo,False,False,Experienced,We would like to help but need guidance.,In Review,3,Strong Match,82,Send application link and schedule screening call.
-INQ-5335,2026-07-01,Adoption Inquiry,Zoe,Parker Lewis,Townhome,True,True,First-Time,We would like to help but need guidance.,Responded,1,Missing Information,64,Request missing household and pet compatibility details.
-INQ-5336,2026-06-23,Volunteer Inquiry,Tessa,Rowan Young,Rural Property,False,False,Experienced,We would like to help but need guidance.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5337,2026-06-28,Volunteer Inquiry,Otis,Drew Clark,Townhome,False,True,Some Experience,We would like to help but need guidance.,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5338,2026-06-30,Adoption Inquiry,Sophie,Jordan Lewis,House with Yard,False,False,Some Experience,We would like to help but need guidance.,Overdue,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5339,2026-06-27,Adoption Inquiry,Jack,Parker Clark,House with Yard,False,False,Experienced,Checking on availability and response timeline.,Overdue,5,Strong Match,90,Send application link and schedule screening call.
-INQ-5340,2026-06-21,Adoption Inquiry,Mia,Kendall King,Townhome,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5341,2026-06-25,Adoption Inquiry,Atlas,Quinn Young,Townhome,True,True,Experienced,We would like to help but need guidance.,Escalated,9,Strong Match,94,Send application link and schedule screening call.
-INQ-5342,2026-06-29,Adoption Inquiry,Wally,Casey Wilson,Condo,True,False,First-Time,We would like to help but need guidance.,Responded,4,Strong Match,86,Send application link and schedule screening call.
-INQ-5343,2026-06-30,Adoption Inquiry,Ivy,Drew Allen,House with Yard,False,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Overdue,4,Strong Match,86,Send application link and schedule screening call.
-INQ-5344,2026-06-22,Adoption Inquiry,Olive,Reese Clark,Townhome,False,False,Some Experience,We would like to help but need guidance.,Responded,10,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5345,2026-06-30,General Info,Molly,Drew Miller,Condo,False,True,First-Time,Looking for the best way to support the rescue.,Responded,3,Missing Information,58,Request missing household and pet compatibility details.
-INQ-5346,2026-06-23,Adoption Inquiry,Atlas,Finley Garcia,Condo,False,False,Some Experience,Interested in learning more and next steps.,Responded,10,Strong Match,94,Send application link and schedule screening call.
-INQ-5347,2026-06-25,Foster Inquiry,Cash,Reese Wright,Townhome,False,False,Experienced,Checking on availability and response timeline.,Escalated,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5348,2026-06-26,Surrender Request,Rocco,Cameron King,Rural Property,True,True,Some Experience,Checking on availability and response timeline.,Responded,8,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5349,2026-06-28,Surrender Request,June,Cameron Wright,Rural Property,False,False,Some Experience,Looking for the best way to support the rescue.,Responded,3,Urgent Human Review,87,Escalate to intake coordinator today.
-INQ-5350,2026-07-02,Foster Inquiry,Baxter,Morgan Patel,House with Yard,False,False,Experienced,Can you tell me whether this dog may fit our home?,In Review,0,Missing Information,52,Request missing household and pet compatibility details.
-INQ-5351,2026-06-25,Foster Inquiry,Kona,Harper Scott,Townhome,False,True,Experienced,Looking for the best way to support the rescue.,Responded,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5352,2026-06-30,Surrender Request,George,Finley Brown,Condo,True,False,Experienced,Looking for the best way to support the rescue.,Responded,2,Urgent Human Review,84,Escalate to intake coordinator today.
-INQ-5353,2026-06-21,Donation Question,Oakley,Riley Wilson,House with Yard,True,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5354,2026-06-30,Foster Inquiry,Birdie,Skyler Allen,Condo,True,True,Some Experience,Interested in learning more and next steps.,Overdue,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5355,2026-06-29,Foster Inquiry,Rocco,Jamie Davis,Condo,False,False,Some Experience,Checking on availability and response timeline.,Escalated,3,Strong Match,78,Send application link and schedule screening call.
-INQ-5356,2026-06-22,Adoption Inquiry,Kona,Quinn Scott,Townhome,True,False,First-Time,Looking for the best way to support the rescue.,Overdue,11,Strong Match,94,Send application link and schedule screening call.
-INQ-5357,2026-06-24,Volunteer Inquiry,Tessa,Riley Allen,Rural Property,True,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5358,2026-06-27,Volunteer Inquiry,Benny,Riley Allen,Condo,False,True,Some Experience,Checking on availability and response timeline.,Responded,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5359,2026-06-22,Adoption Inquiry,Jasper,Logan King,Condo,False,True,Some Experience,We would like to help but need guidance.,Overdue,10,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5360,2026-07-01,Volunteer Inquiry,Phoebe,Hayden Clark,House with Yard,True,False,Experienced,We would like to help but need guidance.,Overdue,2,Missing Information,56,Request missing household and pet compatibility details.
-INQ-5361,2026-06-22,Medical Question,Finn,Rowan Young,Rural Property,False,False,Some Experience,Interested in learning more and next steps.,Responded,9,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5362,2026-06-26,Volunteer Inquiry,Callie,Cameron Lewis,Condo,False,True,Experienced,Interested in learning more and next steps.,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5363,2026-07-02,Foster Inquiry,Beau,Harper Wilson,Townhome,True,True,Rescue/Foster Experience,We would like to help but need guidance.,In Review,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5364,2026-06-30,Medical Question,Toby,Rowan Nguyen,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Escalated,1,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5365,2026-06-20,Adoption Inquiry,Tessa,Parker Miller,Rural Property,False,True,Rescue/Foster Experience,Interested in learning more and next steps.,Responded,11,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5366,2026-06-24,Adoption Inquiry,Zoe,Skyler Miller,Condo,False,False,First-Time,Checking on availability and response timeline.,Responded,9,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5367,2026-06-26,Foster Inquiry,Oakley,Hayden Allen,Apartment,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5368,2026-06-21,Adoption Inquiry,Mia,Avery Lewis,Condo,True,True,Experienced,Interested in learning more and next steps.,Overdue,11,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5369,2026-06-27,Adoption Inquiry,Maisie,Jamie Johnson,Townhome,False,True,Some Experience,We would like to help but need guidance.,Responded,5,Missing Information,80,Request missing household and pet compatibility details.
-INQ-5370,2026-06-30,Foster Inquiry,Annie,Harper Garcia,House with Yard,False,True,Rescue/Foster Experience,Interested in learning more and next steps.,Escalated,4,Needs Follow-Up,80,Send targeted follow-up questions within 24 hours.
-INQ-5371,2026-06-26,Donation Question,Biscuit,Kendall Smith,Apartment,True,False,Experienced,Interested in learning more and next steps.,Overdue,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5372,2026-07-03,Foster Inquiry,Archie,Harper Davis,Apartment,True,False,Experienced,Looking for the best way to support the rescue.,In Review,1,Missing Information,54,Request missing household and pet compatibility details.
-INQ-5373,2026-06-24,General Info,Macy,Morgan Miller,Townhome,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5374,2026-06-24,Adoption Inquiry,June,Skyler Nguyen,Townhome,False,True,Some Experience,Interested in learning more and next steps.,Responded,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5375,2026-06-25,Adoption Inquiry,Beau,Rowan Clark,Rural Property,False,True,Some Experience,We would like to help but need guidance.,Overdue,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5376,2026-06-21,Foster Inquiry,Biscuit,Morgan Scott,Townhome,False,True,Experienced,Checking on availability and response timeline.,Overdue,10,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5377,2026-06-28,Adoption Inquiry,Callie,Jamie Smith,Condo,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,3,Missing Information,72,Request missing household and pet compatibility details.
-INQ-5378,2026-06-23,Adoption Inquiry,Blue,Jordan Lewis,Condo,False,True,First-Time,We would like to help but need guidance.,Responded,8,Needs Follow-Up,90,Send targeted follow-up questions within 24 hours.
-INQ-5379,2026-06-24,Surrender Request,Ivy,Quinn Patel,House with Yard,False,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,8,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5380,2026-06-26,Adoption Inquiry,Cash,Jamie Young,Rural Property,True,True,Some Experience,Checking on availability and response timeline.,Responded,5,Strong Match,90,Send application link and schedule screening call.
-INQ-5381,2026-06-21,Surrender Request,Ruby,Parker Miller,Condo,True,False,First-Time,Checking on availability and response timeline.,Responded,10,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5382,2026-06-25,Adoption Inquiry,Diesel,Skyler Patel,Rural Property,True,True,Experienced,Checking on availability and response timeline.,Overdue,7,Missing Information,84,Request missing household and pet compatibility details.
-INQ-5383,2026-06-25,Volunteer Inquiry,Summer,Skyler Wright,Townhome,False,False,First-Time,Can you tell me whether this dog may fit our home?,Responded,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5384,2026-06-28,Adoption Inquiry,Bonnie,Rowan Nguyen,Townhome,False,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,3,Not Ideal Fit,67,Route to adoption lead for careful human review.
-INQ-5385,2026-06-27,Donation Question,Pearl,Jamie Davis,Condo,True,True,Some Experience,Interested in learning more and next steps.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5386,2026-07-01,Adoption Inquiry,Annie,Avery Wright,Rural Property,False,False,Some Experience,We would like to help but need guidance.,Overdue,0,Missing Information,60,Request missing household and pet compatibility details.
-INQ-5387,2026-06-25,Surrender Request,Sam,Morgan Brown,House with Yard,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,8,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5388,2026-06-30,Adoption Inquiry,Cash,Casey Clark,Townhome,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,1,Strong Match,74,Send application link and schedule screening call.
-INQ-5389,2026-06-29,General Info,Tucker,Harper King,Apartment,False,False,First-Time,Checking on availability and response timeline.,Overdue,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5390,2026-06-25,Volunteer Inquiry,Tilly,Kendall Brown,Apartment,True,False,Rescue/Foster Experience,Checking on availability and response timeline.,Escalated,9,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5391,2026-06-27,Volunteer Inquiry,Joy,Hayden Miller,Condo,False,False,First-Time,Can you tell me whether this dog may fit our home?,Overdue,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5392,2026-06-30,Adoption Inquiry,Lola,Harper Lewis,House with Yard,False,False,Experienced,Can you tell me whether this dog may fit our home?,Escalated,2,Strong Match,78,Send application link and schedule screening call.
-INQ-5393,2026-07-02,Adoption Inquiry,Wally,Hayden Smith,House with Yard,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,2,Strong Match,78,Send application link and schedule screening call.
-INQ-5394,2026-06-21,General Info,Lola,Harper Clark,Apartment,False,False,Rescue/Foster Experience,Interested in learning more and next steps.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5395,2026-06-26,Foster Inquiry,Ellie,Jordan Patel,Apartment,True,True,First-Time,We would like to help but need guidance.,Overdue,6,Needs Follow-Up,86,Send targeted follow-up questions within 24 hours.
-INQ-5396,2026-06-25,Surrender Request,Ollie,Jamie Johnson,Townhome,False,True,Experienced,We would like to help but need guidance.,Overdue,7,Urgent Human Review,93,Escalate to intake coordinator today.
-INQ-5397,2026-06-23,General Info,Sophie,Taylor Scott,Apartment,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5398,2026-06-23,General Info,Remy,Riley Wilson,House with Yard,True,True,Some Experience,Checking on availability and response timeline.,Responded,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5399,2026-07-02,Adoption Inquiry,Archie,Rowan Nguyen,Townhome,True,False,Some Experience,Checking on availability and response timeline.,Responded,1,Missing Information,64,Request missing household and pet compatibility details.
-INQ-5400,2026-06-25,Adoption Inquiry,Sunny,Kendall Lewis,Rural Property,True,False,Some Experience,Checking on availability and response timeline.,Overdue,8,Not Ideal Fit,79,Route to adoption lead for careful human review.
-INQ-5401,2026-07-01,Medical Question,Georgia,Skyler King,Condo,False,True,Some Experience,Checking on availability and response timeline.,Responded,1,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5402,2026-06-27,Medical Question,Beau,Cameron Lewis,Townhome,False,False,Experienced,Checking on availability and response timeline.,Overdue,6,Medical/Safety Escalation,92,Route to rescue leadership and veterinary contact.
-INQ-5403,2026-07-03,General Info,Otis,Parker Garcia,Rural Property,True,True,Some Experience,Checking on availability and response timeline.,Overdue,0,Strong Match,72,Send application link and schedule screening call.
-INQ-5404,2026-07-03,Foster Inquiry,Gus,Morgan Allen,Rural Property,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,1,Missing Information,54,Request missing household and pet compatibility details.
-INQ-5405,2026-06-24,Foster Inquiry,June,Logan Smith,Condo,False,True,First-Time,Interested in learning more and next steps.,Overdue,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5406,2026-06-26,Volunteer Inquiry,Finn,Skyler Miller,Townhome,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5407,2026-07-02,Donation Question,Frankie,Drew Wright,Rural Property,False,True,Experienced,Interested in learning more and next steps.,Overdue,1,Needs Follow-Up,64,Send targeted follow-up questions within 24 hours.
-INQ-5408,2026-06-26,Foster Inquiry,Grace,Jamie Wright,Condo,True,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5409,2026-06-28,Volunteer Inquiry,Beau,Jordan Patel,Condo,False,True,First-Time,Looking for the best way to support the rescue.,Responded,5,Needs Follow-Up,83,Send targeted follow-up questions within 24 hours.
-INQ-5410,2026-06-30,Adoption Inquiry,Murphy,Kendall Johnson,House with Yard,False,True,Some Experience,Interested in learning more and next steps.,Responded,2,Missing Information,68,Request missing household and pet compatibility details.
-INQ-5411,2026-06-24,Volunteer Inquiry,Toby,Finley Allen,Townhome,True,False,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,8,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5412,2026-06-22,Foster Inquiry,Cooper,Finley Brown,Townhome,True,False,Experienced,Interested in learning more and next steps.,Overdue,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5413,2026-07-02,Donation Question,Rudy,Cameron Scott,Rural Property,False,False,First-Time,Looking for the best way to support the rescue.,Overdue,2,Needs Follow-Up,66,Send targeted follow-up questions within 24 hours.
-INQ-5414,2026-06-26,Volunteer Inquiry,Poppy,Jamie Scott,Townhome,True,True,First-Time,We would like to help but need guidance.,Overdue,7,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
-INQ-5415,2026-06-30,Donation Question,Joy,Cameron Clark,Condo,False,False,First-Time,Checking on availability and response timeline.,Responded,2,Strong Match,76,Send application link and schedule screening call.
-INQ-5416,2026-06-30,Adoption Inquiry,Violet,Morgan Smith,Rural Property,False,True,Experienced,Checking on availability and response timeline.,Responded,4,Missing Information,76,Request missing household and pet compatibility details.
-INQ-5417,2026-06-30,Foster Inquiry,Annie,Skyler King,Apartment,False,True,Experienced,Checking on availability and response timeline.,In Review,1,Strong Match,74,Send application link and schedule screening call.
-INQ-5418,2026-06-26,Adoption Inquiry,Scout,Cameron Nguyen,Condo,False,True,Experienced,Checking on availability and response timeline.,Responded,8,Strong Match,94,Send application link and schedule screening call.
-INQ-5419,2026-06-20,Foster Inquiry,Mabel,Harper Scott,Rural Property,False,True,Some Experience,Interested in learning more and next steps.,Escalated,11,Needs Follow-Up,88,Send targeted follow-up questions within 24 hours.
+inquiry_id,inquiry_date,inquiry_type,dog_name,applicant_name,household_type,has_children,has_other_pets,experience_level,message,response_status,days_waiting
+INQ-5000,2026-06-30,Donation Question,Kona,Taylor Wright,Apartment,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,2
+INQ-5001,2026-07-02,Donation Question,Phoebe,Quinn Smith,Condo,False,False,Experienced,We would like to help but need guidance.,Escalated,0
+INQ-5002,2026-07-03,Adoption Inquiry,Penny,Hayden Smith,House with Yard,True,True,Some Experience,Interested in learning more and next steps.,In Review,0
+INQ-5003,2026-06-30,Adoption Inquiry,Georgia,Quinn Davis,House with Yard,False,True,Experienced,Looking for the best way to support the rescue.,New,2
+INQ-5004,2026-06-26,Adoption Inquiry,Biscuit,Cameron Miller,Townhome,True,True,Some Experience,Looking for the best way to support the rescue.,Overdue,5
+INQ-5005,2026-07-02,Adoption Inquiry,Otis,Hayden Davis,Rural Property,False,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,In Review,1
+INQ-5006,2026-06-22,Adoption Inquiry,Tucker,Taylor Clark,House with Yard,False,False,First-Time,Looking for the best way to support the rescue.,Responded,9
+INQ-5007,2026-07-03,Adoption Inquiry,Kona,Hayden Wright,Townhome,False,True,Experienced,Interested in learning more and next steps.,In Review,0
+INQ-5008,2026-06-26,Foster Inquiry,Fiona,Morgan Brown,Townhome,True,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,6
+INQ-5009,2026-06-26,Adoption Inquiry,Maisie,Logan Young,House with Yard,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,5
+INQ-5010,2026-06-20,Adoption Inquiry,Tessa,Hayden Smith,Condo,False,False,First-Time,We would like to help but need guidance.,Overdue,11
+INQ-5011,2026-06-30,Volunteer Inquiry,Penny,Logan Miller,Apartment,False,True,First-Time,We would like to help but need guidance.,Overdue,4
+INQ-5012,2026-06-23,General Info,Blue,Skyler Miller,Condo,False,True,Experienced,Interested in learning more and next steps.,Escalated,8
+INQ-5013,2026-07-02,Volunteer Inquiry,Pearl,Jordan Wilson,Rural Property,True,False,Experienced,Looking for the best way to support the rescue.,New,1
+INQ-5014,2026-07-03,Adoption Inquiry,Nora,Jamie Allen,Townhome,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,0
+INQ-5015,2026-06-23,Donation Question,Maggie,Casey Clark,Townhome,True,True,Some Experience,Interested in learning more and next steps.,Overdue,10
+INQ-5016,2026-06-28,Surrender Request,Rory,Parker Brown,House with Yard,False,True,Experienced,Interested in learning more and next steps.,Escalated,3
+INQ-5017,2026-07-04,Donation Question,Beau,Reese King,Rural Property,True,True,Rescue/Foster Experience,We would like to help but need guidance.,New,0
+INQ-5018,2026-07-01,Volunteer Inquiry,Bruno,Logan Brown,House with Yard,False,False,Some Experience,Checking on availability and response timeline.,In Review,3
+INQ-5019,2026-06-27,Foster Inquiry,Benny,Morgan Johnson,Condo,True,True,First-Time,Looking for the best way to support the rescue.,Overdue,4
+INQ-5020,2026-06-22,Surrender Request,Mia,Casey Clark,Rural Property,False,False,First-Time,We would like to help but need guidance.,Responded,10
+INQ-5021,2026-06-21,General Info,Joy,Avery Clark,Condo,True,False,First-Time,Interested in learning more and next steps.,Overdue,10
+INQ-5022,2026-06-27,Donation Question,Grace,Cameron Miller,Rural Property,True,False,Some Experience,We would like to help but need guidance.,Overdue,4
+INQ-5023,2026-06-24,Foster Inquiry,Cash,Harper Garcia,Rural Property,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,7
+INQ-5024,2026-06-22,Adoption Inquiry,Rudy,Kendall Allen,Townhome,False,True,Some Experience,We would like to help but need guidance.,Overdue,11
+INQ-5025,2026-06-26,Adoption Inquiry,Comet,Harper Wright,Apartment,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,6
+INQ-5026,2026-06-26,Adoption Inquiry,Blue,Jordan Garcia,Rural Property,False,False,Experienced,Checking on availability and response timeline.,Overdue,8
+INQ-5027,2026-06-29,Adoption Inquiry,Ivy,Logan King,Rural Property,False,True,Experienced,Interested in learning more and next steps.,Overdue,2
+INQ-5028,2026-06-23,Foster Inquiry,Dexter,Casey Davis,House with Yard,False,False,Experienced,Checking on availability and response timeline.,Overdue,10
+INQ-5029,2026-06-22,Adoption Inquiry,Molly,Riley Patel,House with Yard,False,True,Experienced,Looking for the best way to support the rescue.,Responded,10
+INQ-5030,2026-06-26,Donation Question,Pearl,Morgan Patel,Rural Property,False,True,Some Experience,We would like to help but need guidance.,Overdue,7
+INQ-5031,2026-06-24,Foster Inquiry,Dexter,Jamie Wilson,Apartment,False,False,Experienced,Looking for the best way to support the rescue.,Escalated,8
+INQ-5032,2026-07-03,Surrender Request,Chase,Reese Scott,Condo,True,True,Experienced,Checking on availability and response timeline.,Responded,0
+INQ-5033,2026-06-27,Adoption Inquiry,Lucky,Taylor Smith,Condo,False,False,Experienced,Can you tell me whether this dog may fit our home?,Overdue,4
+INQ-5034,2026-06-29,Foster Inquiry,Blue,Parker Clark,House with Yard,False,False,Some Experience,We would like to help but need guidance.,In Review,2
+INQ-5035,2026-07-01,Donation Question,Violet,Morgan Young,Rural Property,False,True,Some Experience,Interested in learning more and next steps.,Escalated,1
+INQ-5036,2026-06-30,Volunteer Inquiry,Honey,Riley Clark,Condo,True,True,First-Time,Checking on availability and response timeline.,Responded,4
+INQ-5037,2026-06-30,Surrender Request,Milo,Emerson Allen,Townhome,True,True,Some Experience,Can you tell me whether this dog may fit our home?,In Review,1
+INQ-5038,2026-06-26,Foster Inquiry,Finn,Jamie Miller,House with Yard,False,True,First-Time,Checking on availability and response timeline.,Escalated,8
+INQ-5039,2026-06-28,Volunteer Inquiry,Cookie,Emerson Wilson,House with Yard,True,True,Some Experience,Checking on availability and response timeline.,Responded,6
+INQ-5040,2026-06-23,Medical Question,Theo,Drew Young,House with Yard,False,True,Some Experience,Interested in learning more and next steps.,Responded,11
+INQ-5041,2026-06-27,Volunteer Inquiry,Boomer,Drew Smith,House with Yard,True,False,Some Experience,We would like to help but need guidance.,Responded,4
+INQ-5042,2026-06-24,Adoption Inquiry,Sadie,Emerson Wilson,Apartment,True,False,First-Time,We would like to help but need guidance.,Escalated,7
+INQ-5043,2026-06-29,Adoption Inquiry,Lucky,Reese Nguyen,Townhome,False,False,Experienced,Checking on availability and response timeline.,Overdue,4
+INQ-5044,2026-06-26,Foster Inquiry,June,Casey Scott,Apartment,False,False,First-Time,Looking for the best way to support the rescue.,Overdue,7
+INQ-5045,2026-06-30,Foster Inquiry,Chase,Logan Scott,House with Yard,False,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Escalated,4
+INQ-5046,2026-07-01,Adoption Inquiry,Tessa,Morgan Wright,Rural Property,False,False,First-Time,Can you tell me whether this dog may fit our home?,Responded,3
+INQ-5047,2026-06-21,Adoption Inquiry,George,Parker Young,Rural Property,False,True,Experienced,Checking on availability and response timeline.,Overdue,10
+INQ-5048,2026-06-27,Adoption Inquiry,Rosie,Reese Smith,Rural Property,True,True,Some Experience,Checking on availability and response timeline.,Overdue,6
+INQ-5049,2026-07-01,Volunteer Inquiry,Diesel,Jamie Garcia,Townhome,True,True,Experienced,Checking on availability and response timeline.,Overdue,0
+INQ-5050,2026-06-22,Volunteer Inquiry,George,Avery Wright,Rural Property,True,True,Experienced,Interested in learning more and next steps.,Overdue,11
+INQ-5051,2026-06-25,Foster Inquiry,Joy,Kendall Smith,Townhome,False,True,Rescue/Foster Experience,Interested in learning more and next steps.,Overdue,8
+INQ-5052,2026-06-24,Surrender Request,Diesel,Drew Clark,House with Yard,False,False,Some Experience,We would like to help but need guidance.,Responded,10
+INQ-5053,2026-06-29,General Info,Boomer,Jamie Garcia,Rural Property,False,False,Some Experience,Checking on availability and response timeline.,New,3
+INQ-5054,2026-07-02,Surrender Request,Cookie,Kendall Garcia,House with Yard,False,False,Experienced,Can you tell me whether this dog may fit our home?,Responded,1
+INQ-5055,2026-06-28,Adoption Inquiry,Frankie,Finley Allen,Townhome,False,True,First-Time,Interested in learning more and next steps.,Overdue,6
+INQ-5056,2026-06-24,Volunteer Inquiry,Summer,Jamie King,Condo,True,True,Some Experience,Checking on availability and response timeline.,Responded,9
+INQ-5057,2026-07-01,Adoption Inquiry,Penny,Avery Scott,Apartment,True,True,Some Experience,We would like to help but need guidance.,Escalated,0
+INQ-5058,2026-06-26,Volunteer Inquiry,Murphy,Emerson Wilson,Apartment,False,True,Experienced,Interested in learning more and next steps.,Overdue,8
+INQ-5059,2026-06-26,Donation Question,Joy,Reese Young,Apartment,False,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,7
+INQ-5060,2026-06-29,Adoption Inquiry,Sasha,Rowan Wilson,House with Yard,False,True,Experienced,Checking on availability and response timeline.,Responded,3
+INQ-5061,2026-06-25,Volunteer Inquiry,Luna,Finley Lewis,Apartment,True,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,6
+INQ-5062,2026-06-26,Foster Inquiry,Finn,Emerson Allen,Apartment,False,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,8
+INQ-5063,2026-06-24,Surrender Request,Boomer,Riley Scott,Rural Property,False,True,Some Experience,Interested in learning more and next steps.,Overdue,7
+INQ-5064,2026-06-29,Adoption Inquiry,Finn,Cameron Davis,Condo,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,2
+INQ-5065,2026-07-03,Volunteer Inquiry,Mia,Reese Johnson,Townhome,False,False,Experienced,We would like to help but need guidance.,Responded,0
+INQ-5066,2026-06-28,Donation Question,Fiona,Parker Brown,Rural Property,True,True,First-Time,Looking for the best way to support the rescue.,Overdue,6
+INQ-5067,2026-06-30,Adoption Inquiry,Toby,Kendall Johnson,Condo,True,True,Experienced,Looking for the best way to support the rescue.,Responded,3
+INQ-5068,2026-06-22,Surrender Request,Diesel,Morgan Miller,Condo,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,9
+INQ-5069,2026-06-24,Adoption Inquiry,Nala,Emerson King,Apartment,False,True,Some Experience,Interested in learning more and next steps.,Overdue,7
+INQ-5070,2026-06-24,Adoption Inquiry,Dexter,Jamie Smith,Condo,False,False,Experienced,Can you tell me whether this dog may fit our home?,Escalated,7
+INQ-5071,2026-07-02,General Info,Buddy,Drew Wright,Townhome,False,True,Some Experience,Checking on availability and response timeline.,New,1
+INQ-5072,2026-07-01,Adoption Inquiry,Sophie,Taylor Johnson,Rural Property,False,True,Some Experience,We would like to help but need guidance.,Escalated,1
+INQ-5073,2026-07-01,Foster Inquiry,Rex,Quinn Patel,Apartment,True,False,Experienced,Checking on availability and response timeline.,Overdue,3
+INQ-5074,2026-06-22,Medical Question,Nora,Emerson Scott,Rural Property,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,10
+INQ-5075,2026-06-26,General Info,Lola,Morgan King,Condo,False,False,Experienced,Can you tell me whether this dog may fit our home?,Responded,5
+INQ-5076,2026-06-24,Foster Inquiry,Baxter,Taylor Young,Townhome,False,False,Experienced,Checking on availability and response timeline.,Responded,8
+INQ-5077,2026-06-27,Medical Question,Cooper,Cameron Young,Rural Property,False,False,Some Experience,We would like to help but need guidance.,Responded,7
+INQ-5078,2026-06-30,Adoption Inquiry,Maisie,Cameron Wilson,Townhome,True,False,First-Time,We would like to help but need guidance.,Responded,2
+INQ-5079,2026-06-27,Surrender Request,Diesel,Emerson Nguyen,Apartment,True,False,Experienced,Interested in learning more and next steps.,Responded,5
+INQ-5080,2026-07-01,Donation Question,Annie,Casey Patel,Townhome,False,True,Experienced,Interested in learning more and next steps.,In Review,2
+INQ-5081,2026-06-29,Donation Question,Diesel,Finley King,Apartment,False,True,Experienced,Can you tell me whether this dog may fit our home?,In Review,3
+INQ-5082,2026-06-30,Adoption Inquiry,Joy,Cameron Brown,House with Yard,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,2
+INQ-5083,2026-06-30,Foster Inquiry,Jasper,Finley Young,Condo,True,True,First-Time,Checking on availability and response timeline.,In Review,2
+INQ-5084,2026-06-29,General Info,Benny,Jordan Garcia,Condo,False,True,First-Time,We would like to help but need guidance.,Overdue,3
+INQ-5085,2026-06-26,Surrender Request,Cooper,Morgan Wilson,Townhome,False,True,First-Time,Can you tell me whether this dog may fit our home?,Escalated,7
+INQ-5086,2026-06-21,Adoption Inquiry,Boomer,Harper King,Townhome,False,True,Rescue/Foster Experience,Interested in learning more and next steps.,Overdue,10
+INQ-5087,2026-07-01,Foster Inquiry,Baxter,Casey Davis,House with Yard,False,False,Experienced,We would like to help but need guidance.,In Review,0
+INQ-5088,2026-07-02,Adoption Inquiry,Cash,Jamie Scott,Condo,False,False,Rescue/Foster Experience,We would like to help but need guidance.,Responded,0
+INQ-5089,2026-06-26,Adoption Inquiry,Maisie,Cameron Patel,House with Yard,False,True,Some Experience,We would like to help but need guidance.,Overdue,7
+INQ-5090,2026-06-26,Donation Question,Millie,Taylor Miller,Apartment,True,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,6
+INQ-5091,2026-06-30,Volunteer Inquiry,Minnie,Jordan Young,Apartment,False,False,Some Experience,We would like to help but need guidance.,Overdue,4
+INQ-5092,2026-06-28,General Info,Violet,Taylor Brown,Apartment,False,False,Some Experience,Checking on availability and response timeline.,Responded,6
+INQ-5093,2026-06-25,Donation Question,Cooper,Jordan Allen,Condo,True,True,First-Time,Checking on availability and response timeline.,Escalated,9
+INQ-5094,2026-07-01,Donation Question,Dexter,Quinn Clark,House with Yard,False,True,Some Experience,Looking for the best way to support the rescue.,Escalated,1
+INQ-5095,2026-06-27,Adoption Inquiry,Gus,Harper Allen,Apartment,False,False,Some Experience,Checking on availability and response timeline.,Responded,4
+INQ-5096,2026-07-01,Volunteer Inquiry,Sam,Casey King,House with Yard,True,False,Some Experience,Can you tell me whether this dog may fit our home?,In Review,1
+INQ-5097,2026-06-28,Foster Inquiry,Sadie,Taylor Scott,Condo,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Responded,4
+INQ-5098,2026-06-26,Foster Inquiry,Boomer,Jamie Patel,Apartment,False,False,Experienced,Interested in learning more and next steps.,Overdue,7
+INQ-5099,2026-06-29,Foster Inquiry,Sadie,Parker Lewis,House with Yard,False,True,Experienced,Checking on availability and response timeline.,Overdue,5
+INQ-5100,2026-06-29,Adoption Inquiry,Biscuit,Kendall Wright,Apartment,False,False,First-Time,Looking for the best way to support the rescue.,Escalated,4
+INQ-5101,2026-06-26,Adoption Inquiry,Bella,Jamie Davis,Apartment,True,False,Some Experience,Looking for the best way to support the rescue.,Overdue,7
+INQ-5102,2026-06-27,Medical Question,Nora,Parker Allen,Townhome,False,False,Experienced,Checking on availability and response timeline.,Responded,6
+INQ-5103,2026-06-30,Surrender Request,Maple,Morgan Wright,House with Yard,False,True,Some Experience,We would like to help but need guidance.,Responded,1
+INQ-5104,2026-06-23,Adoption Inquiry,Hazel,Logan Scott,Apartment,False,True,Experienced,Checking on availability and response timeline.,Overdue,10
+INQ-5105,2026-06-23,Adoption Inquiry,Bonnie,Jordan Miller,Townhome,True,False,First-Time,Interested in learning more and next steps.,Responded,11
+INQ-5106,2026-06-23,Foster Inquiry,Kona,Casey Young,House with Yard,True,False,Some Experience,We would like to help but need guidance.,Overdue,11
+INQ-5107,2026-07-01,General Info,Marley,Jamie Patel,Apartment,False,False,Some Experience,Looking for the best way to support the rescue.,In Review,3
+INQ-5108,2026-06-27,General Info,Summer,Taylor Wright,House with Yard,False,True,First-Time,Interested in learning more and next steps.,Overdue,7
+INQ-5109,2026-07-01,Volunteer Inquiry,Theo,Taylor Scott,Rural Property,True,True,Some Experience,Can you tell me whether this dog may fit our home?,New,1
+INQ-5110,2026-06-24,Foster Inquiry,Archie,Cameron Miller,Apartment,False,False,Experienced,Checking on availability and response timeline.,Overdue,9
+INQ-5111,2026-07-01,Foster Inquiry,Summer,Rowan Wilson,Condo,True,True,Experienced,Looking for the best way to support the rescue.,New,3
+INQ-5112,2026-07-03,Foster Inquiry,June,Skyler Miller,House with Yard,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Responded,0
+INQ-5113,2026-06-25,Donation Question,Maple,Harper Davis,Rural Property,True,True,First-Time,Checking on availability and response timeline.,Responded,8
+INQ-5114,2026-06-22,Foster Inquiry,Sam,Rowan Lewis,Rural Property,True,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,11
+INQ-5115,2026-06-24,General Info,Wally,Harper Garcia,House with Yard,False,True,Some Experience,We would like to help but need guidance.,Overdue,9
+INQ-5116,2026-06-23,Foster Inquiry,George,Emerson Garcia,Condo,False,True,First-Time,Interested in learning more and next steps.,Overdue,8
+INQ-5117,2026-06-22,Adoption Inquiry,Ranger,Quinn Brown,Rural Property,False,True,Some Experience,We would like to help but need guidance.,Responded,10
+INQ-5118,2026-07-01,Foster Inquiry,Louie,Avery Scott,Apartment,False,True,Some Experience,Interested in learning more and next steps.,New,2
+INQ-5119,2026-07-01,Medical Question,Phoebe,Finley King,Rural Property,True,True,Experienced,Checking on availability and response timeline.,Responded,2
+INQ-5120,2026-06-25,Foster Inquiry,Maggie,Hayden Clark,Apartment,True,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,7
+INQ-5121,2026-06-23,Foster Inquiry,Bella,Riley Miller,Condo,False,True,Experienced,Checking on availability and response timeline.,Responded,9
+INQ-5122,2026-06-23,Volunteer Inquiry,Maisie,Morgan Patel,Rural Property,False,True,First-Time,We would like to help but need guidance.,Overdue,9
+INQ-5123,2026-06-26,Medical Question,Charlie,Rowan Patel,Rural Property,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,5
+INQ-5124,2026-06-29,Medical Question,Rory,Logan Scott,Rural Property,True,True,Experienced,We would like to help but need guidance.,Overdue,5
+INQ-5125,2026-06-21,Foster Inquiry,Mabel,Parker Wright,Condo,False,True,First-Time,Interested in learning more and next steps.,Overdue,10
+INQ-5126,2026-07-02,Volunteer Inquiry,Buddy,Rowan Young,Apartment,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,1
+INQ-5127,2026-06-26,Adoption Inquiry,Ivy,Quinn Wright,Condo,True,True,Experienced,Looking for the best way to support the rescue.,Responded,5
+INQ-5128,2026-06-22,Adoption Inquiry,Mabel,Finley Miller,Condo,False,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,10
+INQ-5129,2026-06-27,Medical Question,Cleo,Finley Young,Apartment,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,6
+INQ-5130,2026-06-21,General Info,Rudy,Kendall Young,House with Yard,True,True,First-Time,Looking for the best way to support the rescue.,Responded,11
+INQ-5131,2026-06-30,General Info,Otis,Morgan Patel,Townhome,False,True,Rescue/Foster Experience,Interested in learning more and next steps.,In Review,2
+INQ-5132,2026-07-02,Adoption Inquiry,Blue,Emerson Lewis,Apartment,True,False,Experienced,We would like to help but need guidance.,In Review,2
+INQ-5133,2026-06-29,Surrender Request,Joy,Emerson Johnson,Townhome,False,True,First-Time,Checking on availability and response timeline.,Responded,3
+INQ-5134,2026-06-28,Adoption Inquiry,Fiona,Riley Wilson,Townhome,False,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,6
+INQ-5135,2026-06-25,Adoption Inquiry,Ellie,Finley Allen,Condo,False,False,Experienced,Checking on availability and response timeline.,Overdue,7
+INQ-5136,2026-06-30,Foster Inquiry,Rosie,Finley Smith,Condo,False,False,Experienced,Looking for the best way to support the rescue.,Responded,2
+INQ-5137,2026-06-20,Volunteer Inquiry,Pearl,Casey Scott,Townhome,False,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,11
+INQ-5138,2026-07-03,Foster Inquiry,Wally,Kendall Wright,Townhome,True,True,Experienced,We would like to help but need guidance.,Overdue,0
+INQ-5139,2026-06-21,Adoption Inquiry,Maple,Jordan Scott,Rural Property,True,False,Experienced,Interested in learning more and next steps.,Responded,10
+INQ-5140,2026-06-30,Foster Inquiry,Clover,Reese Clark,Condo,False,False,Some Experience,Interested in learning more and next steps.,Overdue,4
+INQ-5141,2026-06-25,Volunteer Inquiry,Toby,Rowan King,Townhome,False,True,Some Experience,Checking on availability and response timeline.,Overdue,7
+INQ-5142,2026-06-24,Foster Inquiry,Pearl,Logan Nguyen,Rural Property,True,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,10
+INQ-5143,2026-07-03,Adoption Inquiry,Lucky,Riley Wright,Rural Property,False,False,Some Experience,Can you tell me whether this dog may fit our home?,New,0
+INQ-5144,2026-07-01,Donation Question,Rocco,Rowan Patel,House with Yard,True,True,Experienced,We would like to help but need guidance.,Responded,2
+INQ-5145,2026-06-27,General Info,Beau,Drew Allen,Condo,False,False,First-Time,Checking on availability and response timeline.,Overdue,5
+INQ-5146,2026-06-27,Adoption Inquiry,Tilly,Reese Young,Condo,False,True,First-Time,Looking for the best way to support the rescue.,Overdue,5
+INQ-5147,2026-06-20,Volunteer Inquiry,Bonnie,Skyler Allen,Townhome,False,True,Some Experience,Interested in learning more and next steps.,Overdue,11
+INQ-5148,2026-06-23,Adoption Inquiry,Maisie,Harper Patel,House with Yard,False,True,Experienced,Checking on availability and response timeline.,Responded,10
+INQ-5149,2026-06-29,Adoption Inquiry,Marley,Cameron Smith,Apartment,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,2
+INQ-5150,2026-07-01,Adoption Inquiry,Nala,Rowan Brown,Apartment,False,False,Rescue/Foster Experience,Interested in learning more and next steps.,In Review,2
+INQ-5151,2026-07-04,Donation Question,Hazel,Parker Davis,Apartment,False,True,First-Time,We would like to help but need guidance.,Responded,0
+INQ-5152,2026-06-23,Adoption Inquiry,Rocco,Jamie Wilson,Apartment,True,True,Rescue/Foster Experience,We would like to help but need guidance.,Responded,11
+INQ-5153,2026-06-27,Adoption Inquiry,Gus,Jordan Lewis,Rural Property,False,False,Experienced,Can you tell me whether this dog may fit our home?,Overdue,6
+INQ-5154,2026-06-27,Foster Inquiry,Remy,Jordan Lewis,House with Yard,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,4
+INQ-5155,2026-06-29,Volunteer Inquiry,Toby,Parker Johnson,Townhome,True,True,Experienced,Interested in learning more and next steps.,Escalated,3
+INQ-5156,2026-06-27,Foster Inquiry,Otis,Hayden Clark,Apartment,False,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,4
+INQ-5157,2026-06-27,Volunteer Inquiry,Annie,Morgan Garcia,House with Yard,False,False,Some Experience,Interested in learning more and next steps.,Responded,4
+INQ-5158,2026-06-24,Volunteer Inquiry,Rex,Cameron Patel,Rural Property,False,True,First-Time,Checking on availability and response timeline.,Responded,9
+INQ-5159,2026-06-21,Volunteer Inquiry,Diesel,Kendall Nguyen,Condo,False,True,Experienced,We would like to help but need guidance.,Responded,10
+INQ-5160,2026-06-30,Volunteer Inquiry,Rory,Riley Patel,Condo,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,4
+INQ-5161,2026-06-21,Volunteer Inquiry,Maisie,Taylor Davis,Rural Property,True,False,Experienced,Checking on availability and response timeline.,Overdue,10
+INQ-5162,2026-06-23,Adoption Inquiry,Rosie,Skyler Wilson,Rural Property,False,True,Some Experience,Checking on availability and response timeline.,Escalated,9
+INQ-5163,2026-06-24,Donation Question,Sunny,Casey Lewis,Apartment,False,False,Some Experience,Checking on availability and response timeline.,Overdue,7
+INQ-5164,2026-06-24,Adoption Inquiry,Macy,Avery Garcia,Rural Property,False,True,First-Time,Checking on availability and response timeline.,Responded,8
+INQ-5165,2026-06-28,Foster Inquiry,Murphy,Quinn Smith,Rural Property,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,5
+INQ-5166,2026-06-30,Adoption Inquiry,Callie,Taylor Patel,House with Yard,True,True,First-Time,Checking on availability and response timeline.,Responded,3
+INQ-5167,2026-06-29,Adoption Inquiry,Summer,Kendall Patel,Townhome,True,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,5
+INQ-5168,2026-06-26,Foster Inquiry,Bonnie,Quinn Brown,House with Yard,True,True,First-Time,Looking for the best way to support the rescue.,Responded,8
+INQ-5169,2026-06-22,Adoption Inquiry,Poppy,Jordan Scott,Apartment,True,False,Some Experience,Checking on availability and response timeline.,Overdue,11
+INQ-5170,2026-06-28,Adoption Inquiry,George,Taylor Miller,Apartment,False,True,First-Time,We would like to help but need guidance.,Overdue,6
+INQ-5171,2026-07-01,Donation Question,Murphy,Finley Lewis,Apartment,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,3
+INQ-5172,2026-06-25,Foster Inquiry,Honey,Cameron Allen,Townhome,False,False,Experienced,Checking on availability and response timeline.,Responded,9
+INQ-5173,2026-06-23,Donation Question,Hazel,Jamie Scott,House with Yard,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,8
+INQ-5174,2026-07-02,Volunteer Inquiry,Sasha,Cameron Miller,Condo,False,True,First-Time,Checking on availability and response timeline.,In Review,2
+INQ-5175,2026-07-02,Foster Inquiry,Charlie,Jordan Scott,Condo,True,True,First-Time,Interested in learning more and next steps.,Escalated,2
+INQ-5176,2026-06-26,Medical Question,Ember,Riley King,Rural Property,False,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Overdue,7
+INQ-5177,2026-06-20,Surrender Request,Moose,Harper Lewis,Condo,True,False,Some Experience,Interested in learning more and next steps.,Responded,11
+INQ-5178,2026-06-25,Adoption Inquiry,Archie,Quinn Patel,Apartment,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,6
+INQ-5179,2026-07-03,Medical Question,Nora,Riley Lewis,Condo,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,1
+INQ-5180,2026-06-27,Foster Inquiry,Bruno,Reese Nguyen,Townhome,False,False,Some Experience,Interested in learning more and next steps.,Responded,4
+INQ-5181,2026-07-01,Adoption Inquiry,Archie,Rowan Scott,House with Yard,False,True,Some Experience,Interested in learning more and next steps.,In Review,3
+INQ-5182,2026-07-02,Foster Inquiry,Violet,Taylor Johnson,House with Yard,True,True,Some Experience,Checking on availability and response timeline.,Responded,0
+INQ-5183,2026-06-26,Volunteer Inquiry,Gus,Emerson Clark,Apartment,False,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,6
+INQ-5184,2026-07-01,Volunteer Inquiry,Willow,Harper Wilson,Apartment,False,True,First-Time,Interested in learning more and next steps.,Responded,1
+INQ-5185,2026-06-25,Foster Inquiry,Ivy,Hayden Allen,Apartment,False,False,First-Time,Can you tell me whether this dog may fit our home?,Overdue,7
+INQ-5186,2026-06-22,General Info,Nala,Avery Allen,Condo,False,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,11
+INQ-5187,2026-06-29,Adoption Inquiry,Rocco,Morgan King,Rural Property,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,4
+INQ-5188,2026-06-26,Adoption Inquiry,Archie,Skyler King,Townhome,False,False,Rescue/Foster Experience,Interested in learning more and next steps.,Overdue,7
+INQ-5189,2026-06-27,Adoption Inquiry,Hank,Finley Lewis,Rural Property,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,6
+INQ-5190,2026-06-21,Foster Inquiry,Blue,Morgan Clark,Townhome,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Overdue,11
+INQ-5191,2026-06-22,Foster Inquiry,Annie,Taylor Scott,House with Yard,True,False,Experienced,Can you tell me whether this dog may fit our home?,Escalated,9
+INQ-5192,2026-06-27,General Info,Ivy,Drew Smith,Condo,True,True,Experienced,Looking for the best way to support the rescue.,Responded,7
+INQ-5193,2026-07-02,Adoption Inquiry,Tucker,Morgan Johnson,Townhome,False,False,Some Experience,Interested in learning more and next steps.,Responded,1
+INQ-5194,2026-06-30,Medical Question,Tucker,Emerson Wright,House with Yard,True,False,Some Experience,Interested in learning more and next steps.,In Review,1
+INQ-5195,2026-06-29,Volunteer Inquiry,Ellie,Finley Miller,Apartment,True,False,Some Experience,Looking for the best way to support the rescue.,Overdue,3
+INQ-5196,2026-07-02,Adoption Inquiry,Ranger,Casey Davis,Apartment,False,True,Experienced,Interested in learning more and next steps.,Overdue,2
+INQ-5197,2026-06-27,Volunteer Inquiry,Rory,Riley King,Apartment,True,False,Experienced,Checking on availability and response timeline.,Overdue,7
+INQ-5198,2026-06-22,Surrender Request,Penny,Jamie Smith,Townhome,True,False,Experienced,Interested in learning more and next steps.,Responded,11
+INQ-5199,2026-07-01,Foster Inquiry,Sadie,Cameron Patel,Townhome,True,False,First-Time,Looking for the best way to support the rescue.,Overdue,3
+INQ-5200,2026-06-25,Adoption Inquiry,Gus,Finley Wright,Townhome,False,False,First-Time,Interested in learning more and next steps.,Overdue,7
+INQ-5201,2026-07-03,Volunteer Inquiry,Penny,Reese Wilson,Rural Property,True,False,Some Experience,Checking on availability and response timeline.,Responded,0
+INQ-5202,2026-06-30,General Info,Luna,Rowan Davis,Apartment,True,True,Experienced,We would like to help but need guidance.,In Review,3
+INQ-5203,2026-06-25,Volunteer Inquiry,Remy,Casey Garcia,Townhome,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,9
+INQ-5204,2026-07-03,Foster Inquiry,Louie,Casey Smith,House with Yard,True,True,Rescue/Foster Experience,We would like to help but need guidance.,In Review,1
+INQ-5205,2026-06-21,General Info,Minnie,Reese Young,Rural Property,True,False,Experienced,Checking on availability and response timeline.,Responded,10
+INQ-5206,2026-07-02,Volunteer Inquiry,Rex,Logan Clark,Townhome,True,True,First-Time,Looking for the best way to support the rescue.,In Review,2
+INQ-5207,2026-07-02,Adoption Inquiry,Lucky,Riley Brown,Apartment,False,True,First-Time,Interested in learning more and next steps.,Overdue,0
+INQ-5208,2026-06-27,Donation Question,Clover,Hayden Davis,Rural Property,False,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,7
+INQ-5209,2026-06-26,Foster Inquiry,Callie,Harper Allen,House with Yard,False,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,5
+INQ-5210,2026-06-25,Surrender Request,Callie,Quinn Davis,Condo,False,False,Experienced,We would like to help but need guidance.,Responded,6
+INQ-5211,2026-06-26,Volunteer Inquiry,Nala,Kendall Allen,House with Yard,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,5
+INQ-5212,2026-07-02,Adoption Inquiry,Willow,Harper King,Rural Property,False,True,Some Experience,We would like to help but need guidance.,In Review,2
+INQ-5213,2026-07-03,Volunteer Inquiry,Charlie,Riley Scott,Condo,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,1
+INQ-5214,2026-06-27,Adoption Inquiry,Rex,Finley Lewis,Condo,True,True,First-Time,Checking on availability and response timeline.,Responded,4
+INQ-5215,2026-06-22,Adoption Inquiry,Knox,Kendall Garcia,Apartment,False,True,First-Time,Checking on availability and response timeline.,Responded,11
+INQ-5216,2026-06-27,Volunteer Inquiry,Molly,Taylor Scott,Apartment,False,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,7
+INQ-5217,2026-07-01,Adoption Inquiry,Phoebe,Jamie Patel,Condo,True,False,Some Experience,Looking for the best way to support the rescue.,Responded,2
+INQ-5218,2026-06-23,Volunteer Inquiry,Rocco,Jordan Nguyen,Apartment,False,True,Experienced,Checking on availability and response timeline.,Overdue,11
+INQ-5219,2026-07-03,Volunteer Inquiry,Clover,Reese King,Rural Property,False,True,First-Time,Checking on availability and response timeline.,Overdue,1
+INQ-5220,2026-06-23,Donation Question,Marley,Reese Allen,Apartment,False,True,Some Experience,Checking on availability and response timeline.,Responded,11
+INQ-5221,2026-06-30,Adoption Inquiry,Honey,Reese King,House with Yard,False,False,Some Experience,Checking on availability and response timeline.,Responded,1
+INQ-5222,2026-06-25,Foster Inquiry,Milo,Avery Allen,Rural Property,True,True,Experienced,Interested in learning more and next steps.,Overdue,6
+INQ-5223,2026-06-25,Foster Inquiry,Summer,Logan Johnson,Rural Property,False,False,Rescue/Foster Experience,Interested in learning more and next steps.,Overdue,8
+INQ-5224,2026-07-01,Foster Inquiry,Fiona,Cameron King,Apartment,True,True,First-Time,Looking for the best way to support the rescue.,Overdue,1
+INQ-5225,2026-06-24,Foster Inquiry,Diesel,Finley Lewis,Condo,True,True,Some Experience,Interested in learning more and next steps.,Overdue,7
+INQ-5226,2026-06-27,Volunteer Inquiry,Rory,Jamie Scott,Condo,False,True,Experienced,We would like to help but need guidance.,Responded,7
+INQ-5227,2026-06-22,Adoption Inquiry,Biscuit,Skyler Johnson,Condo,True,True,Some Experience,Interested in learning more and next steps.,Overdue,11
+INQ-5228,2026-06-23,Adoption Inquiry,Benny,Cameron Garcia,Townhome,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,9
+INQ-5229,2026-06-24,Donation Question,Beau,Quinn Smith,Townhome,False,False,Rescue/Foster Experience,We would like to help but need guidance.,Overdue,9
+INQ-5230,2026-07-04,Medical Question,Sam,Casey Allen,Apartment,True,True,Experienced,Checking on availability and response timeline.,New,0
+INQ-5231,2026-06-30,Adoption Inquiry,George,Logan Wright,Apartment,False,True,Rescue/Foster Experience,We would like to help but need guidance.,New,3
+INQ-5232,2026-07-01,Adoption Inquiry,Jasper,Reese Smith,Apartment,False,True,Some Experience,Looking for the best way to support the rescue.,Escalated,1
+INQ-5233,2026-06-30,Adoption Inquiry,Benny,Jordan Davis,Rural Property,False,True,First-Time,Checking on availability and response timeline.,New,2
+INQ-5234,2026-06-20,Adoption Inquiry,Blue,Harper Miller,Townhome,True,True,Some Experience,Looking for the best way to support the rescue.,Responded,11
+INQ-5235,2026-06-27,Adoption Inquiry,Rudy,Quinn Smith,House with Yard,False,True,Some Experience,We would like to help but need guidance.,Overdue,4
+INQ-5236,2026-06-22,Foster Inquiry,Comet,Reese King,Rural Property,False,False,Experienced,Can you tell me whether this dog may fit our home?,Overdue,10
+INQ-5237,2026-06-30,Surrender Request,Frankie,Drew Patel,Condo,False,False,Experienced,Checking on availability and response timeline.,Responded,2
+INQ-5238,2026-07-02,Volunteer Inquiry,Blue,Morgan Clark,Apartment,False,True,Experienced,Checking on availability and response timeline.,Responded,2
+INQ-5239,2026-06-26,Foster Inquiry,Ellie,Taylor Garcia,House with Yard,False,False,Experienced,Checking on availability and response timeline.,Overdue,6
+INQ-5240,2026-07-01,Adoption Inquiry,Cooper,Casey Wright,Rural Property,True,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,New,1
+INQ-5241,2026-06-30,General Info,Maple,Quinn Nguyen,Apartment,False,True,Experienced,Can you tell me whether this dog may fit our home?,New,2
+INQ-5242,2026-07-04,Donation Question,Honey,Parker Garcia,Rural Property,False,False,First-Time,Interested in learning more and next steps.,Overdue,0
+INQ-5243,2026-06-30,Adoption Inquiry,Rocco,Quinn Davis,Condo,True,True,Experienced,Checking on availability and response timeline.,Responded,4
+INQ-5244,2026-06-25,Adoption Inquiry,Charlie,Cameron Clark,Condo,False,True,Experienced,Looking for the best way to support the rescue.,Escalated,7
+INQ-5245,2026-06-27,Adoption Inquiry,Olive,Kendall Wilson,Rural Property,True,True,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,6
+INQ-5246,2026-06-22,Medical Question,Tucker,Rowan Patel,House with Yard,False,False,Experienced,Interested in learning more and next steps.,Responded,11
+INQ-5247,2026-06-28,Adoption Inquiry,Pearl,Rowan Patel,Townhome,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,3
+INQ-5248,2026-06-22,General Info,Scout,Morgan Johnson,Townhome,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,10
+INQ-5249,2026-06-23,Volunteer Inquiry,Phoebe,Jamie Wilson,Condo,True,False,First-Time,Can you tell me whether this dog may fit our home?,Overdue,8
+INQ-5250,2026-07-04,Donation Question,Bruno,Rowan Garcia,Apartment,True,True,Experienced,We would like to help but need guidance.,Escalated,0
+INQ-5251,2026-06-30,Medical Question,Maisie,Reese Nguyen,House with Yard,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,3
+INQ-5252,2026-06-27,Foster Inquiry,Toby,Taylor Brown,House with Yard,True,False,Experienced,Interested in learning more and next steps.,Overdue,4
+INQ-5253,2026-07-04,Adoption Inquiry,Cleo,Hayden Smith,Condo,True,False,Experienced,Checking on availability and response timeline.,Responded,0
+INQ-5254,2026-06-23,Donation Question,Maggie,Riley Smith,House with Yard,False,False,Experienced,Interested in learning more and next steps.,Responded,10
+INQ-5255,2026-07-01,Foster Inquiry,Boomer,Parker Clark,Condo,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Escalated,1
+INQ-5256,2026-06-29,Foster Inquiry,Jack,Avery Allen,Rural Property,False,False,First-Time,Checking on availability and response timeline.,Responded,3
+INQ-5257,2026-06-24,General Info,Macy,Casey Garcia,House with Yard,True,False,Experienced,We would like to help but need guidance.,Overdue,10
+INQ-5258,2026-07-01,Adoption Inquiry,Sam,Reese Scott,House with Yard,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,0
+INQ-5259,2026-06-24,Surrender Request,Oakley,Taylor Young,Townhome,False,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,10
+INQ-5260,2026-07-01,Volunteer Inquiry,Diesel,Jordan Davis,Apartment,True,True,Some Experience,We would like to help but need guidance.,Responded,2
+INQ-5261,2026-06-27,Adoption Inquiry,Sunny,Skyler Allen,Condo,True,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,7
+INQ-5262,2026-06-29,Adoption Inquiry,Marley,Parker Allen,Rural Property,False,True,Some Experience,Checking on availability and response timeline.,Responded,3
+INQ-5263,2026-06-28,General Info,June,Morgan Davis,House with Yard,False,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,6
+INQ-5264,2026-06-27,General Info,Chase,Jamie Clark,Condo,False,False,Experienced,Can you tell me whether this dog may fit our home?,Responded,5
+INQ-5265,2026-07-03,Adoption Inquiry,Callie,Quinn Patel,House with Yard,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,1
+INQ-5266,2026-07-03,General Info,Pearl,Parker Miller,House with Yard,False,True,Some Experience,We would like to help but need guidance.,Responded,1
+INQ-5267,2026-06-27,Adoption Inquiry,Kona,Jordan Patel,Apartment,True,False,Experienced,We would like to help but need guidance.,Responded,6
+INQ-5268,2026-06-29,Volunteer Inquiry,Sophie,Taylor Wright,Condo,False,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,3
+INQ-5269,2026-06-26,Volunteer Inquiry,Chase,Reese Patel,House with Yard,True,True,Some Experience,Checking on availability and response timeline.,Responded,8
+INQ-5270,2026-06-20,Donation Question,June,Parker Scott,Rural Property,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,11
+INQ-5271,2026-07-01,Adoption Inquiry,Winnie,Logan Wilson,Condo,False,False,First-Time,We would like to help but need guidance.,Responded,1
+INQ-5272,2026-06-26,Volunteer Inquiry,Archie,Logan Clark,Rural Property,True,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,5
+INQ-5273,2026-07-01,Volunteer Inquiry,Marley,Casey Miller,House with Yard,True,False,First-Time,Looking for the best way to support the rescue.,Responded,2
+INQ-5274,2026-06-29,Adoption Inquiry,Mia,Jamie Young,Townhome,False,True,First-Time,Interested in learning more and next steps.,Overdue,4
+INQ-5275,2026-06-25,Foster Inquiry,Rosie,Casey Garcia,Condo,False,False,Some Experience,Interested in learning more and next steps.,Overdue,6
+INQ-5276,2026-07-02,Donation Question,Gus,Riley Johnson,Condo,False,False,Experienced,Looking for the best way to support the rescue.,New,1
+INQ-5277,2026-06-29,Volunteer Inquiry,Summer,Taylor Nguyen,Condo,False,False,Some Experience,Looking for the best way to support the rescue.,Overdue,5
+INQ-5278,2026-07-01,Adoption Inquiry,Bella,Jamie Davis,House with Yard,True,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,In Review,3
+INQ-5279,2026-06-24,Adoption Inquiry,Jack,Cameron Clark,Apartment,True,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Overdue,9
+INQ-5280,2026-06-25,Surrender Request,Georgia,Rowan Brown,Condo,True,True,Experienced,Checking on availability and response timeline.,Overdue,8
+INQ-5281,2026-07-02,Foster Inquiry,Luna,Kendall Nguyen,Apartment,False,False,Some Experience,Checking on availability and response timeline.,New,1
+INQ-5282,2026-06-25,Foster Inquiry,Lucky,Parker Miller,House with Yard,False,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,9
+INQ-5283,2026-06-24,Volunteer Inquiry,Nala,Rowan Nguyen,House with Yard,False,False,Some Experience,We would like to help but need guidance.,Responded,7
+INQ-5284,2026-06-24,Adoption Inquiry,Biscuit,Jamie Wilson,Townhome,False,True,Experienced,Looking for the best way to support the rescue.,Responded,7
+INQ-5285,2026-06-27,Adoption Inquiry,Comet,Morgan Wright,Rural Property,False,True,Some Experience,Checking on availability and response timeline.,Overdue,7
+INQ-5286,2026-06-23,Adoption Inquiry,Callie,Hayden Smith,House with Yard,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,11
+INQ-5287,2026-07-02,Medical Question,Oakley,Hayden Garcia,Rural Property,True,False,First-Time,We would like to help but need guidance.,Responded,1
+INQ-5288,2026-06-23,Surrender Request,Georgia,Harper King,Townhome,True,False,Experienced,We would like to help but need guidance.,Overdue,11
+INQ-5289,2026-06-24,Adoption Inquiry,Georgia,Avery Nguyen,Apartment,False,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,10
+INQ-5290,2026-07-03,Surrender Request,Gus,Riley Clark,Apartment,True,False,Some Experience,Checking on availability and response timeline.,New,1
+INQ-5291,2026-06-25,Volunteer Inquiry,Willow,Morgan Miller,Apartment,True,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,9
+INQ-5292,2026-06-29,Adoption Inquiry,Charlie,Hayden Garcia,Apartment,False,True,Experienced,We would like to help but need guidance.,New,2
+INQ-5293,2026-06-29,General Info,Tucker,Hayden Davis,Apartment,False,True,Experienced,Checking on availability and response timeline.,Overdue,4
+INQ-5294,2026-06-21,Medical Question,Sunny,Reese Young,Rural Property,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Escalated,11
+INQ-5295,2026-07-04,Foster Inquiry,Chase,Jamie Davis,Condo,True,True,First-Time,Interested in learning more and next steps.,Responded,0
+INQ-5296,2026-07-01,Foster Inquiry,Ellie,Taylor Garcia,Townhome,False,True,First-Time,Can you tell me whether this dog may fit our home?,Responded,3
+INQ-5297,2026-07-01,Adoption Inquiry,Ruby,Harper Miller,House with Yard,True,True,Some Experience,Can you tell me whether this dog may fit our home?,New,3
+INQ-5298,2026-06-25,Adoption Inquiry,Charlie,Finley Scott,Townhome,True,False,First-Time,Interested in learning more and next steps.,Responded,6
+INQ-5299,2026-06-27,Adoption Inquiry,Cleo,Hayden King,Condo,False,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,7
+INQ-5300,2026-07-03,Volunteer Inquiry,Ember,Logan Wright,House with Yard,False,True,Experienced,Looking for the best way to support the rescue.,Responded,1
+INQ-5301,2026-06-25,Foster Inquiry,Otis,Quinn Lewis,Rural Property,True,False,Experienced,Checking on availability and response timeline.,Responded,8
+INQ-5302,2026-06-22,Surrender Request,Scout,Cameron King,Rural Property,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Responded,9
+INQ-5303,2026-06-23,Volunteer Inquiry,Diesel,Morgan Brown,Rural Property,False,False,Rescue/Foster Experience,We would like to help but need guidance.,Responded,8
+INQ-5304,2026-06-25,Volunteer Inquiry,George,Finley Young,House with Yard,False,True,Some Experience,We would like to help but need guidance.,Overdue,6
+INQ-5305,2026-06-28,Adoption Inquiry,Maple,Rowan Patel,House with Yard,False,True,Some Experience,Checking on availability and response timeline.,Overdue,5
+INQ-5306,2026-06-29,Volunteer Inquiry,Wally,Hayden Patel,Condo,True,True,Rescue/Foster Experience,We would like to help but need guidance.,Overdue,4
+INQ-5307,2026-06-30,Medical Question,Willow,Parker Wright,House with Yard,False,False,First-Time,Looking for the best way to support the rescue.,Responded,4
+INQ-5308,2026-07-04,Donation Question,Poppy,Taylor Wright,House with Yard,False,False,Some Experience,Checking on availability and response timeline.,In Review,0
+INQ-5309,2026-06-23,Foster Inquiry,Charlie,Avery Wright,Rural Property,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,10
+INQ-5310,2026-06-25,Adoption Inquiry,Jack,Drew King,Townhome,True,False,First-Time,Interested in learning more and next steps.,Responded,7
+INQ-5311,2026-06-28,Adoption Inquiry,Milo,Rowan King,House with Yard,False,False,First-Time,Checking on availability and response timeline.,Responded,3
+INQ-5312,2026-06-23,Foster Inquiry,Cash,Kendall Scott,Apartment,False,False,Some Experience,Looking for the best way to support the rescue.,Overdue,11
+INQ-5313,2026-06-23,Adoption Inquiry,Molly,Quinn Garcia,Apartment,True,False,Some Experience,Interested in learning more and next steps.,Responded,10
+INQ-5314,2026-07-01,Adoption Inquiry,Pearl,Logan Nguyen,Rural Property,False,False,Experienced,Can you tell me whether this dog may fit our home?,Responded,0
+INQ-5315,2026-06-26,Foster Inquiry,Ruby,Skyler Scott,House with Yard,True,False,Experienced,Interested in learning more and next steps.,Responded,6
+INQ-5316,2026-06-30,Donation Question,Winnie,Casey Miller,Rural Property,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Responded,2
+INQ-5317,2026-06-28,Adoption Inquiry,Murphy,Reese Johnson,Apartment,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,6
+INQ-5318,2026-06-27,Foster Inquiry,Cleo,Taylor Allen,Condo,True,True,Experienced,Looking for the best way to support the rescue.,Overdue,5
+INQ-5319,2026-06-27,Adoption Inquiry,Louie,Morgan Wilson,Condo,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,5
+INQ-5320,2026-06-29,Surrender Request,Scout,Cameron Patel,Apartment,False,True,Some Experience,We would like to help but need guidance.,In Review,3
+INQ-5321,2026-06-23,General Info,Gus,Harper Allen,Rural Property,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Overdue,10
+INQ-5322,2026-06-23,Adoption Inquiry,Theo,Jamie Lewis,Apartment,False,True,Some Experience,Checking on availability and response timeline.,Responded,9
+INQ-5323,2026-06-25,Volunteer Inquiry,Ollie,Reese Patel,Rural Property,True,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,6
+INQ-5324,2026-07-01,Volunteer Inquiry,Boomer,Jordan Brown,House with Yard,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Responded,0
+INQ-5325,2026-06-20,Adoption Inquiry,Summer,Rowan Brown,Apartment,False,True,Some Experience,We would like to help but need guidance.,Escalated,11
+INQ-5326,2026-07-01,Foster Inquiry,Ollie,Drew Lewis,Condo,False,False,Experienced,We would like to help but need guidance.,Responded,3
+INQ-5327,2026-06-27,Donation Question,Hazel,Emerson Miller,Townhome,False,True,Experienced,Can you tell me whether this dog may fit our home?,Overdue,4
+INQ-5328,2026-06-29,Donation Question,Poppy,Finley Wright,Condo,True,False,Experienced,We would like to help but need guidance.,New,2
+INQ-5329,2026-06-22,Medical Question,Oakley,Riley Davis,House with Yard,False,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,9
+INQ-5330,2026-07-01,Donation Question,Pearl,Logan Young,Townhome,False,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,1
+INQ-5331,2026-06-25,Foster Inquiry,Sasha,Avery Wilson,House with Yard,True,False,Experienced,We would like to help but need guidance.,Overdue,8
+INQ-5332,2026-06-22,Adoption Inquiry,Rory,Drew Wright,Apartment,True,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Overdue,9
+INQ-5333,2026-06-23,Surrender Request,Jack,Logan Young,Rural Property,False,True,First-Time,Can you tell me whether this dog may fit our home?,Escalated,8
+INQ-5334,2026-07-02,Donation Question,Sunny,Casey Wilson,Rural Property,False,True,Some Experience,We would like to help but need guidance.,In Review,0
+INQ-5335,2026-06-29,Adoption Inquiry,Fiona,Avery Young,Condo,False,False,Experienced,Looking for the best way to support the rescue.,Overdue,5
+INQ-5336,2026-06-21,Medical Question,Macy,Emerson Allen,Rural Property,False,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,11
+INQ-5337,2026-06-27,Surrender Request,Penny,Skyler Johnson,Apartment,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,4
+INQ-5338,2026-06-28,Donation Question,Clover,Skyler Clark,Apartment,False,True,Some Experience,Checking on availability and response timeline.,Responded,4
+INQ-5339,2026-06-24,Foster Inquiry,Fiona,Finley Garcia,Rural Property,True,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,8
+INQ-5340,2026-06-28,Surrender Request,Tessa,Logan Smith,House with Yard,False,False,Experienced,Can you tell me whether this dog may fit our home?,Overdue,3
+INQ-5341,2026-06-22,General Info,Hank,Kendall Johnson,Townhome,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,11
+INQ-5342,2026-07-03,Foster Inquiry,Oakley,Morgan Johnson,Condo,False,True,First-Time,Can you tell me whether this dog may fit our home?,New,0
+INQ-5343,2026-06-30,Donation Question,Penny,Hayden Scott,Townhome,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,4
+INQ-5344,2026-06-23,Donation Question,Maple,Casey Miller,Townhome,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,8
+INQ-5345,2026-06-25,Foster Inquiry,Cooper,Skyler Nguyen,Townhome,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,6
+INQ-5346,2026-07-02,Adoption Inquiry,Maple,Finley Lewis,Condo,False,True,Some Experience,Checking on availability and response timeline.,Responded,1
+INQ-5347,2026-06-27,Adoption Inquiry,Mabel,Jordan King,Townhome,False,True,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,4
+INQ-5348,2026-06-23,Medical Question,Charlie,Parker Allen,Apartment,False,True,Experienced,Checking on availability and response timeline.,Overdue,11
+INQ-5349,2026-06-27,General Info,Blue,Harper Nguyen,Townhome,False,True,Some Experience,Interested in learning more and next steps.,Overdue,5
+INQ-5350,2026-06-30,Donation Question,Rudy,Hayden King,Townhome,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,3
+INQ-5351,2026-06-27,Adoption Inquiry,Jasper,Logan Wright,Townhome,False,True,Rescue/Foster Experience,We would like to help but need guidance.,Escalated,7
+INQ-5352,2026-06-28,Donation Question,Macy,Cameron Patel,Apartment,False,False,Some Experience,Interested in learning more and next steps.,Responded,5
+INQ-5353,2026-06-22,Volunteer Inquiry,Molly,Hayden Wright,Apartment,False,False,Some Experience,Looking for the best way to support the rescue.,Overdue,9
+INQ-5354,2026-06-27,Adoption Inquiry,Hazel,Skyler Scott,Rural Property,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,5
+INQ-5355,2026-06-20,Donation Question,Birdie,Taylor Johnson,Rural Property,False,False,Experienced,Can you tell me whether this dog may fit our home?,Responded,11
+INQ-5356,2026-06-22,Foster Inquiry,Charlie,Hayden Brown,Townhome,False,False,Experienced,We would like to help but need guidance.,Overdue,9
+INQ-5357,2026-06-29,Adoption Inquiry,Rex,Reese Allen,Rural Property,False,False,Some Experience,Looking for the best way to support the rescue.,Overdue,5
+INQ-5358,2026-06-28,Volunteer Inquiry,Kona,Skyler Young,Condo,False,True,Some Experience,Looking for the best way to support the rescue.,Responded,3
+INQ-5359,2026-06-23,Adoption Inquiry,Bella,Morgan Young,House with Yard,False,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,Responded,9
+INQ-5360,2026-06-27,General Info,Frankie,Harper Lewis,Apartment,False,False,Rescue/Foster Experience,Interested in learning more and next steps.,Responded,7
+INQ-5361,2026-06-20,Donation Question,Ember,Jordan Allen,Condo,True,True,Experienced,Can you tell me whether this dog may fit our home?,Responded,11
+INQ-5362,2026-06-30,Adoption Inquiry,Rex,Quinn Davis,Townhome,False,False,Experienced,Can you tell me whether this dog may fit our home?,New,3
+INQ-5363,2026-06-20,Surrender Request,Blue,Emerson Wilson,Apartment,False,False,First-Time,Can you tell me whether this dog may fit our home?,Overdue,11
+INQ-5364,2026-06-30,General Info,Charlie,Finley Scott,Rural Property,False,True,First-Time,We would like to help but need guidance.,Responded,2
+INQ-5365,2026-07-02,Volunteer Inquiry,Winnie,Jamie Clark,House with Yard,True,True,Experienced,Checking on availability and response timeline.,In Review,0
+INQ-5366,2026-06-27,Volunteer Inquiry,Luna,Skyler Nguyen,Townhome,True,True,Experienced,Interested in learning more and next steps.,Overdue,4
+INQ-5367,2026-06-20,Medical Question,Cash,Cameron King,House with Yard,True,True,Some Experience,Checking on availability and response timeline.,Overdue,11
+INQ-5368,2026-07-03,Adoption Inquiry,Ellie,Hayden Clark,House with Yard,False,False,Experienced,We would like to help but need guidance.,Overdue,0
+INQ-5369,2026-06-22,Medical Question,Finn,Rowan Young,Rural Property,False,False,Some Experience,Interested in learning more and next steps.,Responded,9
+INQ-5370,2026-06-26,Volunteer Inquiry,Callie,Cameron Lewis,Condo,False,True,Experienced,Interested in learning more and next steps.,Responded,5
+INQ-5371,2026-07-02,Foster Inquiry,Beau,Drew Wright,House with Yard,True,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,In Review,1
+INQ-5372,2026-06-23,Foster Inquiry,Honey,Kendall Nguyen,Rural Property,True,True,First-Time,Checking on availability and response timeline.,Responded,10
+INQ-5373,2026-06-28,Volunteer Inquiry,Biscuit,Quinn Wilson,Condo,False,True,Some Experience,Can you tell me whether this dog may fit our home?,Escalated,3
+INQ-5374,2026-07-01,Adoption Inquiry,Sophie,Hayden Brown,House with Yard,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,New,2
+INQ-5375,2026-06-25,Volunteer Inquiry,Mabel,Reese Garcia,Rural Property,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,6
+INQ-5376,2026-06-29,Adoption Inquiry,Sunny,Jordan Davis,Rural Property,False,True,Some Experience,Interested in learning more and next steps.,Responded,2
+INQ-5377,2026-07-03,Adoption Inquiry,Annie,Hayden Johnson,Rural Property,False,False,Some Experience,Can you tell me whether this dog may fit our home?,Responded,1
+INQ-5378,2026-06-27,Foster Inquiry,Ember,Kendall Davis,Apartment,False,True,First-Time,Looking for the best way to support the rescue.,Overdue,4
+INQ-5379,2026-06-23,Adoption Inquiry,Scout,Taylor Scott,Townhome,False,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,9
+INQ-5380,2026-06-28,Adoption Inquiry,Fiona,Casey Nguyen,Townhome,True,True,Rescue/Foster Experience,Checking on availability and response timeline.,Responded,5
+INQ-5381,2026-06-20,Medical Question,Oakley,Finley Davis,Rural Property,False,False,Experienced,Interested in learning more and next steps.,Overdue,11
+INQ-5382,2026-06-26,Adoption Inquiry,Rocco,Drew Patel,Condo,True,False,Rescue/Foster Experience,We would like to help but need guidance.,Responded,5
+INQ-5383,2026-06-30,Donation Question,Poppy,Jamie Lewis,Condo,True,False,Some Experience,Interested in learning more and next steps.,In Review,1
+INQ-5384,2026-06-27,Donation Question,Callie,Rowan Nguyen,Rural Property,False,False,Experienced,Interested in learning more and next steps.,Overdue,5
+INQ-5385,2026-06-26,Adoption Inquiry,Maisie,Finley Clark,House with Yard,True,True,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,8
+INQ-5386,2026-06-27,Adoption Inquiry,Chase,Jordan Scott,Condo,False,False,Some Experience,Checking on availability and response timeline.,Overdue,7
+INQ-5387,2026-06-27,Adoption Inquiry,Joy,Finley Wilson,Rural Property,False,False,Some Experience,We would like to help but need guidance.,Overdue,7
+INQ-5388,2026-06-20,Foster Inquiry,Zoe,Parker Wright,House with Yard,True,True,First-Time,Checking on availability and response timeline.,Overdue,11
+INQ-5389,2026-06-23,Adoption Inquiry,Dexter,Taylor Wright,Rural Property,False,False,First-Time,Checking on availability and response timeline.,Responded,8
+INQ-5390,2026-06-26,Adoption Inquiry,Pearl,Hayden Smith,Condo,True,False,First-Time,Can you tell me whether this dog may fit our home?,Overdue,8
+INQ-5391,2026-06-25,Donation Question,Charlie,Jordan Clark,Townhome,False,False,Experienced,We would like to help but need guidance.,Overdue,8
+INQ-5392,2026-06-29,Donation Question,Ollie,Rowan Brown,Rural Property,True,True,Experienced,Checking on availability and response timeline.,In Review,2
+INQ-5393,2026-06-29,Volunteer Inquiry,Boomer,Jamie Johnson,Condo,False,False,First-Time,Looking for the best way to support the rescue.,In Review,3
+INQ-5394,2026-07-02,Adoption Inquiry,Marley,Reese Johnson,Townhome,True,True,Some Experience,Looking for the best way to support the rescue.,Responded,0
+INQ-5395,2026-06-29,Adoption Inquiry,Benny,Cameron Johnson,House with Yard,False,False,Rescue/Foster Experience,Checking on availability and response timeline.,Overdue,5
+INQ-5396,2026-06-24,Adoption Inquiry,Louie,Harper Lewis,House with Yard,True,True,Experienced,Looking for the best way to support the rescue.,Responded,9
+INQ-5397,2026-06-27,Adoption Inquiry,Annie,Taylor Johnson,Townhome,False,True,Some Experience,Looking for the best way to support the rescue.,Overdue,7
+INQ-5398,2026-06-22,Foster Inquiry,Moose,Hayden Davis,Condo,False,False,Experienced,Looking for the best way to support the rescue.,Overdue,10
+INQ-5399,2026-06-22,General Info,Summer,Hayden Garcia,House with Yard,False,False,Some Experience,Interested in learning more and next steps.,Responded,11
+INQ-5400,2026-06-27,Adoption Inquiry,Sunny,Kendall Smith,Townhome,True,True,First-Time,Checking on availability and response timeline.,Overdue,7
+INQ-5401,2026-06-22,General Info,Tilly,Drew Lewis,House with Yard,True,True,Some Experience,Can you tell me whether this dog may fit our home?,Overdue,10
+INQ-5402,2026-06-24,Medical Question,Bonnie,Emerson King,House with Yard,False,False,Rescue/Foster Experience,Looking for the best way to support the rescue.,Responded,7
+INQ-5403,2026-06-23,Volunteer Inquiry,Dexter,Jordan Allen,Townhome,True,False,Some Experience,Interested in learning more and next steps.,Overdue,10
+INQ-5404,2026-07-02,Adoption Inquiry,Minnie,Avery Lewis,Townhome,False,False,Experienced,Looking for the best way to support the rescue.,Responded,0
+INQ-5405,2026-06-30,Adoption Inquiry,Tilly,Skyler Clark,Apartment,False,False,Rescue/Foster Experience,We would like to help but need guidance.,Responded,3
+INQ-5406,2026-06-30,Volunteer Inquiry,Frankie,Riley King,Apartment,True,False,Rescue/Foster Experience,Can you tell me whether this dog may fit our home?,In Review,1
+INQ-5407,2026-06-29,Foster Inquiry,Ember,Emerson Davis,House with Yard,False,True,First-Time,Can you tell me whether this dog may fit our home?,In Review,2
+INQ-5408,2026-06-26,Foster Inquiry,Hazel,Hayden Scott,Apartment,False,True,Experienced,We would like to help but need guidance.,Overdue,7
+INQ-5409,2026-06-21,General Info,Hazel,Morgan Wright,Condo,False,False,First-Time,Can you tell me whether this dog may fit our home?,Responded,11
+INQ-5410,2026-06-23,Foster Inquiry,Biscuit,Harper Young,Rural Property,False,False,Some Experience,Looking for the best way to support the rescue.,Overdue,8
+INQ-5411,2026-06-26,Adoption Inquiry,Ivy,Jamie King,Condo,False,False,First-Time,Can you tell me whether this dog may fit our home?,Overdue,6
+INQ-5412,2026-07-04,Surrender Request,Tessa,Hayden Garcia,Condo,False,False,Some Experience,We would like to help but need guidance.,New,0
+INQ-5413,2026-06-26,General Info,Sunny,Skyler Smith,Rural Property,False,True,Experienced,We would like to help but need guidance.,Responded,8
+INQ-5414,2026-07-01,Adoption Inquiry,Buddy,Skyler Young,Townhome,False,False,First-Time,We would like to help but need guidance.,Responded,0
+INQ-5415,2026-06-24,Adoption Inquiry,Annie,Taylor Scott,House with Yard,False,False,Experienced,Looking for the best way to support the rescue.,Responded,10
+INQ-5416,2026-06-21,Adoption Inquiry,Olive,Quinn Allen,Condo,False,False,Experienced,Checking on availability and response timeline.,Overdue,10
+INQ-5417,2026-07-01,Adoption Inquiry,Jasper,Hayden Scott,House with Yard,False,True,Some Experience,We would like to help but need guidance.,In Review,1
+INQ-5418,2026-06-25,Surrender Request,Tucker,Taylor Smith,Apartment,True,True,First-Time,Can you tell me whether this dog may fit our home?,Overdue,6
+INQ-5419,2026-06-29,Foster Inquiry,Knox,Drew Davis,Townhome,False,True,Rescue/Foster Experience,Checking on availability and response timeline.,New,2

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -227,23 +228,6 @@ def generate_opspilot_requests(rng: np.random.Generator, rows: int = 720) -> pd.
         else:
             business_impact = "Low"
 
-        if required_documents_missing:
-            candidate_type = "Missing Document Follow-Up"
-        elif approval_status == "Pending":
-            candidate_type = "Approval Reminder Automation"
-        elif duplicate_flag:
-            candidate_type = "Duplicate Request Detection"
-        elif sla_breached:
-            candidate_type = "SLA Escalation Alerts"
-        elif process_stage == "Intake":
-            candidate_type = "Request Intake Validation"
-        elif rework_flag:
-            candidate_type = "Rework Prevention Checklist"
-        elif request_type in {"Access Request", "Training Assignment", "Equipment Request"}:
-            candidate_type = "Auto-Routing by Request Type"
-        else:
-            candidate_type = "Recurring Status Summary"
-
         submitted_date = today - timedelta(days=days_open + int(rng.integers(0, 12)))
         records.append(
             {
@@ -269,7 +253,6 @@ def generate_opspilot_requests(rng: np.random.Generator, rows: int = 720) -> pd.
                 "sla_days": sla_days,
                 "sla_breached": sla_breached,
                 "business_impact": business_impact,
-                "automation_candidate_type": candidate_type,
             }
         )
 
@@ -525,11 +508,14 @@ def generate_rescueops_inquiries(
     for i in range(rows):
         inquiry_type = str(_choice(rng, inquiry_types, inquiry_prob))
         dog_name = str(_choice(rng, dog_names))
-        dog = dogs.loc[dogs["dog_name"] == dog_name].iloc[0]
         days_waiting = int(rng.integers(0, 12))
         has_children = bool(rng.random() < 0.34)
         has_other_pets = bool(rng.random() < 0.55)
         experience = str(_choice(rng, experience_levels, [0.21, 0.36, 0.28, 0.15]))
+        # response_status is an operational status (a raw fact -- where the message
+        # sits in the reply queue), not an analytic verdict. The days_waiting>3 bump
+        # simply reflects that an un-replied message past the SLA is operationally
+        # overdue; the triage classification itself now lives in the analyzer.
         response_status = str(
             _choice(
                 rng,
@@ -539,43 +525,6 @@ def generate_rescueops_inquiries(
         )
         if days_waiting > 3 and response_status in {"New", "In Review"}:
             response_status = "Overdue"
-
-        if inquiry_type == "Medical Question":
-            triage = "Medical/Safety Escalation"
-            priority_score = 92
-        elif inquiry_type == "Surrender Request":
-            triage = "Urgent Human Review" if days_waiting > 1 else "Needs Follow-Up"
-            priority_score = 78 + min(days_waiting * 3, 15)
-        elif inquiry_type == "Adoption Inquiry":
-            incompatible_children = has_children and dog["good_with_children"] == "No"
-            incompatible_pets = has_other_pets and dog["good_with_dogs"] == "No"
-            if incompatible_children or incompatible_pets:
-                triage = "Not Ideal Fit"
-                priority_score = 55 + min(days_waiting * 4, 24)
-            elif experience == "First-Time" and bool(dog["special_needs"]):
-                triage = "Needs Follow-Up"
-                priority_score = 66 + min(days_waiting * 4, 24)
-            elif dog["adoption_ready"]:
-                triage = "Strong Match"
-                priority_score = 70 + min(days_waiting * 4, 24)
-            else:
-                triage = "Missing Information"
-                priority_score = 60 + min(days_waiting * 4, 24)
-        elif days_waiting > 3:
-            triage = "Needs Follow-Up"
-            priority_score = 68 + min(days_waiting * 3, 20)
-        else:
-            triage = str(_choice(rng, ["Strong Match", "Needs Follow-Up", "Missing Information"], [0.25, 0.45, 0.3]))
-            priority_score = {"Strong Match": 72, "Needs Follow-Up": 62, "Missing Information": 52}[triage] + days_waiting * 2
-
-        action_map = {
-            "Strong Match": "Send application link and schedule screening call.",
-            "Needs Follow-Up": "Send targeted follow-up questions within 24 hours.",
-            "Missing Information": "Request missing household and pet compatibility details.",
-            "Not Ideal Fit": "Route to adoption lead for careful human review.",
-            "Urgent Human Review": "Escalate to intake coordinator today.",
-            "Medical/Safety Escalation": "Route to rescue leadership and veterinary contact.",
-        }
 
         records.append(
             {
@@ -602,9 +551,6 @@ def generate_rescueops_inquiries(
                 ),
                 "response_status": response_status,
                 "days_waiting": days_waiting,
-                "triage_category": triage,
-                "priority_score": int(min(priority_score, 100)),
-                "recommended_action": action_map[triage],
             }
         )
 
@@ -707,6 +653,10 @@ def generate_rescueops_medical_costs(
         low, high = amount_ranges[expense_type]
         amount = round(float(rng.uniform(low, high)), 2)
         funded_status = str(_choice(rng, ["Funded", "Partially Funded", "Unfunded"], [0.38, 0.31, 0.31]))
+        # urgency is a raw intake urgency (how pressing the care itself is), not a
+        # computed analytic score. The unfunded bump reflects a real operational
+        # fact -- an unfunded routine expense is treated more urgently on intake --
+        # so it stays here rather than being derived downstream.
         urgency = urgency_map[expense_type]
         if funded_status == "Unfunded" and urgency == "Medium" and rng.random() < 0.25:
             urgency = "High"
@@ -734,3 +684,21 @@ def generate_rescueops_medical_costs(
             }
         )
     return pd.DataFrame(records)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate the OpsPilot/RescueOps demo datasets.")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Rewrite all data/*.csv files even if they already exist.",
+    )
+    parser.add_argument(
+        "--data-dir",
+        default="data",
+        help="Target directory for the generated CSV files (default: data).",
+    )
+    args = parser.parse_args()
+    written = ensure_data(Path(args.data_dir), force=args.force)
+    for name, path in written.items():
+        print(f"{name}: {path}")

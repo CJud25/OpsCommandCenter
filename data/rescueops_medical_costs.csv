@@ -1,181 +1,181 @@
 expense_id,dog_name,expense_date,expense_type,amount,funded_status,urgency,notes
-MED-9000,Ollie,2026-05-17,Dental,1071.03,Unfunded,High,Needs funding visibility.
-MED-9001,George,2026-05-02,Spay/Neuter,243.02,Unfunded,High,Candidate for donor update.
-MED-9002,Rex,2026-06-23,Vaccines,81.77,Partially Funded,Medium,Add to weekly founder review.
-MED-9003,Ruby,2026-06-22,Surgery,2790.89,Funded,High,Needs funding visibility.
-MED-9004,Bruno,2026-05-21,Heartworm Treatment,1087.21,Unfunded,High,Candidate for donor update.
-MED-9005,Minnie,2026-06-16,Surgery,2954.35,Partially Funded,High,Track before adoption readiness review.
-MED-9006,Winnie,2026-05-08,Dental,1139.77,Funded,High,Track before adoption readiness review.
-MED-9007,Sam,2026-07-02,Medication,168.52,Unfunded,Medium,Add to weekly founder review.
-MED-9008,Grace,2026-06-13,Medication,214.12,Unfunded,Medium,Needs funding visibility.
-MED-9009,George,2026-03-21,Vaccines,65.71,Partially Funded,Medium,Add to weekly founder review.
-MED-9010,Lucky,2026-05-21,Surgery,1481.3,Partially Funded,High,Needs funding visibility.
-MED-9011,Penny,2026-06-07,Spay/Neuter,355.18,Funded,Medium,Coordinate with volunteer medical lead.
-MED-9012,Mabel,2026-05-14,Dental,489.89,Partially Funded,High,Candidate for donor update.
-MED-9013,Callie,2026-05-13,Vaccines,154.75,Partially Funded,Medium,Coordinate with volunteer medical lead.
-MED-9014,Theo,2026-03-12,Medication,247.41,Funded,Medium,Add to weekly founder review.
-MED-9015,Finn,2026-04-02,Routine Visit,89.4,Partially Funded,Low,Candidate for donor update.
-MED-9016,Molly,2026-04-25,Surgery,3042.99,Funded,High,Coordinate with volunteer medical lead.
-MED-9017,Gus,2026-06-07,Heartworm Treatment,1295.04,Unfunded,High,Candidate for donor update.
-MED-9018,Frankie,2026-04-29,Spay/Neuter,252.21,Unfunded,Medium,Candidate for donor update.
-MED-9019,Sam,2026-05-20,Dental,1009.21,Partially Funded,High,Add to weekly founder review.
-MED-9020,Benny,2026-06-04,Heartworm Treatment,1332.78,Unfunded,High,Track before adoption readiness review.
-MED-9021,Sadie,2026-05-22,Surgery,3111.88,Funded,High,Add to weekly founder review.
-MED-9022,Jasper,2026-04-09,Heartworm Treatment,1710.61,Partially Funded,High,Add to weekly founder review.
-MED-9023,Poppy,2026-05-23,Dental,927.62,Funded,High,Needs funding visibility.
-MED-9024,Callie,2026-04-17,Vaccines,173.97,Funded,Medium,Candidate for donor update.
-MED-9025,Gus,2026-06-08,Emergency Vet,989.9,Unfunded,Critical,Needs funding visibility.
-MED-9026,Maple,2026-06-14,Heartworm Treatment,1207.67,Funded,High,Track before adoption readiness review.
-MED-9027,Baxter,2026-07-01,Dental,469.16,Unfunded,High,Candidate for donor update.
-MED-9028,Lola,2026-04-15,Surgery,1524.01,Funded,High,Candidate for donor update.
-MED-9029,Summer,2026-05-29,Emergency Vet,454.95,Partially Funded,Critical,Coordinate with volunteer medical lead.
-MED-9030,Benny,2026-04-18,Heartworm Treatment,738.33,Funded,High,Candidate for donor update.
-MED-9031,Fiona,2026-04-13,Surgery,2416.41,Funded,High,Candidate for donor update.
-MED-9032,Frankie,2026-04-14,Diagnostic Testing,139.79,Partially Funded,Medium,Add to weekly founder review.
-MED-9033,Ranger,2026-03-13,Heartworm Treatment,963.0,Partially Funded,High,Track before adoption readiness review.
-MED-9034,Georgia,2026-04-28,Emergency Vet,1159.96,Partially Funded,Critical,Candidate for donor update.
-MED-9035,Molly,2026-04-22,Routine Visit,176.29,Unfunded,Low,Candidate for donor update.
-MED-9036,Sadie,2026-06-09,Medication,103.59,Unfunded,Medium,Track before adoption readiness review.
-MED-9037,Rex,2026-04-07,Heartworm Treatment,741.79,Partially Funded,High,Candidate for donor update.
-MED-9038,Baxter,2026-04-21,Dental,1154.21,Funded,High,Coordinate with volunteer medical lead.
-MED-9039,Knox,2026-05-03,Heartworm Treatment,847.36,Unfunded,High,Candidate for donor update.
-MED-9040,Willow,2026-06-26,Heartworm Treatment,1713.82,Unfunded,High,Track before adoption readiness review.
-MED-9041,Cookie,2026-05-08,Spay/Neuter,260.59,Funded,Medium,Coordinate with volunteer medical lead.
-MED-9042,Ranger,2026-05-24,Heartworm Treatment,704.32,Unfunded,High,Needs funding visibility.
-MED-9043,Ember,2026-05-05,Diagnostic Testing,692.81,Partially Funded,Medium,Coordinate with volunteer medical lead.
-MED-9044,Nora,2026-04-21,Dental,1183.36,Unfunded,High,Add to weekly founder review.
-MED-9045,Jack,2026-06-30,Routine Visit,157.07,Funded,Low,Needs funding visibility.
-MED-9046,Mia,2026-04-14,Diagnostic Testing,684.43,Unfunded,Medium,Track before adoption readiness review.
-MED-9047,Diesel,2026-04-18,Vaccines,77.72,Unfunded,Medium,Coordinate with volunteer medical lead.
-MED-9048,Millie,2026-06-05,Vaccines,96.64,Unfunded,High,Add to weekly founder review.
-MED-9049,Archie,2026-05-01,Vaccines,76.1,Funded,Medium,Coordinate with volunteer medical lead.
-MED-9050,Buddy,2026-07-03,Emergency Vet,1756.97,Unfunded,Critical,Track before adoption readiness review.
-MED-9051,Macy,2026-05-16,Surgery,916.55,Unfunded,High,Track before adoption readiness review.
-MED-9052,Ruby,2026-06-01,Heartworm Treatment,1741.46,Funded,High,Add to weekly founder review.
-MED-9053,Georgia,2026-04-14,Medication,54.33,Funded,Medium,Coordinate with volunteer medical lead.
-MED-9054,Murphy,2026-04-01,Heartworm Treatment,1672.79,Unfunded,High,Add to weekly founder review.
-MED-9055,Millie,2026-07-02,Heartworm Treatment,1381.46,Funded,High,Track before adoption readiness review.
-MED-9056,Moose,2026-06-07,Heartworm Treatment,1728.84,Funded,High,Add to weekly founder review.
-MED-9057,Willow,2026-04-20,Heartworm Treatment,810.54,Partially Funded,High,Needs funding visibility.
-MED-9058,Millie,2026-05-29,Heartworm Treatment,701.25,Unfunded,High,Needs funding visibility.
-MED-9059,Maisie,2026-05-14,Heartworm Treatment,1483.87,Partially Funded,High,Candidate for donor update.
-MED-9060,Rex,2026-06-23,Medication,221.16,Partially Funded,Medium,Candidate for donor update.
-MED-9061,Callie,2026-03-23,Surgery,891.65,Unfunded,High,Add to weekly founder review.
-MED-9062,Willow,2026-04-04,Heartworm Treatment,1741.5,Funded,High,Track before adoption readiness review.
-MED-9063,Poppy,2026-06-01,Heartworm Treatment,1718.37,Unfunded,High,Coordinate with volunteer medical lead.
-MED-9064,Georgia,2026-05-01,Emergency Vet,1664.46,Unfunded,Critical,Add to weekly founder review.
-MED-9065,Cash,2026-05-24,Dental,1409.59,Funded,High,Needs funding visibility.
-MED-9066,Phoebe,2026-04-29,Heartworm Treatment,1290.17,Unfunded,High,Add to weekly founder review.
-MED-9067,Bruno,2026-05-21,Heartworm Treatment,784.84,Funded,High,Coordinate with volunteer medical lead.
-MED-9068,Remy,2026-05-18,Dental,915.59,Funded,High,Needs funding visibility.
-MED-9069,Tucker,2026-04-01,Surgery,2116.15,Partially Funded,High,Candidate for donor update.
-MED-9070,Ivy,2026-06-01,Heartworm Treatment,769.85,Unfunded,High,Candidate for donor update.
-MED-9071,Atlas,2026-04-17,Heartworm Treatment,1028.42,Unfunded,High,Track before adoption readiness review.
-MED-9072,Milo,2026-05-14,Emergency Vet,1126.33,Funded,Critical,Needs funding visibility.
-MED-9073,Phoebe,2026-05-05,Diagnostic Testing,465.4,Unfunded,Medium,Needs funding visibility.
-MED-9074,Diesel,2026-06-02,Dental,480.5,Partially Funded,High,Add to weekly founder review.
-MED-9075,Tucker,2026-06-26,Medication,165.69,Partially Funded,Medium,Coordinate with volunteer medical lead.
-MED-9076,Murphy,2026-04-23,Heartworm Treatment,1345.51,Partially Funded,High,Track before adoption readiness review.
-MED-9077,June,2026-05-07,Heartworm Treatment,714.07,Unfunded,High,Track before adoption readiness review.
-MED-9078,Sunny,2026-05-08,Dental,1213.26,Unfunded,High,Track before adoption readiness review.
-MED-9079,Clover,2026-03-29,Medication,77.57,Partially Funded,Medium,Candidate for donor update.
-MED-9080,Phoebe,2026-06-08,Surgery,2534.82,Funded,High,Add to weekly founder review.
-MED-9081,Archie,2026-04-30,Dental,972.05,Partially Funded,High,Add to weekly founder review.
-MED-9082,Diesel,2026-06-26,Dental,1238.02,Unfunded,High,Needs funding visibility.
-MED-9083,Hazel,2026-06-29,Surgery,1316.16,Partially Funded,High,Candidate for donor update.
-MED-9084,Hank,2026-05-12,Vaccines,176.62,Funded,Medium,Candidate for donor update.
-MED-9085,Hazel,2026-03-31,Emergency Vet,1182.96,Funded,Critical,Candidate for donor update.
-MED-9086,Ember,2026-06-09,Dental,700.85,Partially Funded,High,Candidate for donor update.
-MED-9087,Archie,2026-03-12,Spay/Neuter,320.05,Partially Funded,Medium,Add to weekly founder review.
-MED-9088,Cooper,2026-06-28,Dental,471.55,Unfunded,High,Track before adoption readiness review.
-MED-9089,Cash,2026-03-29,Routine Visit,156.46,Funded,Low,Candidate for donor update.
-MED-9090,Tucker,2026-06-19,Medication,248.37,Unfunded,Medium,Candidate for donor update.
-MED-9091,Charlie,2026-06-28,Surgery,1046.42,Unfunded,High,Track before adoption readiness review.
-MED-9092,Callie,2026-04-13,Vaccines,78.92,Unfunded,Medium,Track before adoption readiness review.
-MED-9093,Finn,2026-04-25,Vaccines,155.67,Partially Funded,Medium,Add to weekly founder review.
-MED-9094,Atlas,2026-03-18,Heartworm Treatment,1535.4,Funded,High,Needs funding visibility.
-MED-9095,Sam,2026-03-08,Spay/Neuter,257.06,Unfunded,Medium,Add to weekly founder review.
-MED-9096,Millie,2026-04-17,Routine Visit,88.03,Partially Funded,Low,Coordinate with volunteer medical lead.
-MED-9097,Jasper,2026-05-18,Dental,1356.92,Funded,High,Coordinate with volunteer medical lead.
-MED-9098,Winnie,2026-06-23,Diagnostic Testing,605.31,Unfunded,Medium,Track before adoption readiness review.
-MED-9099,Diesel,2026-03-08,Routine Visit,161.65,Unfunded,Low,Track before adoption readiness review.
-MED-9100,Molly,2026-05-14,Routine Visit,113.92,Unfunded,Low,Coordinate with volunteer medical lead.
-MED-9101,Benny,2026-05-06,Heartworm Treatment,1375.86,Unfunded,High,Needs funding visibility.
-MED-9102,Hank,2026-03-26,Routine Visit,88.6,Funded,Low,Candidate for donor update.
-MED-9103,Millie,2026-06-19,Spay/Neuter,337.46,Unfunded,Medium,Needs funding visibility.
-MED-9104,Phoebe,2026-06-29,Medication,46.77,Partially Funded,Medium,Needs funding visibility.
-MED-9105,Bruno,2026-05-27,Heartworm Treatment,1624.48,Unfunded,High,Candidate for donor update.
-MED-9106,Kona,2026-07-04,Emergency Vet,1444.04,Funded,Critical,Track before adoption readiness review.
-MED-9107,Cooper,2026-05-14,Spay/Neuter,405.16,Partially Funded,Medium,Add to weekly founder review.
-MED-9108,Ivy,2026-04-18,Heartworm Treatment,1747.05,Funded,High,Track before adoption readiness review.
-MED-9109,Kona,2026-06-08,Spay/Neuter,199.81,Unfunded,High,Coordinate with volunteer medical lead.
-MED-9110,Minnie,2026-06-24,Dental,1029.79,Partially Funded,High,Track before adoption readiness review.
-MED-9111,Rory,2026-03-28,Surgery,2460.14,Partially Funded,High,Coordinate with volunteer medical lead.
-MED-9112,June,2026-05-09,Heartworm Treatment,1399.25,Partially Funded,High,Needs funding visibility.
-MED-9113,Lucky,2026-03-12,Surgery,855.03,Unfunded,High,Needs funding visibility.
-MED-9114,Lola,2026-04-08,Diagnostic Testing,231.45,Partially Funded,Medium,Add to weekly founder review.
-MED-9115,Knox,2026-06-04,Surgery,2498.52,Funded,High,Track before adoption readiness review.
-MED-9116,Frankie,2026-07-03,Dental,660.1,Funded,High,Coordinate with volunteer medical lead.
-MED-9117,Violet,2026-04-13,Heartworm Treatment,1326.68,Funded,High,Coordinate with volunteer medical lead.
-MED-9118,Bruno,2026-06-07,Heartworm Treatment,1168.05,Unfunded,High,Track before adoption readiness review.
-MED-9119,Ellie,2026-04-17,Medication,98.33,Funded,Medium,Needs funding visibility.
-MED-9120,Willow,2026-04-20,Heartworm Treatment,1324.68,Partially Funded,High,Add to weekly founder review.
-MED-9121,Archie,2026-03-29,Spay/Neuter,368.19,Partially Funded,Medium,Track before adoption readiness review.
-MED-9122,Nala,2026-06-09,Surgery,2297.63,Funded,High,Candidate for donor update.
-MED-9123,Scout,2026-06-23,Dental,851.01,Partially Funded,High,Candidate for donor update.
-MED-9124,Tessa,2026-05-09,Heartworm Treatment,1665.11,Funded,High,Candidate for donor update.
-MED-9125,Birdie,2026-06-30,Emergency Vet,814.17,Unfunded,Critical,Track before adoption readiness review.
-MED-9126,Scout,2026-06-03,Dental,519.37,Unfunded,High,Track before adoption readiness review.
-MED-9127,Lola,2026-06-27,Routine Visit,137.12,Funded,Low,Candidate for donor update.
-MED-9128,Rosie,2026-06-22,Spay/Neuter,315.49,Partially Funded,Medium,Add to weekly founder review.
-MED-9129,Lola,2026-03-12,Heartworm Treatment,1075.41,Unfunded,High,Coordinate with volunteer medical lead.
-MED-9130,Hazel,2026-04-16,Dental,752.22,Funded,High,Add to weekly founder review.
-MED-9131,Scout,2026-06-22,Dental,1405.37,Unfunded,High,Coordinate with volunteer medical lead.
-MED-9132,Zoe,2026-05-02,Routine Visit,171.42,Funded,Low,Coordinate with volunteer medical lead.
-MED-9133,Hazel,2026-04-09,Heartworm Treatment,950.2,Partially Funded,High,Candidate for donor update.
-MED-9134,Frankie,2026-07-04,Dental,1109.29,Unfunded,High,Track before adoption readiness review.
-MED-9135,Joy,2026-05-28,Dental,549.12,Unfunded,High,Add to weekly founder review.
-MED-9136,Zoe,2026-05-31,Heartworm Treatment,1759.45,Unfunded,High,Add to weekly founder review.
-MED-9137,Zoe,2026-06-17,Routine Visit,159.49,Partially Funded,Low,Add to weekly founder review.
-MED-9138,Cooper,2026-06-21,Diagnostic Testing,200.38,Funded,Medium,Track before adoption readiness review.
-MED-9139,Ollie,2026-03-24,Dental,606.57,Funded,High,Candidate for donor update.
-MED-9140,Poppy,2026-06-25,Surgery,3108.89,Partially Funded,High,Candidate for donor update.
-MED-9141,Tucker,2026-03-17,Surgery,2725.5,Partially Funded,High,Coordinate with volunteer medical lead.
-MED-9142,Zoe,2026-05-26,Vaccines,167.59,Unfunded,Medium,Coordinate with volunteer medical lead.
-MED-9143,Macy,2026-03-15,Routine Visit,170.86,Partially Funded,Low,Add to weekly founder review.
-MED-9144,Rudy,2026-03-22,Routine Visit,174.9,Unfunded,Low,Coordinate with volunteer medical lead.
-MED-9145,Sam,2026-05-11,Emergency Vet,785.21,Partially Funded,Critical,Track before adoption readiness review.
-MED-9146,Sam,2026-06-07,Spay/Neuter,406.54,Funded,Medium,Add to weekly founder review.
-MED-9147,Sunny,2026-03-26,Vaccines,58.58,Funded,Medium,Coordinate with volunteer medical lead.
-MED-9148,Frankie,2026-03-09,Emergency Vet,1010.44,Partially Funded,Critical,Coordinate with volunteer medical lead.
-MED-9149,Luna,2026-04-16,Surgery,1667.97,Funded,High,Needs funding visibility.
-MED-9150,Diesel,2026-05-28,Medication,192.63,Unfunded,Medium,Candidate for donor update.
-MED-9151,Pearl,2026-05-01,Surgery,863.66,Partially Funded,High,Needs funding visibility.
-MED-9152,Theo,2026-06-04,Heartworm Treatment,1772.31,Funded,High,Add to weekly founder review.
-MED-9153,Molly,2026-03-13,Emergency Vet,985.51,Partially Funded,Critical,Coordinate with volunteer medical lead.
-MED-9154,Remy,2026-05-17,Emergency Vet,2151.39,Unfunded,Critical,Coordinate with volunteer medical lead.
-MED-9155,Toby,2026-05-09,Heartworm Treatment,1038.22,Funded,High,Candidate for donor update.
-MED-9156,Beau,2026-04-07,Vaccines,73.99,Unfunded,Medium,Add to weekly founder review.
-MED-9157,Tilly,2026-03-26,Dental,933.66,Unfunded,High,Coordinate with volunteer medical lead.
-MED-9158,Marley,2026-07-02,Vaccines,106.51,Funded,Medium,Needs funding visibility.
-MED-9159,Joy,2026-04-28,Dental,1372.52,Unfunded,High,Track before adoption readiness review.
-MED-9160,Callie,2026-06-13,Routine Visit,78.95,Funded,Low,Candidate for donor update.
-MED-9161,Cash,2026-04-09,Diagnostic Testing,765.05,Funded,Medium,Track before adoption readiness review.
-MED-9162,Dexter,2026-03-28,Emergency Vet,497.2,Unfunded,Critical,Track before adoption readiness review.
-MED-9163,Callie,2026-04-09,Medication,127.07,Unfunded,Medium,Track before adoption readiness review.
-MED-9164,Theo,2026-05-22,Medication,247.35,Partially Funded,Medium,Track before adoption readiness review.
-MED-9165,Winnie,2026-03-08,Medication,258.93,Unfunded,High,Needs funding visibility.
-MED-9166,Murphy,2026-06-11,Heartworm Treatment,972.52,Funded,High,Candidate for donor update.
-MED-9167,Blue,2026-04-23,Heartworm Treatment,828.46,Funded,High,Coordinate with volunteer medical lead.
-MED-9168,Charlie,2026-05-11,Medication,92.15,Unfunded,Medium,Candidate for donor update.
-MED-9169,Rosie,2026-06-13,Heartworm Treatment,970.33,Partially Funded,High,Add to weekly founder review.
-MED-9170,Ember,2026-06-24,Heartworm Treatment,781.07,Partially Funded,High,Candidate for donor update.
-MED-9171,Buddy,2026-06-03,Emergency Vet,2083.68,Unfunded,Critical,Candidate for donor update.
-MED-9172,Remy,2026-05-17,Heartworm Treatment,774.82,Unfunded,High,Add to weekly founder review.
-MED-9173,Minnie,2026-04-13,Surgery,2454.35,Funded,High,Needs funding visibility.
-MED-9174,Pearl,2026-03-22,Medication,201.38,Partially Funded,Medium,Needs funding visibility.
-MED-9175,Finn,2026-04-18,Surgery,1174.62,Partially Funded,High,Candidate for donor update.
-MED-9176,Willow,2026-03-13,Heartworm Treatment,892.9,Funded,High,Candidate for donor update.
-MED-9177,Maple,2026-03-08,Routine Visit,180.42,Partially Funded,Low,Candidate for donor update.
-MED-9178,Lola,2026-04-28,Vaccines,86.8,Funded,Medium,Coordinate with volunteer medical lead.
-MED-9179,Rex,2026-06-05,Emergency Vet,1425.67,Funded,Critical,Coordinate with volunteer medical lead.
+MED-9000,Grace,2026-04-29,Diagnostic Testing,277.03,Unfunded,Medium,Track before adoption readiness review.
+MED-9001,Ivy,2026-03-11,Diagnostic Testing,315.45,Funded,Medium,Needs funding visibility.
+MED-9002,Louie,2026-04-04,Surgery,2464.49,Partially Funded,High,Add to weekly founder review.
+MED-9003,Penny,2026-05-26,Vaccines,76.28,Funded,Medium,Needs funding visibility.
+MED-9004,Maple,2026-05-22,Routine Visit,171.86,Unfunded,Low,Candidate for donor update.
+MED-9005,Phoebe,2026-04-02,Vaccines,72.58,Partially Funded,Medium,Add to weekly founder review.
+MED-9006,Nora,2026-05-11,Vaccines,56.2,Partially Funded,Medium,Track before adoption readiness review.
+MED-9007,Biscuit,2026-03-31,Emergency Vet,476.04,Partially Funded,Critical,Track before adoption readiness review.
+MED-9008,Luna,2026-07-02,Diagnostic Testing,646.92,Funded,Medium,Candidate for donor update.
+MED-9009,Zoe,2026-04-23,Diagnostic Testing,604.29,Unfunded,Medium,Track before adoption readiness review.
+MED-9010,Luna,2026-05-06,Spay/Neuter,250.98,Partially Funded,Medium,Add to weekly founder review.
+MED-9011,Winnie,2026-06-19,Heartworm Treatment,1044.23,Unfunded,High,Candidate for donor update.
+MED-9012,Baxter,2026-05-10,Vaccines,168.31,Funded,Medium,Coordinate with volunteer medical lead.
+MED-9013,Hank,2026-05-26,Emergency Vet,2066.35,Funded,Critical,Track before adoption readiness review.
+MED-9014,Comet,2026-04-16,Heartworm Treatment,1675.28,Funded,High,Candidate for donor update.
+MED-9015,Frankie,2026-03-13,Dental,1205.03,Funded,High,Candidate for donor update.
+MED-9016,Beau,2026-05-09,Diagnostic Testing,611.87,Partially Funded,Medium,Candidate for donor update.
+MED-9017,Mia,2026-06-28,Vaccines,157.38,Funded,Medium,Coordinate with volunteer medical lead.
+MED-9018,Maggie,2026-06-29,Vaccines,70.98,Funded,Medium,Candidate for donor update.
+MED-9019,Nala,2026-05-17,Emergency Vet,1597.09,Unfunded,Critical,Needs funding visibility.
+MED-9020,George,2026-05-02,Spay/Neuter,243.02,Unfunded,High,Candidate for donor update.
+MED-9021,Rex,2026-06-23,Vaccines,81.77,Partially Funded,Medium,Add to weekly founder review.
+MED-9022,Ruby,2026-06-22,Surgery,2790.89,Funded,High,Needs funding visibility.
+MED-9023,Bruno,2026-05-21,Heartworm Treatment,1087.21,Unfunded,High,Candidate for donor update.
+MED-9024,Minnie,2026-06-16,Surgery,2954.35,Partially Funded,High,Track before adoption readiness review.
+MED-9025,Winnie,2026-05-08,Dental,1139.77,Funded,High,Track before adoption readiness review.
+MED-9026,Sam,2026-07-02,Medication,168.52,Unfunded,Medium,Add to weekly founder review.
+MED-9027,Grace,2026-06-13,Medication,214.12,Unfunded,Medium,Needs funding visibility.
+MED-9028,George,2026-03-21,Vaccines,65.71,Partially Funded,Medium,Add to weekly founder review.
+MED-9029,Lucky,2026-05-21,Surgery,1481.3,Partially Funded,High,Needs funding visibility.
+MED-9030,Penny,2026-06-07,Spay/Neuter,355.18,Funded,Medium,Coordinate with volunteer medical lead.
+MED-9031,Mabel,2026-05-14,Dental,489.89,Partially Funded,High,Candidate for donor update.
+MED-9032,Callie,2026-05-13,Vaccines,154.75,Partially Funded,Medium,Coordinate with volunteer medical lead.
+MED-9033,Theo,2026-03-12,Medication,247.41,Funded,Medium,Add to weekly founder review.
+MED-9034,Finn,2026-04-02,Routine Visit,89.4,Partially Funded,Low,Candidate for donor update.
+MED-9035,Molly,2026-04-25,Surgery,3042.99,Funded,High,Coordinate with volunteer medical lead.
+MED-9036,Gus,2026-06-07,Heartworm Treatment,1295.04,Unfunded,High,Candidate for donor update.
+MED-9037,Frankie,2026-04-29,Spay/Neuter,252.21,Unfunded,Medium,Candidate for donor update.
+MED-9038,Sam,2026-05-20,Dental,1009.21,Partially Funded,High,Add to weekly founder review.
+MED-9039,Benny,2026-06-04,Heartworm Treatment,1332.78,Unfunded,High,Track before adoption readiness review.
+MED-9040,Sadie,2026-05-22,Surgery,3111.88,Funded,High,Add to weekly founder review.
+MED-9041,Jasper,2026-04-09,Heartworm Treatment,1710.61,Partially Funded,High,Add to weekly founder review.
+MED-9042,Poppy,2026-05-23,Dental,927.62,Funded,High,Needs funding visibility.
+MED-9043,Callie,2026-04-17,Vaccines,173.97,Funded,Medium,Candidate for donor update.
+MED-9044,Gus,2026-06-08,Emergency Vet,989.9,Unfunded,Critical,Needs funding visibility.
+MED-9045,Maple,2026-06-14,Heartworm Treatment,1207.67,Funded,High,Track before adoption readiness review.
+MED-9046,Baxter,2026-07-01,Dental,469.16,Unfunded,High,Candidate for donor update.
+MED-9047,Lola,2026-04-15,Surgery,1524.01,Funded,High,Candidate for donor update.
+MED-9048,Summer,2026-05-29,Emergency Vet,454.95,Partially Funded,Critical,Coordinate with volunteer medical lead.
+MED-9049,Benny,2026-04-18,Heartworm Treatment,738.33,Funded,High,Candidate for donor update.
+MED-9050,Fiona,2026-04-13,Surgery,2416.41,Funded,High,Candidate for donor update.
+MED-9051,Frankie,2026-04-14,Diagnostic Testing,139.79,Partially Funded,Medium,Add to weekly founder review.
+MED-9052,Ranger,2026-03-13,Heartworm Treatment,963.0,Partially Funded,High,Track before adoption readiness review.
+MED-9053,Georgia,2026-04-28,Emergency Vet,1159.96,Partially Funded,Critical,Candidate for donor update.
+MED-9054,Molly,2026-04-22,Routine Visit,176.29,Unfunded,Low,Candidate for donor update.
+MED-9055,Sadie,2026-06-09,Medication,103.59,Unfunded,Medium,Track before adoption readiness review.
+MED-9056,Rex,2026-04-07,Heartworm Treatment,741.79,Partially Funded,High,Candidate for donor update.
+MED-9057,Baxter,2026-04-21,Dental,1154.21,Funded,High,Coordinate with volunteer medical lead.
+MED-9058,Knox,2026-05-03,Heartworm Treatment,847.36,Unfunded,High,Candidate for donor update.
+MED-9059,Willow,2026-06-26,Heartworm Treatment,1713.82,Unfunded,High,Track before adoption readiness review.
+MED-9060,Cookie,2026-05-08,Spay/Neuter,260.59,Funded,Medium,Coordinate with volunteer medical lead.
+MED-9061,Ranger,2026-05-24,Heartworm Treatment,704.32,Unfunded,High,Needs funding visibility.
+MED-9062,Ember,2026-05-05,Diagnostic Testing,692.81,Partially Funded,Medium,Coordinate with volunteer medical lead.
+MED-9063,Nora,2026-04-21,Dental,1183.36,Unfunded,High,Add to weekly founder review.
+MED-9064,Jack,2026-06-30,Routine Visit,157.07,Funded,Low,Needs funding visibility.
+MED-9065,Mia,2026-04-14,Diagnostic Testing,684.43,Unfunded,Medium,Track before adoption readiness review.
+MED-9066,Diesel,2026-04-18,Vaccines,77.72,Unfunded,Medium,Coordinate with volunteer medical lead.
+MED-9067,Millie,2026-06-05,Vaccines,96.64,Unfunded,High,Add to weekly founder review.
+MED-9068,Archie,2026-05-01,Vaccines,76.1,Funded,Medium,Coordinate with volunteer medical lead.
+MED-9069,Buddy,2026-07-03,Emergency Vet,1756.97,Unfunded,Critical,Track before adoption readiness review.
+MED-9070,Macy,2026-05-16,Surgery,916.55,Unfunded,High,Track before adoption readiness review.
+MED-9071,Ruby,2026-06-01,Heartworm Treatment,1741.46,Funded,High,Add to weekly founder review.
+MED-9072,Georgia,2026-04-14,Medication,54.33,Funded,Medium,Coordinate with volunteer medical lead.
+MED-9073,Murphy,2026-04-01,Heartworm Treatment,1672.79,Unfunded,High,Add to weekly founder review.
+MED-9074,Millie,2026-07-02,Heartworm Treatment,1381.46,Funded,High,Track before adoption readiness review.
+MED-9075,Moose,2026-06-07,Heartworm Treatment,1728.84,Funded,High,Add to weekly founder review.
+MED-9076,Willow,2026-04-20,Heartworm Treatment,810.54,Partially Funded,High,Needs funding visibility.
+MED-9077,Millie,2026-05-29,Heartworm Treatment,701.25,Unfunded,High,Needs funding visibility.
+MED-9078,Maisie,2026-05-14,Heartworm Treatment,1483.87,Partially Funded,High,Candidate for donor update.
+MED-9079,Rex,2026-06-23,Medication,221.16,Partially Funded,Medium,Candidate for donor update.
+MED-9080,Callie,2026-03-23,Surgery,891.65,Unfunded,High,Add to weekly founder review.
+MED-9081,Willow,2026-04-04,Heartworm Treatment,1741.5,Funded,High,Track before adoption readiness review.
+MED-9082,Poppy,2026-06-01,Heartworm Treatment,1718.37,Unfunded,High,Coordinate with volunteer medical lead.
+MED-9083,Georgia,2026-05-01,Emergency Vet,1664.46,Unfunded,Critical,Add to weekly founder review.
+MED-9084,Cash,2026-05-24,Dental,1409.59,Funded,High,Needs funding visibility.
+MED-9085,Phoebe,2026-04-29,Heartworm Treatment,1290.17,Unfunded,High,Add to weekly founder review.
+MED-9086,Bruno,2026-05-21,Heartworm Treatment,784.84,Funded,High,Coordinate with volunteer medical lead.
+MED-9087,Remy,2026-05-18,Dental,915.59,Funded,High,Needs funding visibility.
+MED-9088,Tucker,2026-04-01,Surgery,2116.15,Partially Funded,High,Candidate for donor update.
+MED-9089,Ivy,2026-06-01,Heartworm Treatment,769.85,Unfunded,High,Candidate for donor update.
+MED-9090,Atlas,2026-04-17,Heartworm Treatment,1028.42,Unfunded,High,Track before adoption readiness review.
+MED-9091,Milo,2026-05-14,Emergency Vet,1126.33,Funded,Critical,Needs funding visibility.
+MED-9092,Phoebe,2026-05-05,Diagnostic Testing,465.4,Unfunded,Medium,Needs funding visibility.
+MED-9093,Diesel,2026-06-02,Dental,480.5,Partially Funded,High,Add to weekly founder review.
+MED-9094,Tucker,2026-06-26,Medication,165.69,Partially Funded,Medium,Coordinate with volunteer medical lead.
+MED-9095,Murphy,2026-04-23,Heartworm Treatment,1345.51,Partially Funded,High,Track before adoption readiness review.
+MED-9096,June,2026-05-07,Heartworm Treatment,714.07,Unfunded,High,Track before adoption readiness review.
+MED-9097,Sunny,2026-05-08,Dental,1213.26,Unfunded,High,Track before adoption readiness review.
+MED-9098,Clover,2026-03-29,Medication,77.57,Partially Funded,Medium,Candidate for donor update.
+MED-9099,Phoebe,2026-06-08,Surgery,2534.82,Funded,High,Add to weekly founder review.
+MED-9100,Archie,2026-04-30,Dental,972.05,Partially Funded,High,Add to weekly founder review.
+MED-9101,Diesel,2026-06-26,Dental,1238.02,Unfunded,High,Needs funding visibility.
+MED-9102,Hazel,2026-06-29,Surgery,1316.16,Partially Funded,High,Candidate for donor update.
+MED-9103,Hank,2026-05-12,Vaccines,176.62,Funded,Medium,Candidate for donor update.
+MED-9104,Hazel,2026-03-31,Emergency Vet,1182.96,Funded,Critical,Candidate for donor update.
+MED-9105,Ember,2026-06-09,Dental,700.85,Partially Funded,High,Candidate for donor update.
+MED-9106,Archie,2026-03-12,Spay/Neuter,320.05,Partially Funded,Medium,Add to weekly founder review.
+MED-9107,Cooper,2026-06-28,Dental,471.55,Unfunded,High,Track before adoption readiness review.
+MED-9108,Cash,2026-03-29,Routine Visit,156.46,Funded,Low,Candidate for donor update.
+MED-9109,Tucker,2026-06-19,Medication,248.37,Unfunded,Medium,Candidate for donor update.
+MED-9110,Charlie,2026-06-28,Surgery,1046.42,Unfunded,High,Track before adoption readiness review.
+MED-9111,Callie,2026-04-13,Vaccines,78.92,Unfunded,Medium,Track before adoption readiness review.
+MED-9112,Finn,2026-04-25,Vaccines,155.67,Partially Funded,Medium,Add to weekly founder review.
+MED-9113,Atlas,2026-03-18,Heartworm Treatment,1535.4,Funded,High,Needs funding visibility.
+MED-9114,Sam,2026-03-08,Spay/Neuter,257.06,Unfunded,Medium,Add to weekly founder review.
+MED-9115,Millie,2026-04-17,Routine Visit,88.03,Partially Funded,Low,Coordinate with volunteer medical lead.
+MED-9116,Jasper,2026-05-18,Dental,1356.92,Funded,High,Coordinate with volunteer medical lead.
+MED-9117,Winnie,2026-06-23,Diagnostic Testing,605.31,Unfunded,Medium,Track before adoption readiness review.
+MED-9118,Diesel,2026-03-08,Routine Visit,161.65,Unfunded,Low,Track before adoption readiness review.
+MED-9119,Molly,2026-05-14,Routine Visit,113.92,Unfunded,Low,Coordinate with volunteer medical lead.
+MED-9120,Benny,2026-05-06,Heartworm Treatment,1375.86,Unfunded,High,Needs funding visibility.
+MED-9121,Hank,2026-03-26,Routine Visit,88.6,Funded,Low,Candidate for donor update.
+MED-9122,Millie,2026-06-19,Spay/Neuter,337.46,Unfunded,Medium,Needs funding visibility.
+MED-9123,Phoebe,2026-06-29,Medication,46.77,Partially Funded,Medium,Needs funding visibility.
+MED-9124,Bruno,2026-05-27,Heartworm Treatment,1624.48,Unfunded,High,Candidate for donor update.
+MED-9125,Kona,2026-07-04,Emergency Vet,1444.04,Funded,Critical,Track before adoption readiness review.
+MED-9126,Cooper,2026-05-14,Spay/Neuter,405.16,Partially Funded,Medium,Add to weekly founder review.
+MED-9127,Ivy,2026-04-18,Heartworm Treatment,1747.05,Funded,High,Track before adoption readiness review.
+MED-9128,Kona,2026-06-08,Spay/Neuter,199.81,Unfunded,High,Coordinate with volunteer medical lead.
+MED-9129,Minnie,2026-06-24,Dental,1029.79,Partially Funded,High,Track before adoption readiness review.
+MED-9130,Rory,2026-03-28,Surgery,2460.14,Partially Funded,High,Coordinate with volunteer medical lead.
+MED-9131,June,2026-05-09,Heartworm Treatment,1399.25,Partially Funded,High,Needs funding visibility.
+MED-9132,Lucky,2026-03-12,Surgery,855.03,Unfunded,High,Needs funding visibility.
+MED-9133,Lola,2026-04-08,Diagnostic Testing,231.45,Partially Funded,Medium,Add to weekly founder review.
+MED-9134,Knox,2026-06-04,Surgery,2498.52,Funded,High,Track before adoption readiness review.
+MED-9135,Frankie,2026-07-03,Dental,660.1,Funded,High,Coordinate with volunteer medical lead.
+MED-9136,Violet,2026-04-13,Heartworm Treatment,1326.68,Funded,High,Coordinate with volunteer medical lead.
+MED-9137,Bruno,2026-06-07,Heartworm Treatment,1168.05,Unfunded,High,Track before adoption readiness review.
+MED-9138,Ellie,2026-04-17,Medication,98.33,Funded,Medium,Needs funding visibility.
+MED-9139,Willow,2026-04-20,Heartworm Treatment,1324.68,Partially Funded,High,Add to weekly founder review.
+MED-9140,Archie,2026-03-29,Spay/Neuter,368.19,Partially Funded,Medium,Track before adoption readiness review.
+MED-9141,Nala,2026-06-09,Surgery,2297.63,Funded,High,Candidate for donor update.
+MED-9142,Scout,2026-06-23,Dental,851.01,Partially Funded,High,Candidate for donor update.
+MED-9143,Tessa,2026-05-09,Heartworm Treatment,1665.11,Funded,High,Candidate for donor update.
+MED-9144,Birdie,2026-06-30,Emergency Vet,814.17,Unfunded,Critical,Track before adoption readiness review.
+MED-9145,Scout,2026-06-03,Dental,519.37,Unfunded,High,Track before adoption readiness review.
+MED-9146,Lola,2026-06-27,Routine Visit,137.12,Funded,Low,Candidate for donor update.
+MED-9147,Rosie,2026-06-22,Spay/Neuter,315.49,Partially Funded,Medium,Add to weekly founder review.
+MED-9148,Lola,2026-03-12,Heartworm Treatment,1075.41,Unfunded,High,Coordinate with volunteer medical lead.
+MED-9149,Hazel,2026-04-16,Dental,752.22,Funded,High,Add to weekly founder review.
+MED-9150,Scout,2026-06-22,Dental,1405.37,Unfunded,High,Coordinate with volunteer medical lead.
+MED-9151,Zoe,2026-05-02,Routine Visit,171.42,Funded,Low,Coordinate with volunteer medical lead.
+MED-9152,Hazel,2026-04-09,Heartworm Treatment,950.2,Partially Funded,High,Candidate for donor update.
+MED-9153,Frankie,2026-07-04,Dental,1109.29,Unfunded,High,Track before adoption readiness review.
+MED-9154,Joy,2026-05-28,Dental,549.12,Unfunded,High,Add to weekly founder review.
+MED-9155,Zoe,2026-05-31,Heartworm Treatment,1759.45,Unfunded,High,Add to weekly founder review.
+MED-9156,Zoe,2026-06-17,Routine Visit,159.49,Partially Funded,Low,Add to weekly founder review.
+MED-9157,Cooper,2026-06-21,Diagnostic Testing,200.38,Funded,Medium,Track before adoption readiness review.
+MED-9158,Ollie,2026-03-24,Dental,606.57,Funded,High,Candidate for donor update.
+MED-9159,Poppy,2026-06-25,Surgery,3108.89,Partially Funded,High,Candidate for donor update.
+MED-9160,Tucker,2026-03-17,Surgery,2725.5,Partially Funded,High,Coordinate with volunteer medical lead.
+MED-9161,Zoe,2026-05-26,Vaccines,167.59,Unfunded,Medium,Coordinate with volunteer medical lead.
+MED-9162,Macy,2026-03-15,Routine Visit,170.86,Partially Funded,Low,Add to weekly founder review.
+MED-9163,Rudy,2026-03-22,Routine Visit,174.9,Unfunded,Low,Coordinate with volunteer medical lead.
+MED-9164,Sam,2026-05-11,Emergency Vet,785.21,Partially Funded,Critical,Track before adoption readiness review.
+MED-9165,Sam,2026-06-07,Spay/Neuter,406.54,Funded,Medium,Add to weekly founder review.
+MED-9166,Sunny,2026-03-26,Vaccines,58.58,Funded,Medium,Coordinate with volunteer medical lead.
+MED-9167,Frankie,2026-03-09,Emergency Vet,1010.44,Partially Funded,Critical,Coordinate with volunteer medical lead.
+MED-9168,Luna,2026-04-16,Surgery,1667.97,Funded,High,Needs funding visibility.
+MED-9169,Diesel,2026-05-28,Medication,192.63,Unfunded,Medium,Candidate for donor update.
+MED-9170,Pearl,2026-05-01,Surgery,863.66,Partially Funded,High,Needs funding visibility.
+MED-9171,Theo,2026-06-04,Heartworm Treatment,1772.31,Funded,High,Add to weekly founder review.
+MED-9172,Molly,2026-03-13,Emergency Vet,985.51,Partially Funded,Critical,Coordinate with volunteer medical lead.
+MED-9173,Remy,2026-05-17,Emergency Vet,2151.39,Unfunded,Critical,Coordinate with volunteer medical lead.
+MED-9174,Toby,2026-05-09,Heartworm Treatment,1038.22,Funded,High,Candidate for donor update.
+MED-9175,Beau,2026-04-07,Vaccines,73.99,Unfunded,Medium,Add to weekly founder review.
+MED-9176,Tilly,2026-03-26,Dental,933.66,Unfunded,High,Coordinate with volunteer medical lead.
+MED-9177,Marley,2026-07-02,Vaccines,106.51,Funded,Medium,Needs funding visibility.
+MED-9178,Joy,2026-04-28,Dental,1372.52,Unfunded,High,Track before adoption readiness review.
+MED-9179,Callie,2026-06-13,Routine Visit,78.95,Funded,Low,Candidate for donor update.
