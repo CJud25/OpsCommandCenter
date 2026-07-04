@@ -1,4 +1,11 @@
-streamlit>=1.36
-pandas>=2.2
-numpy>=1.26
-plotly>=5.22
+# Core stack. Pinned to compatible ranges so a fresh install matches what was
+# tested (Streamlit 1.58, pandas 3.0, numpy 2.5, plotly 6.8 on Python 3.14).
+streamlit>=1.49,<2
+pandas>=2.2,<3.1
+numpy>=1.26,<3
+plotly>=5.22,<7
+
+# Optional: enables the "AI-enhanced" report polish path. The app runs fully
+# without either of these -- rule-based mode is always available.
+# openai>=1.40
+# anthropic>=0.40
