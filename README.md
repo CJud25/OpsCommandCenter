@@ -154,3 +154,7 @@ No real customer, employee, volunteer, donor, applicant, or animal rescue data i
 ## Disclaimer
 
 This project uses synthetic and mock data for portfolio demonstration purposes. ROI, savings, and mission-impact estimates are illustrative and should be validated with real operational data before business use.
+
+## License
+
+Released under the MIT License. See [LICENSE](LICENSE). Copyright (c) 2026 Chris Judkins.
