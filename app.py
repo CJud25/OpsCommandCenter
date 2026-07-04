@@ -241,6 +241,7 @@ def render_opspilot_demo(opspilot_df: pd.DataFrame) -> None:
         with right:
             st.plotly_chart(bar_chart(chart_data["requests_by_stage"], "process_stage", "requests", "Requests by Process Stage"), width="stretch")
             st.plotly_chart(bar_chart(chart_data["breaches_by_department"], "department", "sla_breaches", "SLA Breaches by Department"), width="stretch")
+        st.plotly_chart(weekly_volume_trend(opspilot_df), width="stretch")
 
     with tab_bottlenecks:
         ui.insight_box("Bottleneck Detection", insight, "warning")
@@ -682,6 +683,22 @@ def render_blueprint_picker(automations: pd.DataFrame, domain: str) -> None:
 
 def bar_chart(df: pd.DataFrame, x: str, y: str, title: str):
     fig = px.bar(df, x=x, y=y, title=title, color_discrete_sequence=COLOR_SEQUENCE)
+    return style_chart(fig)
+
+
+def weekly_volume_trend(df: pd.DataFrame):
+    """Weekly submitted-request volume -- a trend an operations director expects
+    but the original dashboard never showed (it read as a static snapshot)."""
+    weekly = (
+        df.set_index("submitted_date")
+        .resample("W")["request_id"]
+        .count()
+        .reset_index(name="requests")
+    )
+    fig = px.line(weekly, x="submitted_date", y="requests", title="Weekly Request Volume Trend", markers=True)
+    fig.update_traces(line_color="#0f766e")
+    fig.update_xaxes(title="")
+    fig.update_yaxes(title="Requests")
     return style_chart(fig)
 
 
