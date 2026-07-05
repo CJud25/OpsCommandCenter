@@ -7,9 +7,11 @@
 
 OpsPilot turns raw operational data into a ranked, ROI-backed automation roadmap -- and then acts on it -- proven across two very different operations: a business service desk and a nonprofit dog rescue.
 
-Runs fully locally with no external API calls: no data ever leaves the machine.
+**Find the bottleneck, price the fix, rank the work, generate the brief, run the automation** -- one framework, two domains.
 
-![Automation Ranker](assets/ranker.png)
+Runs fully locally with no external API calls, so no data ever leaves the machine. All data is synthetic; this is a portfolio demonstration and every figure is illustrative.
+
+![Automation Ranker: automation-opportunity scores for both domains on one comparable 0-100 scale](assets/ranker.png)
 
 ## Analytical Integrity Review
 
@@ -21,7 +23,7 @@ Before shipping, every analytic in this app was put through an adversarial revie
 | ROI metrics | 4 headline metrics, 3 fabricated or circular: one echoed the user's own cycle-time slider back as a finding, one was an invented SLA-reduction formula with coefficients from nowhere | Those two are deleted; the labor-savings model stays and gains a real cost side -- build cost, maintenance, payback period, first-year ROI -- with an Assumptions panel and sensitivity band | A benefits number with no cost line is not an ROI; a figure that survives the CFO's first question is worth ten that do not |
 | Priority and automation scores | "Analysis" re-displayed labels hardcoded into the demo-data generator | Analyzer computes scores from raw fields -- the same code works on real data | Insight must be earned from the data, not smuggled in with it |
 | KPI freshness | "Last 30 days" metrics silently decayed to $0 as the committed demo data aged | KPIs anchored to the dataset's own timeline; stable on any day it is opened | A dashboard that quietly reads zero destroys trust in everything else on it |
-| Opportunity score | Relative min-max normalization: unstable, double-counted volume, not comparable across domains. A later hard saturation ceiling then pinned most candidates to the same effort value -- so the "data-driven" ranking barely moved with the data | Absolute anchor bands on net hours saved, fed through a diminishing-returns curve (no hard ceiling) so both domains use one comparable scale and the score genuinely responds to volume -- a property test proves it | A score of 80 means the same thing in both operations, and doubling the work actually changes the ranking |
+| Opportunity score | Relative min-max normalization -- unstable, volume double-counted, not comparable across domains; a later hard ceiling then pinned most candidates to one effort value, so the ranking barely moved with the data | Absolute anchors on net monthly hours saved, through a diminishing-returns curve (no hard ceiling), so both domains share one scale and the score responds to volume -- proven by a property test | A score of 80 means the same thing in both operations, and doubling the work actually changes the ranking |
 | Home vs ROI savings | The home-page savings figure and the ROI page used different effective save rates, so the two views disagreed | The ROI page defaults its time-saved lever to the same blended save rate the home page uses -- the two tell one story | "Why does your dashboard say one number and your ROI page another?" is a credibility-ender |
 | Severity ordering | Alphabetical sort ranked "Medium" above "Critical" | Severity-ordered | In operations, an ordering error becomes a response-time error |
 | Implementation blueprints | 8 of 14 sections were identical boilerplate across every candidate | Candidate-specific plans, including idempotency and failure handling | A plan a team could actually execute, not a template |
@@ -57,7 +59,7 @@ The app includes two demo modes:
 - OpsPilot: a general business operations process-improvement and automation command center. The fictional company, Summit Services Group, struggles with delayed internal requests, approval bottlenecks, missing documentation, duplicate work, and poor workload visibility.
 - RescueOps: a nonprofit dog rescue operations and automation command center. The fictional rescue, Rosalie and Friends, is an all-volunteer organization managing dogs, fosters, adoption inquiries, medical needs, volunteer tasks, and donation priorities.
 
-The goal is to show that the same process-improvement framework works across multiple real-world domains.
+The goal is to show that one process-improvement framework transfers across very different operational domains -- the same analytics, scoring, and reporting code runs unchanged on both.
 
 ## Features
 
@@ -108,15 +110,17 @@ streamlit run app.py
 The app generates all required CSV files automatically in the `data/` folder on first run. To regenerate the synthetic data at any time, run:
 
 ```bash
-py -m modules.data_generator --force
+python -m modules.data_generator --force
 ```
+
+Generation is deterministic (fixed seed and anchor date), so a regenerated dataset matches the committed one byte for byte. On Windows you can substitute the `py` launcher for `python` in any command below.
 
 ## Run the Tests
 
 ```bash
-py tests/smoke.py          # headless end-to-end pipeline
-py tests/test_ranker.py    # ranker + ROI property tests
-py tests/test_automation.py  # micro-automation idempotency + safety
+python tests/smoke.py            # headless end-to-end pipeline
+python tests/test_ranker.py      # ranker + ROI property tests
+python tests/test_automation.py  # micro-automation idempotency + safety
 ```
 
 These are the same checks GitHub Actions runs on every push (see the CI badge above).
@@ -126,9 +130,9 @@ These are the same checks GitHub Actions runs on every push (see the CI badge ab
 From the project root:
 
 ```bash
-py automations/missing_document_followup.py
-py automations/missing_document_followup.py --dry-run       # preview without writing
-py automations/missing_document_followup.py --max-actions 5 # circuit breaker
+python automations/missing_document_followup.py
+python automations/missing_document_followup.py --dry-run       # preview without writing
+python automations/missing_document_followup.py --max-actions 5 # circuit breaker
 ```
 
 It scans `data/opspilot_requests.csv`, writes one follow-up message per missing-document request into `outbox/`, and appends an action row to `audit_log.csv`. Each action carries an idempotency key (request id plus rule name), and the audit row is written immediately after each file, so re-running it creates zero new files and zero new audit rows even if a previous run was interrupted. `--window-days N` allows a request to be chased again once its last follow-up is older than N days (a reminder ladder). Use `--help` for all options.
