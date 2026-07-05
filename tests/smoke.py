@@ -88,9 +88,10 @@ def main() -> int:
         _check("scores within 0-100", float(r_all["Automation Score"].max()) <= 100 and float(r_all["Automation Score"].min()) >= 0)
 
         # --- roi + reports -----------------------------------------------------
-        roi_ops = calculate_opspilot_roi(45, 30, 200, 35, 10, 25)
+        roi_ops = calculate_opspilot_roi(45, 30, 200, 35)
         roi_res = calculate_rescueops_roi(28, 140, 14, 80, 5000, 35, 45)
         _check("opspilot roi labor math", roi_ops["annual_labor_savings"] == roi_ops["monthly_labor_savings"] * 12)
+        _check("opspilot roi exposes payback + net keys", {"payback_months", "annual_net_savings", "first_year_roi_pct"} <= set(roi_ops))
         _check("opspilot report non-empty", len(generate_opspilot_report(s, b, r_ops, roi_ops)) > 200)
         _check("rescue report non-empty", len(generate_rescueops_report(rs, medical_priority_scoring(dogs, medical), r_res, "brief", roi_res)) > 200)
 

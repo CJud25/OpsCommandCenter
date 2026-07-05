@@ -161,6 +161,15 @@ def get_opspilot_chart_data(df: pd.DataFrame, bottlenecks: pd.DataFrame) -> dict
                 "sla_breaches", ascending=False
             )
         ),
+        # Breach RATE (not raw count) by department. A raw count just re-ranks by
+        # department size; the rate is the actual process-quality signal. Volume is
+        # carried for the hover so a high rate on a tiny queue is not over-read.
+        "breach_rate_by_department": (
+            df.groupby("department")
+            .agg(breach_rate=("sla_breached", "mean"), volume=("request_id", "count"))
+            .reset_index()
+            .sort_values("breach_rate", ascending=False)
+        ),
         "manual_hours_by_type": (
             df.assign(manual_hours=df["estimated_manual_minutes"] / 60)
             .groupby("request_type")["manual_hours"]

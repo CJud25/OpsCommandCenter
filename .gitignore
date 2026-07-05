@@ -3,3 +3,7 @@ __pycache__/
 outbox/
 *.zip
 audit_log.csv
+.env
+.venv/
+venv/
+.DS_Store

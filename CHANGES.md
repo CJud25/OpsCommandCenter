@@ -88,11 +88,43 @@ step.
     `modules/scoring.py` removes three duplicated helpers; empty-input guards;
     an optional Anthropic path added alongside OpenAI for AI-enhanced mode.
 
+## Second pass: hiring-panel review (9.5/10 target)
+
+A five-specialist review (automation architecture, security/privacy, DevOps,
+process-improvement/executive credibility, dashboard UX) drove a second round.
+
+1. Removed the optional AI report-polish feature entirely (app UI, the polish
+   functions in `report_generator.py`, and the commented SDK extras). A report step
+   that could silently rewrite the numbers contradicts the tool's integrity thesis;
+   the deterministic pipeline is the product. The app now makes no external calls.
+2. ROI page honesty. Deleted the cycle-time "improvement" (which echoed the user's
+   own slider back as a finding) and the invented `sla_breach_reduction_estimate`
+   formula. Added a real cost side: build cost, maintenance, payback period, and
+   first-year ROI. The page's time-saved default now equals the home page's blended
+   save rate, so the two views agree.
+3. Scoring saturation. The effort term used a hard 40-hour ceiling that pinned most
+   OpsPilot candidates to the same value, so the ranking barely moved with the data.
+   Replaced with a diminishing-returns curve over NET hours saved, fed identically
+   by both domains. A new volume-sensitivity test proves doubling a candidate's rows
+   raises its score; the absoluteness check was rewritten to a direct property test.
+4. Micro-automation hardening: the audit row is now written and flushed immediately
+   after each outbox file (crash-safe), plus `--dry-run`, a `--max-actions` circuit
+   breaker, and `--window-days` for a reminder ladder. New `tests/test_automation.py`
+   covers idempotency, the window, the cap, dry-run, and path-traversal safety.
+5. Dashboard polish: the ranker score chart is now rendered in-app (matching the
+   README hero), chart axes are human-labeled, the SLA chart shows breach RATE not
+   count, KPI strips lead with four headline tiles, and reports render as Markdown.
+6. Engineering hygiene: GitHub Actions CI (`.github/workflows/ci.yml`) runs the full
+   test suite on Python 3.12 and 3.13; devcontainer bumped and its insecure
+   CORS/XSRF flags dropped; `.gitignore` extended; RescueOps effort coefficients
+   documented as a named, auditable model.
+
 ## How to verify
 
-    py tests/smoke.py          # headless pipeline: all analyzers/rankers/reports
-    py tests/test_ranker.py    # scoring stability, ranges, ROI contract keys
+    py tests/smoke.py            # headless pipeline: all analyzers/rankers/reports
+    py tests/test_ranker.py      # scoring stability + volume sensitivity, ROI keys
+    py tests/test_automation.py  # micro-automation idempotency + safety
     py -m modules.data_generator --force   # regenerate the synthetic datasets
 
-All figures above are from the committed synthetic data (SEED=42) and are
-illustrative for demonstration only.
+All figures are from the committed synthetic data (SEED=42) and are illustrative for
+demonstration only.

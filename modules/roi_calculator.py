@@ -6,37 +6,55 @@ def calculate_opspilot_roi(
     manual_minutes_per_request: float,
     monthly_request_volume: int,
     percent_automated: float,
-    current_cycle_time: float,
-    expected_cycle_time_reduction: float,
-    time_saved_per_request_pct: float = 70.0,
+    time_saved_per_request_pct: float = 54.0,
+    one_time_build_cost: float = 12000.0,
+    monthly_maintenance_cost: float = 400.0,
 ) -> dict:
+    """Conservative, labor-savings-only ROI with a real cost side.
+
+    This model deliberately reports ONLY what it can defend from the inputs:
+    labor hours removed, their dollar value, and the payback on an assumed build
+    and maintenance cost. Two earlier "metrics" were removed because they did not
+    survive scrutiny -- a cycle-time "improvement" that merely echoed the user's
+    own reduction slider back as a finding, and an SLA-breach-reduction figure
+    produced by an invented coefficient formula with no basis in the data.
+
+    ``percent_automated`` (coverage: share of volume automated) and
+    ``time_saved_per_request_pct`` (share of manual time removed per automated
+    request) are distinct levers and are multiplied together. The default time
+    saved matches the blended save rate used on the home page so the two views
+    tell one consistent story.
+    """
     automation_rate = percent_automated / 100
-    cycle_reduction_rate = expected_cycle_time_reduction / 100
-    # Fix #6: automating a request does not remove 100% of the manual minutes --
-    # a human still spins up the automation, reviews exceptions, and handles the
-    # residual judgment work. ``time_saved_per_request_pct`` is the share of the
-    # manual time per request that actually disappears once the workflow is
-    # automated (default 70%). Coverage (``percent_automated``) and per-request
-    # time saved are distinct levers and are multiplied together.
     time_saved_rate = time_saved_per_request_pct / 100
     monthly_hours_saved = (
         monthly_request_volume * manual_minutes_per_request * automation_rate / 60
     ) * time_saved_rate
     monthly_labor_savings = monthly_hours_saved * average_staff_hourly_rate
     annual_labor_savings = monthly_labor_savings * 12
-    improved_cycle_time = max(0, current_cycle_time * (1 - cycle_reduction_rate))
-    breach_reduction_estimate = min(65, expected_cycle_time_reduction * 0.7 + percent_automated * 0.18)
+
+    # Cost side: net of ongoing maintenance and the one-time build. A benefits
+    # estimate without a cost line is not an ROI; this makes the page title honest.
+    monthly_net_savings = monthly_labor_savings - monthly_maintenance_cost
+    annual_net_savings = monthly_net_savings * 12 - one_time_build_cost
+    payback_months = (
+        one_time_build_cost / monthly_net_savings if monthly_net_savings > 0 else float("inf")
+    )
+    first_year_roi_pct = (
+        annual_net_savings / one_time_build_cost * 100 if one_time_build_cost > 0 else 0.0
+    )
 
     return {
         "monthly_hours_saved": monthly_hours_saved,
         "monthly_labor_savings": monthly_labor_savings,
         "annual_labor_savings": annual_labor_savings,
-        "estimated_cycle_time_improvement": current_cycle_time - improved_cycle_time,
-        "new_cycle_time_estimate": improved_cycle_time,
-        "sla_breach_reduction_estimate": breach_reduction_estimate,
+        "monthly_net_savings": monthly_net_savings,
+        "annual_net_savings": annual_net_savings,
+        "payback_months": payback_months,
+        "first_year_roi_pct": first_year_roi_pct,
         "qualitative_business_value": (
-            "Faster request handling, fewer manual touches, better SLA visibility, and a clearer business case "
-            "for automating repeatable operational work."
+            "Faster request handling and fewer manual touches, with a defensible labor-savings "
+            "business case for automating repeatable operational work -- net of build and maintenance cost."
         ),
     }
 

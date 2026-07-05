@@ -16,6 +16,8 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import pandas as pd
+
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
@@ -24,11 +26,13 @@ if str(ROOT) not in sys.path:
 from modules.opspilot_analyzer import load_opspilot_data
 from modules.rescueops_analyzer import load_rescueops_data
 from modules.automation_ranker import (
+    OPSPILOT_AUTOMATION_SPECS,
     build_combined_automation_ranker,
     build_opspilot_automation_ranker,
     build_rescueops_automation_ranker,
 )
 from modules.roi_calculator import calculate_opspilot_roi, calculate_rescueops_roi
+from modules import classification, scoring
 
 DATA = ROOT / "data"
 
@@ -99,44 +103,77 @@ def main() -> int:
     both_domains = set(r_all["Domain"]) == {"OpsPilot", "RescueOps"}
     _check("combined spans both domains", both_domains)
 
-    # --- score STABILITY (absolute, not min-max) ---------------------------
-    # Drop every row belonging to one row-level candidate ("Missing Document
-    # Follow-Up") and confirm another candidate's score is unchanged.
+    # --- score is ABSOLUTE, not min-max ------------------------------------
+    # Prove it directly: a candidate's score is a pure function of ITS OWN
+    # aggregate impact + spec, with no cross-candidate normalization. Recompute one
+    # candidate's score in isolation and match the builder. (A row-drop test is
+    # unreliable here because candidate memberships overlap -- dropping one
+    # candidate's rows also removes rows that belong to another.)
     baseline = r_ops.set_index("Automation Candidate")["Automation Score"]
-    reference_name = "SLA Escalation Alerts"
-    dropped = ops[~ops["required_documents_missing"].astype(bool)].copy()
-    r_ops_dropped = build_opspilot_automation_ranker(dropped)
-    dropped_scores = r_ops_dropped.set_index("Automation Candidate")["Automation Score"]
-    _check(
-        "dropping a candidate's rows leaves another candidate's score unchanged",
-        reference_name in dropped_scores.index
-        and dropped_scores[reference_name] == baseline[reference_name],
+    _impact = classification.aggregate_candidate_impact(ops).set_index("automation_name")
+    _iso_name = "SLA Escalation Alerts"
+    _spec = OPSPILOT_AUTOMATION_SPECS[_iso_name]
+    _expected = scoring.absolute_automation_score(
+        net_hours_saved=float(_impact.loc[_iso_name, "manual_hours"]) * scoring.OPSPILOT_SAVE_RATES[_iso_name],
+        impact_0_100=scoring.sla_impact_score(int(_impact.loc[_iso_name, "sla_breaches"])),
+        repeatability=_spec["repeatability"],
+        rule_clarity=_spec["rule_clarity"],
+        complexity=_spec["complexity"],
     )
-    # Recurring Status Summary is synthetic/org-level -> fully input-independent.
+    _check(
+        "candidate score is a pure function of its own aggregate (absolute, not min-max)",
+        abs(baseline[_iso_name] - _expected) < 1e-9,
+    )
+    # Recurring Status Summary is synthetic/org-level -> fully input-independent:
+    # its score is identical when built from a strict subset of the requests.
+    subset = ops[~ops["required_documents_missing"].astype(bool)].copy()
+    subset_scores = build_opspilot_automation_ranker(subset).set_index("Automation Candidate")["Automation Score"]
     _check(
         "org-level candidate score is input-independent",
-        dropped_scores["Recurring Status Summary"] == baseline["Recurring Status Summary"],
+        subset_scores["Recurring Status Summary"] == baseline["Recurring Status Summary"],
+    )
+
+    # --- score RESPONDS to the data (not constant-driven) ------------------
+    # Doubling a row-level candidate's matching rows increases its own score. This
+    # guards against effort-term saturation, where all volumes scored identically.
+    dup_name = "SLA Escalation Alerts"
+    breached = ops[ops["sla_breached"].astype(bool)]
+    doubled = build_opspilot_automation_ranker(pd.concat([ops, breached], ignore_index=True))
+    doubled_scores = doubled.set_index("Automation Candidate")["Automation Score"]
+    _check(
+        "doubling a candidate's volume raises its score (not saturated)",
+        doubled_scores[dup_name] > baseline[dup_name],
     )
 
     # --- ROI contract keys -------------------------------------------------
-    roi_ops = calculate_opspilot_roi(45, 30, 200, 35, 10, 25)
+    roi_ops = calculate_opspilot_roi(45, 30, 200, 35)
     expected_ops_keys = {
         "monthly_hours_saved",
         "monthly_labor_savings",
         "annual_labor_savings",
-        "estimated_cycle_time_improvement",
-        "new_cycle_time_estimate",
-        "sla_breach_reduction_estimate",
+        "monthly_net_savings",
+        "annual_net_savings",
+        "payback_months",
+        "first_year_roi_pct",
         "qualitative_business_value",
     }
     _check("opspilot ROI keys exactly match contract", set(roi_ops.keys()) == expected_ops_keys)
     _check("opspilot ROI labor math consistent", roi_ops["annual_labor_savings"] == roi_ops["monthly_labor_savings"] * 12)
+    # The two removed metrics (slider-echo cycle time and the invented SLA formula) stay gone.
+    removed_ops = {"estimated_cycle_time_improvement", "new_cycle_time_estimate", "sla_breach_reduction_estimate"}
+    _check("opspilot ROI removed the slider-echo and fabricated metrics", removed_ops.isdisjoint(roi_ops.keys()))
+    # Net-of-cost math: first-year net = 12 * monthly net - one-time build cost.
+    _check(
+        "opspilot ROI net-of-cost math consistent",
+        abs(roi_ops["annual_net_savings"] - (roi_ops["monthly_net_savings"] * 12 - 12000.0)) < 1e-6,
+    )
 
-    # time_saved_per_request_pct default (70) scales hours below the naive 100%.
-    roi_ops_full = calculate_opspilot_roi(45, 30, 200, 35, 10, 25, time_saved_per_request_pct=100.0)
+    # time_saved_per_request_pct scales hours saved linearly.
+    roi_half = calculate_opspilot_roi(45, 30, 200, 35, time_saved_per_request_pct=50.0)
+    roi_full = calculate_opspilot_roi(45, 30, 200, 35, time_saved_per_request_pct=100.0)
     _check(
         "time_saved_per_request_pct scales hours saved",
-        abs(roi_ops["monthly_hours_saved"] - roi_ops_full["monthly_hours_saved"] * 0.7) < 1e-9,
+        abs(roi_half["monthly_hours_saved"] - roi_full["monthly_hours_saved"] * 0.5) < 1e-9,
     )
 
     roi_res = calculate_rescueops_roi(28, 140, 14, 80, 5000, 35, 45)

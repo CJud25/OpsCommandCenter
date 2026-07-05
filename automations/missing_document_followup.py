@@ -59,18 +59,52 @@ def _safe_slug(value: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]", "_", value)[:120] or "unknown"
 
 
-def load_existing_keys(audit_log: Path) -> set[str]:
-    """Return the set of idempotency keys already recorded in the audit log."""
-    keys: set[str] = set()
+def _parse_ts(value: str) -> _dt.datetime | None:
+    try:
+        return _dt.datetime.fromisoformat(value)
+    except (ValueError, TypeError):
+        return None
+
+
+def load_key_last_seen(audit_log: Path) -> dict[str, _dt.datetime]:
+    """Map each idempotency key to the most recent timestamp it was acted on.
+
+    Used both for the plain "already handled" check and for the optional
+    ``--window-days`` re-trigger logic.
+    """
+    last_seen: dict[str, _dt.datetime] = {}
     if not audit_log.exists():
-        return keys
+        return last_seen
     with audit_log.open("r", newline="", encoding="utf-8") as handle:
         reader = csv.DictReader(handle)
         for row in reader:
             key = (row.get("idempotency_key") or "").strip()
-            if key:
-                keys.add(key)
-    return keys
+            if not key:
+                continue
+            ts = _parse_ts((row.get("timestamp") or "").strip())
+            if ts is None:
+                # Undated legacy row: treat as "seen forever" so we never re-send.
+                last_seen[key] = _dt.datetime.max
+            elif key not in last_seen or ts > last_seen[key]:
+                last_seen[key] = ts
+    return last_seen
+
+
+def handled_keys(
+    last_seen: dict[str, _dt.datetime], now: _dt.datetime, window_days: int | None
+) -> set[str]:
+    """Keys that should be treated as already-handled for this run.
+
+    Default (``window_days is None``): any key ever recorded is handled -- the
+    "safe to re-run, zero duplicates" guarantee the README advertises. With a
+    window, a key becomes eligible again once its last action is older than the
+    window, which supports a reminder/escalation ladder without ever double-sending
+    inside the window.
+    """
+    if window_days is None:
+        return set(last_seen)
+    cutoff = now - _dt.timedelta(days=window_days)
+    return {key for key, ts in last_seen.items() if ts >= cutoff}
 
 
 def build_followup_message(row: dict, rule_name: str) -> str:
@@ -100,75 +134,95 @@ def run(
     outbox_dir: Path,
     audit_log: Path,
     rule_name: str = RULE_NAME,
+    *,
+    dry_run: bool = False,
+    max_actions: int | None = None,
+    window_days: int | None = None,
+    now: _dt.datetime | None = None,
 ) -> dict:
     if not data_path.exists():
         raise FileNotFoundError(f"Requests CSV not found: {data_path}")
 
-    outbox_dir.mkdir(parents=True, exist_ok=True)
+    now = now or _dt.datetime.now()
+    timestamp = now.isoformat(timespec="seconds")
 
-    existing_keys = load_existing_keys(audit_log)
+    last_seen = load_key_last_seen(audit_log)
+    handled = handled_keys(last_seen, now, window_days)
     audit_exists = audit_log.exists()
 
     scanned = 0
     missing = 0
     written = 0
     skipped = 0
+    capped = 0
 
-    new_audit_rows: list[list[str]] = []
-    timestamp = _dt.datetime.now().isoformat(timespec="seconds")
+    # Crash-safety: open the audit log once and append each action row immediately
+    # after its outbox file is written (and flush), so a mid-run failure never
+    # leaves a written follow-up unrecorded -- which would cause a re-send next run.
+    audit_handle = None
+    audit_writer = None
+    if not dry_run:
+        outbox_dir.mkdir(parents=True, exist_ok=True)
+        audit_handle = audit_log.open("a", newline="", encoding="utf-8")
+        audit_writer = csv.writer(audit_handle)
+        if not audit_exists:
+            audit_writer.writerow(AUDIT_HEADER)
+            audit_handle.flush()
 
-    with data_path.open("r", newline="", encoding="utf-8") as handle:
-        reader = csv.DictReader(handle)
-        for row in reader:
-            scanned += 1
-            if not _is_true(row.get("required_documents_missing")):
-                continue
-            missing += 1
+    try:
+        with data_path.open("r", newline="", encoding="utf-8") as handle:
+            reader = csv.DictReader(handle)
+            for row in reader:
+                scanned += 1
+                if not _is_true(row.get("required_documents_missing")):
+                    continue
+                missing += 1
 
-            request_id = (row.get("request_id") or "").strip()
-            if not request_id:
-                continue
+                request_id = (row.get("request_id") or "").strip()
+                if not request_id:
+                    continue
 
-            key = idempotency_key(request_id, rule_name)
-            if key in existing_keys:
-                skipped += 1
-                continue
+                key = idempotency_key(request_id, rule_name)
+                if key in handled:
+                    skipped += 1
+                    continue
 
-            # Mark the key as handled immediately so duplicate request_ids in the
-            # same file cannot double-write within a single run.
-            existing_keys.add(key)
+                # Circuit breaker: never fire more than max_actions in one run, so a
+                # data glitch that flags everything cannot blast the whole file.
+                if max_actions is not None and written >= max_actions:
+                    capped += 1
+                    continue
 
-            outbox_file = outbox_dir / f"{_safe_slug(request_id)}_{_safe_slug(rule_name)}.txt"
-            # Defense in depth: never write outside the outbox directory.
-            if not outbox_file.resolve().is_relative_to(outbox_dir.resolve()):
-                raise ValueError(f"Refusing to write outside outbox: {outbox_file}")
-            outbox_file.write_text(build_followup_message(row, rule_name), encoding="utf-8")
-            written += 1
+                # Mark handled immediately so duplicate request_ids in the same file
+                # cannot double-write within a single run.
+                handled.add(key)
 
-            new_audit_rows.append(
-                [
-                    timestamp,
-                    request_id,
-                    rule_name,
-                    key,
-                    "followup_message_written",
-                    str(outbox_file),
-                ]
-            )
+                outbox_file = outbox_dir / f"{_safe_slug(request_id)}_{_safe_slug(rule_name)}.txt"
+                # Defense in depth: never write outside the outbox directory.
+                if not outbox_file.resolve().is_relative_to(outbox_dir.resolve()):
+                    raise ValueError(f"Refusing to write outside outbox: {outbox_file}")
 
-    if new_audit_rows:
-        write_header = not audit_exists
-        with audit_log.open("a", newline="", encoding="utf-8") as handle:
-            writer = csv.writer(handle)
-            if write_header:
-                writer.writerow(AUDIT_HEADER)
-            writer.writerows(new_audit_rows)
+                if dry_run:
+                    written += 1
+                    continue
+
+                outbox_file.write_text(build_followup_message(row, rule_name), encoding="utf-8")
+                audit_writer.writerow(
+                    [timestamp, request_id, rule_name, key, "followup_message_written", str(outbox_file)]
+                )
+                audit_handle.flush()
+                written += 1
+    finally:
+        if audit_handle is not None:
+            audit_handle.close()
 
     return {
         "scanned": scanned,
         "missing": missing,
         "written": written,
         "skipped": skipped,
+        "capped": capped,
+        "dry_run": dry_run,
     }
 
 
@@ -204,17 +258,48 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         default=RULE_NAME,
         help=f"Rule name used in the idempotency key (default: {RULE_NAME}).",
     )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Report what would be sent without writing any files or audit rows.",
+    )
+    parser.add_argument(
+        "--max-actions",
+        type=int,
+        default=None,
+        help="Circuit breaker: stop after this many new follow-ups in one run.",
+    )
+    parser.add_argument(
+        "--window-days",
+        type=int,
+        default=None,
+        help=(
+            "Allow a request to be chased again once its last follow-up is older "
+            "than N days (reminder ladder). Default: never re-send (fully idempotent)."
+        ),
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    result = run(args.data, args.outbox, args.audit_log, args.rule_name)
-    print("Missing-document follow-up automation complete.")
-    print(f"  Requests scanned:        {result['scanned']}")
-    print(f"  Missing-document flags:  {result['missing']}")
-    print(f"  New follow-ups written:  {result['written']}")
+    result = run(
+        args.data,
+        args.outbox,
+        args.audit_log,
+        args.rule_name,
+        dry_run=args.dry_run,
+        max_actions=args.max_actions,
+        window_days=args.window_days,
+    )
+    verb = "would be written" if result["dry_run"] else "written"
+    print("Missing-document follow-up automation complete." + (" [DRY RUN]" if result["dry_run"] else ""))
+    print(f"  Requests scanned:          {result['scanned']}")
+    print(f"  Missing-document flags:    {result['missing']}")
+    print(f"  New follow-ups {verb}:  {result['written']}")
     print(f"  Already handled (skipped): {result['skipped']}")
+    if result["capped"]:
+        print(f"  Held back by --max-actions: {result['capped']}")
     print(f"  Outbox: {args.outbox}")
     print(f"  Audit log: {args.audit_log}")
     return 0

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 import pandas as pd
@@ -28,7 +27,6 @@ from modules.report_generator import (
     generate_rescueops_report,
     markdown_to_html,
     markdown_to_text,
-    optional_ai_polish_with_status,
 )
 from modules.rescueops_analyzer import (
     foster_matching,
@@ -42,6 +40,7 @@ from modules.rescueops_analyzer import (
     weekly_founder_brief,
 )
 from modules.roi_calculator import calculate_opspilot_roi, calculate_rescueops_roi
+from modules.classification import blended_save_rate
 from modules.scoring import PRIORITY_ORDER, data_today
 from modules import ui_components as ui
 
@@ -87,17 +86,10 @@ def main() -> None:
             ],
         )
         st.divider()
-        recommendation_mode = st.radio(
-            "Recommendation mode",
-            ["Rule-Based Recommendation Mode", "Optional AI-Enhanced Mode"],
+        st.caption(
+            "Recommendations are rule-based and fully local -- no data leaves the "
+            "machine and no external API is called."
         )
-        if recommendation_mode.startswith("Optional"):
-            st.caption(
-                "AI-Enhanced mode sends the generated report text to Anthropic or OpenAI "
-                "for rewriting. Rule-based mode is fully local."
-            )
-            if not (os.getenv("ANTHROPIC_API_KEY") or os.getenv("OPENAI_API_KEY")):
-                st.caption("No API key detected. Rule-based recommendations remain active.")
         st.caption("All demo data is synthetic and generated locally.")
 
     if page == "Home / Executive Overview":
@@ -111,7 +103,7 @@ def main() -> None:
     elif page == "ROI & Business Case":
         render_roi_page(opspilot_df, dogs, inquiries, medical)
     elif page == "Executive Report Generator":
-        render_report_generator(opspilot_df, dogs, inquiries, volunteers, medical, recommendation_mode)
+        render_report_generator(opspilot_df, dogs, inquiries, volunteers, medical)
     else:
         render_about_page()
 
@@ -217,21 +209,29 @@ def render_opspilot_demo(opspilot_df: pd.DataFrame) -> None:
         "Summit Services Group operations intelligence dashboard.",
         "General Operations",
     )
+    # Lead with the four tiles that carry the story; the rest are one click away so
+    # the headline is not buried under a wall of equal-weight metrics.
     ui.metric_cards(
         [
-            ("Total Requests", ui.number(summary["total_requests"]), "All synthetic requests"),
-            ("Open Requests", ui.number(summary["open_requests"]), "Currently unresolved"),
-            ("Average Cycle Time", f"{summary['average_cycle_time']:.1f} days", "All request types"),
             ("SLA Breach Rate", ui.percent(summary["sla_breach_rate"]), "Risk and service quality"),
-            ("Oldest Open Request", f"{summary['oldest_open_request']} days", "Maximum current age"),
-            ("Estimated Manual Hours", ui.number(summary["estimated_manual_hours"], 1), "Total tracked effort"),
-            ("Estimated Monthly Waste", ui.money(summary["estimated_monthly_waste"]), "Manual work cost estimate"),
-            ("Top Bottleneck Stage", summary["top_bottleneck_stage"], "Highest bottleneck score"),
-            ("Top Automation Candidate", summary["top_automation_candidate"], "Highest manual impact"),
-            ("Potential Monthly Savings", ui.money(summary["potential_monthly_savings"]), "Illustrative savings estimate"),
+            ("Est. Monthly Manual-Work Cost", ui.money(summary["estimated_monthly_waste"]), "Recent 30-day manual effort"),
+            ("Top Bottleneck Stage", summary["top_bottleneck_stage"], "Largest source of delay"),
+            ("Potential Monthly Savings", ui.money(summary["potential_monthly_savings"]), "Coverage x blended save rate"),
         ],
-        columns=5,
+        columns=4,
     )
+    with st.expander("More operational metrics"):
+        ui.metric_cards(
+            [
+                ("Total Requests", ui.number(summary["total_requests"]), "All synthetic requests"),
+                ("Open Requests", ui.number(summary["open_requests"]), "Currently unresolved"),
+                ("Average Cycle Time", f"{summary['average_cycle_time']:.1f} days", "Closed-request duration"),
+                ("Oldest Open Request", f"{summary['oldest_open_request']} days", "Maximum current age"),
+                ("Estimated Manual Hours", ui.number(summary["estimated_manual_hours"], 1), "Total tracked effort"),
+                ("Top Automation Candidate", summary["top_automation_candidate"], "Highest manual impact"),
+            ],
+            columns=3,
+        )
 
     tab_summary, tab_bottlenecks, tab_automations, tab_workflow = st.tabs(
         ["Executive Summary", "Bottleneck Analysis", "Automation Opportunities", "Recommended Workflow"]
@@ -245,7 +245,7 @@ def render_opspilot_demo(opspilot_df: pd.DataFrame) -> None:
             st.plotly_chart(horizontal_bar(chart_data["avg_cycle_by_type"], "request_type", "avg_cycle_time", "Average Cycle Time by Request Type"), width="stretch")
         with right:
             st.plotly_chart(bar_chart(chart_data["requests_by_stage"], "process_stage", "requests", "Requests by Process Stage"), width="stretch")
-            st.plotly_chart(bar_chart(chart_data["breaches_by_department"], "department", "sla_breaches", "SLA Breaches by Department"), width="stretch")
+            st.plotly_chart(sla_breach_rate_chart(chart_data["breach_rate_by_department"]), width="stretch")
         st.plotly_chart(weekly_volume_trend(opspilot_df), width="stretch")
 
     with tab_bottlenecks:
@@ -326,18 +326,24 @@ def render_rescueops_demo(
     ui.metric_cards(
         [
             ("Dogs in Care", ui.number(summary["dogs_in_care"]), "Active non-adopted dogs"),
-            ("Dogs Needing Foster", ui.number(summary["dogs_needing_foster"]), "Capacity gap signal"),
-            ("Dogs Adoption Ready", ui.number(summary["dogs_adoption_ready"]), "Ready for visibility"),
             ("Urgent Medical Cases", ui.number(summary["urgent_medical_cases"]), "Leadership review needed"),
-            ("Open Adoption Inquiries", ui.number(summary["open_adoption_inquiries"]), "Adoption queue"),
             ("Unanswered Messages", ui.number(summary["unanswered_messages"]), "Response backlog"),
-            ("Monthly Medical Costs", ui.money(summary["monthly_medical_costs"]), "Recent 30-day costs"),
             ("Unfunded Medical Need", ui.money(summary["unfunded_medical_need"]), "Estimated visible gap"),
-            ("Volunteer Capacity", ui.number(summary["volunteer_capacity"]), "Open foster slots"),
-            ("Highest Priority Dog", summary["highest_priority_dog"], "Structured priority view"),
         ],
-        columns=5,
+        columns=4,
     )
+    with st.expander("More rescue metrics"):
+        ui.metric_cards(
+            [
+                ("Dogs Needing Foster", ui.number(summary["dogs_needing_foster"]), "Capacity gap signal"),
+                ("Dogs Adoption Ready", ui.number(summary["dogs_adoption_ready"]), "Ready for visibility"),
+                ("Open Adoption Inquiries", ui.number(summary["open_adoption_inquiries"]), "Adoption queue"),
+                ("Monthly Medical Costs", ui.money(summary["monthly_medical_costs"]), "Recent 30-day costs"),
+                ("Volunteer Capacity", ui.number(summary["volunteer_capacity"]), "Open foster slots"),
+                ("Highest Priority Dog", summary["highest_priority_dog"], "Structured priority view"),
+            ],
+            columns=3,
+        )
 
     tab_summary, tab_triage, tab_foster, tab_medical, tab_social = st.tabs(
         ["Executive Summary", "Inquiry Triage", "Foster Matching", "Medical Priority", "Social & Founder Brief"]
@@ -452,6 +458,8 @@ def render_automation_ranker(
         "Automation score weighs effort saved, repeatability, impact, rule clarity, and an ease-of-implementation credit on an absolute 0-100 scale, so it is comparable across domains and stable as candidates change.",
         "info",
     )
+    if not view.empty:
+        st.plotly_chart(automation_score_chart(view), width="stretch")
     st.dataframe(ui.score_style(view), width="stretch", hide_index=True)
 
     if not view.empty:
@@ -481,7 +489,9 @@ def render_roi_page(
     with tab_ops:
         recent_volume = monthly_opspilot_volume(opspilot_df)
         default_minutes = float(opspilot_df["estimated_manual_minutes"].mean())
-        default_cycle = float(opspilot_df["cycle_time_days"].mean())
+        # Default "time saved per request" is the blended save rate the home page
+        # uses, so the ROI page and the headline savings figure agree by default.
+        default_time_saved = int(round(blended_save_rate(opspilot_df) * 100))
         left, right = st.columns(2)
         with left:
             hourly_rate = st.number_input("Average staff hourly rate", min_value=10.0, max_value=150.0, value=45.0, step=5.0)
@@ -489,30 +499,32 @@ def render_roi_page(
             monthly_volume = st.number_input("Monthly request volume", min_value=1, max_value=5000, value=recent_volume, step=25)
         with right:
             percent_automated = st.slider("Percent automated (coverage)", 5, 90, 35)
-            time_saved_pct = st.slider("Time saved per automated request", 20, 95, 70)
-            current_cycle = st.number_input("Current cycle time", min_value=1.0, max_value=90.0, value=round(default_cycle, 1), step=1.0)
-            cycle_reduction = st.slider("Expected cycle-time reduction", 5, 70, 25)
+            time_saved_pct = st.slider("Time saved per automated request", 20, 95, default_time_saved)
+            build_cost = st.number_input("One-time build cost", min_value=0.0, max_value=200000.0, value=12000.0, step=1000.0)
+            maintenance_cost = st.number_input("Monthly maintenance cost", min_value=0.0, max_value=20000.0, value=400.0, step=100.0)
 
         roi = calculate_opspilot_roi(
-            hourly_rate, manual_minutes, monthly_volume, percent_automated, current_cycle, cycle_reduction, time_saved_pct
+            hourly_rate, manual_minutes, monthly_volume, percent_automated, time_saved_pct, build_cost, maintenance_cost
         )
+        payback = roi["payback_months"]
+        payback_display = f"{payback:.1f} months" if payback != float("inf") else "Not in year 1"
         ui.metric_cards(
             [
                 ("Monthly Hours Saved", ui.number(roi["monthly_hours_saved"], 1), "Estimated labor capacity"),
-                ("Monthly Labor Savings", ui.money(roi["monthly_labor_savings"]), "Illustrative value"),
-                ("Annual Labor Savings", ui.money(roi["annual_labor_savings"]), "Run-rate estimate"),
-                ("Cycle-Time Improvement", f"{roi['estimated_cycle_time_improvement']:.1f} days", "Expected reduction"),
-                ("New Cycle Estimate", f"{roi['new_cycle_time_estimate']:.1f} days", "After automation"),
-                ("SLA Breach Reduction", f"{roi['sla_breach_reduction_estimate']:.0f}%", "Directional estimate"),
+                ("Monthly Labor Savings", ui.money(roi["monthly_labor_savings"]), "Gross monthly value"),
+                ("Annual Labor Savings", ui.money(roi["annual_labor_savings"]), "Gross run-rate"),
+                ("First-Year Net Savings", ui.money(roi["annual_net_savings"]), "After build + maintenance"),
+                ("Payback Period", payback_display, "Time to recover build cost"),
+                ("First-Year ROI", f"{roi['first_year_roi_pct']:.0f}%", "Return on build cost"),
             ],
             columns=3,
         )
         ui.insight_box("Qualitative Business Value", roi["qualitative_business_value"], "success")
 
         ui.section_title("Sensitivity Analysis")
-        st.caption("Annual labor savings across conservative / expected / optimistic assumptions.")
+        st.caption("First-year net savings and payback across conservative / expected / optimistic assumptions.")
         st.dataframe(
-            opspilot_sensitivity(hourly_rate, manual_minutes, monthly_volume, percent_automated, current_cycle, cycle_reduction),
+            opspilot_sensitivity(hourly_rate, manual_minutes, monthly_volume, percent_automated, build_cost, maintenance_cost),
             width="stretch",
             hide_index=True,
         )
@@ -520,8 +532,9 @@ def render_roi_page(
             [
                 f"Staff hourly rate: ${hourly_rate:,.0f}",
                 f"Automation coverage (share of volume automated): {percent_automated}%",
-                f"Time saved per automated request: {time_saved_pct}%",
+                f"Time saved per automated request: {time_saved_pct}% (defaults to the blended save rate)",
                 f"Monthly request volume: {monthly_volume:,}",
+                f"One-time build cost: ${build_cost:,.0f}; monthly maintenance: ${maintenance_cost:,.0f}",
                 "Labor savings only; qualitative benefits (fewer errors, faster response) are not dollarized.",
             ]
         )
@@ -577,7 +590,6 @@ def render_report_generator(
     inquiries: pd.DataFrame,
     volunteers: pd.DataFrame,
     medical: pd.DataFrame,
-    recommendation_mode: str,
 ) -> None:
     ui.page_header(
         "Executive Report Generator",
@@ -591,7 +603,7 @@ def render_report_generator(
         summary = summarize_opspilot(opspilot_df, bottlenecks=bottlenecks)
         automations = build_opspilot_automation_ranker(opspilot_df)
         roi = default_opspilot_roi(opspilot_df, summary)
-        report = generate_opspilot_report(summary, bottlenecks, automations, roi, recommendation_mode)
+        report = generate_opspilot_report(summary, bottlenecks, automations, roi)
         title = "opspilot-leadership-brief"
     else:
         summary = summarize_rescueops(dogs, inquiries, volunteers, medical)
@@ -600,30 +612,18 @@ def render_report_generator(
         matches = foster_matching(dogs, volunteers)
         brief = weekly_founder_brief(summary, dogs, inquiries, medical_priority, matches)
         roi = default_rescueops_roi(dogs, inquiries, medical)
-        report = generate_rescueops_report(summary, medical_priority, automations, brief, roi, recommendation_mode)
+        report = generate_rescueops_report(summary, medical_priority, automations, brief, roi)
         title = "rescueops-leadership-brief"
 
-    if recommendation_mode.startswith("Optional"):
-        polished, status = optional_ai_polish_with_status(
-            report,
-            "You are an executive operations consultant. Polish this brief while preserving facts, numbers, and safety boundaries.",
-        )
-        if polished:
-            report = polished
-            st.success("AI-enhanced phrasing applied.")
-        else:
-            reason = {
-                "no_key": "No API key detected",
-                "no_sdk": "AI SDK not installed",
-                "auth_error": "API key was rejected",
-                "network_error": "Could not reach the AI service",
-                "empty_response": "The AI service returned no content",
-            }.get(status, "AI enhancement is unavailable")
-            st.info(f"{reason}; showing the rule-based brief.")
-
-    st.text_area("Report preview", report, height=520)
     html_report = markdown_to_html(report, title.replace("-", " ").title())
     txt_report = markdown_to_text(report)
+
+    tab_preview, tab_source = st.tabs(["Rendered Brief", "Markdown Source"])
+    with tab_preview:
+        with st.container(border=True):
+            st.markdown(report)
+    with tab_source:
+        st.code(report, language="markdown")
 
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -693,9 +693,67 @@ def render_blueprint_picker(automations: pd.DataFrame, domain: str) -> None:
     st.markdown(blueprint_to_markdown(blueprint))
 
 
+def _prettify(name: str) -> str:
+    """Turn a raw dataframe column name into a human axis label."""
+    overrides = {
+        "sla_breaches": "SLA Breaches",
+        "avg_cycle_time": "Avg Cycle Time (days)",
+        "manual_hours": "Manual Hours",
+        "bottleneck_score": "Bottleneck Score",
+        "amount": "Cost ($)",
+    }
+    return overrides.get(name, name.replace("_", " ").title())
+
+
 def bar_chart(df: pd.DataFrame, x: str, y: str, title: str):
     fig = px.bar(df, x=x, y=y, title=title, color_discrete_sequence=COLOR_SEQUENCE)
+    fig.update_xaxes(title=_prettify(x))
+    fig.update_yaxes(title=_prettify(y))
     return style_chart(fig)
+
+
+def sla_breach_rate_chart(df: pd.DataFrame):
+    """SLA breach RATE by department (not raw count), with request volume in the
+    hover so a high rate on a small queue is not misread as a big problem."""
+    plot_df = df.assign(breach_pct=(df["breach_rate"] * 100).round(1))
+    fig = px.bar(
+        plot_df,
+        x="breach_pct",
+        y="department",
+        orientation="h",
+        title="SLA Breach Rate by Department",
+        color_discrete_sequence=COLOR_SEQUENCE,
+        custom_data=["volume"],
+    )
+    fig.update_traces(hovertemplate="%{y}: %{x:.1f}%% breach rate<br>%{customdata[0]:,} requests<extra></extra>")
+    fig.update_yaxes(categoryorder="total ascending", title="")
+    fig.update_xaxes(title="SLA Breach Rate (%)")
+    return style_chart(fig)
+
+
+def automation_score_chart(view: pd.DataFrame):
+    """Horizontal automation-score bars, colored by domain. This is the chart the
+    README hero shows -- rendering it in-app keeps the screenshot and the live app
+    in sync, and makes the cross-domain comparability visible at a glance."""
+    chart_df = view.sort_values("Automation Score")
+    fig = px.bar(
+        chart_df,
+        x="Automation Score",
+        y="Automation Candidate",
+        orientation="h",
+        color="Domain",
+        text="Automation Score",
+        color_discrete_map={"OpsPilot": "#0f766e", "RescueOps": "#b7791f"},
+        title="Automation Opportunity Score by Candidate",
+    )
+    fig.update_traces(texttemplate="%{text:.0f}", textposition="outside", cliponaxis=False)
+    fig.update_xaxes(title="Automation Score (0-100)", range=[0, 105])
+    # Force a single interleaved score ranking (not grouped by domain) so the
+    # cross-domain comparability is what the eye actually sees.
+    fig.update_yaxes(title="", categoryorder="array", categoryarray=chart_df["Automation Candidate"].tolist())
+    fig = style_chart(fig)
+    fig.update_layout(height=max(340, len(chart_df) * 30 + 90), legend_title_text="")
+    return fig
 
 
 def weekly_volume_trend(df: pd.DataFrame):
@@ -716,7 +774,8 @@ def weekly_volume_trend(df: pd.DataFrame):
 
 def horizontal_bar(df: pd.DataFrame, label: str, value: str, title: str):
     fig = px.bar(df, x=value, y=label, orientation="h", title=title, color_discrete_sequence=COLOR_SEQUENCE)
-    fig.update_yaxes(categoryorder="total ascending")
+    fig.update_yaxes(categoryorder="total ascending", title=_prettify(label))
+    fig.update_xaxes(title=_prettify(value))
     return style_chart(fig)
 
 
@@ -759,8 +818,7 @@ def default_opspilot_roi(opspilot_df: pd.DataFrame, summary: dict) -> dict:
         manual_minutes_per_request=float(opspilot_df["estimated_manual_minutes"].mean()),
         monthly_request_volume=monthly_opspilot_volume(opspilot_df),
         percent_automated=35,
-        current_cycle_time=float(summary["average_cycle_time"]),
-        expected_cycle_time_reduction=25,
+        time_saved_per_request_pct=blended_save_rate(opspilot_df) * 100,
     )
 
 
@@ -781,8 +839,8 @@ def opspilot_sensitivity(
     manual_minutes: float,
     monthly_volume: int,
     percent_automated: int,
-    current_cycle: float,
-    cycle_reduction: int,
+    build_cost: float,
+    maintenance_cost: float,
 ) -> pd.DataFrame:
     """Three-scenario ROI sensitivity by flexing coverage and time-saved-per-request.
 
@@ -790,22 +848,24 @@ def opspilot_sensitivity(
     is the standard way to present a value case for a decision.
     """
     scenarios = [
-        ("Conservative", max(5, percent_automated - 15), 50),
-        ("Expected", percent_automated, 70),
-        ("Optimistic", min(90, percent_automated + 15), 90),
+        ("Conservative", max(5, percent_automated - 15), 40),
+        ("Expected", percent_automated, 54),
+        ("Optimistic", min(90, percent_automated + 15), 75),
     ]
     rows = []
     for name, coverage, time_saved in scenarios:
         roi = calculate_opspilot_roi(
-            hourly_rate, manual_minutes, monthly_volume, coverage, current_cycle, cycle_reduction, time_saved
+            hourly_rate, manual_minutes, monthly_volume, coverage, time_saved, build_cost, maintenance_cost
         )
+        payback = roi["payback_months"]
         rows.append(
             {
                 "Scenario": name,
                 "Coverage": f"{coverage}%",
                 "Time Saved / Request": f"{time_saved}%",
                 "Monthly Hours Saved": round(roi["monthly_hours_saved"], 1),
-                "Annual Labor Savings": ui.money(roi["annual_labor_savings"]),
+                "First-Year Net Savings": ui.money(roi["annual_net_savings"]),
+                "Payback": f"{payback:.1f} mo" if payback != float("inf") else "n/a",
             }
         )
     return pd.DataFrame(rows)

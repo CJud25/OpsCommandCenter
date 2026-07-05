@@ -174,6 +174,23 @@ _RECURRING_SUMMARY_ASSUMED_MANUAL_HOURS = 8.0
 _RECURRING_SUMMARY_ASSUMED_SLA_BREACHES = 0
 
 
+# RescueOps effort model. Each row-level automation's estimated monthly hours saved
+# is (driver_volume * per_unit_hours + base_hours). These are planning assumptions,
+# not measured values -- documented here as named coefficients so they are auditable
+# rather than buried as inline magic numbers. ``mission_impact`` is a 0-100
+# leadership-set priority (rescue work is mission-weighted; OpsPilot's impact term is
+# the data-derived SLA-breach signal instead). Replace with a time study on real data.
+_RESCUEOPS_EFFORT_MODEL = {
+    "Adoption Inquiry Triage":        {"per_unit_hours": 0.18, "base_hours": 8.0, "mission_impact": 88},
+    "Foster Match Recommendation":    {"per_unit_hours": 0.45, "base_hours": 6.0, "mission_impact": 86},
+    "Medical Funding Priority Alert": {"per_unit_hours": 0.14, "base_hours": 5.0, "mission_impact": 92},
+    "Dog Bio/Social Post Generator":  {"per_unit_hours": 0.42, "base_hours": 4.0, "mission_impact": 82},
+    "Volunteer Task Reminder":        {"per_unit_hours": 0.18, "base_hours": 5.0, "mission_impact": 74},
+    "Weekly Founder Brief":           {"per_unit_hours": 0.0,  "base_hours": 7.0, "mission_impact": 90},
+    "Unanswered Message Escalation":  {"per_unit_hours": 0.15, "base_hours": 4.0, "mission_impact": 84},
+}
+
+
 def build_opspilot_automation_ranker(df: pd.DataFrame) -> pd.DataFrame:
     # Fix #9: absolute, cross-domain-comparable scoring. Candidacy comes from the
     # classification layer (derived from raw request fields) -- we never read the
@@ -205,8 +222,13 @@ def build_opspilot_automation_ranker(df: pd.DataFrame) -> pd.DataFrame:
     for item in sized:
         spec = OPSPILOT_AUTOMATION_SPECS[item["automation_name"]]
         impact_score = scoring.sla_impact_score(item["sla_breaches"])
+        # Net hours actually removed = gross manual hours x save rate. This is the
+        # SAME quantity RescueOps feeds the scorer, so the two domains are directly
+        # comparable (they were not when OpsPilot fed gross hours and RescueOps fed
+        # net). It also drives the "Estimated Hours Saved" column below.
+        net_hours_saved = item["manual_hours"] * scoring.OPSPILOT_SAVE_RATES[item["automation_name"]]
         score = scoring.absolute_automation_score(
-            manual_hours=item["manual_hours"],
+            net_hours_saved=net_hours_saved,
             impact_0_100=impact_score,
             repeatability=spec["repeatability"],
             rule_clarity=spec["rule_clarity"],
@@ -218,7 +240,7 @@ def build_opspilot_automation_ranker(df: pd.DataFrame) -> pd.DataFrame:
                 "Automation Candidate": item["automation_name"],
                 "Problem Solved": spec["problem"],
                 "Volume": int(item["volume"]),
-                "Estimated Hours Saved": round(item["manual_hours"] * scoring.OPSPILOT_SAVE_RATES[item["automation_name"]], 1),
+                "Estimated Hours Saved": round(net_hours_saved, 1),
                 "Complexity": spec["complexity"],
                 "Risk": spec["risk"],
                 "Business/Mission Impact": spec["impact"],
@@ -253,15 +275,26 @@ def build_rescueops_automation_ranker(
     )
     active_volunteer_tasks = int(volunteers["current_assignments"].sum())
 
+    # The raw driver volume behind each automation's effort estimate. Combined with
+    # _RESCUEOPS_EFFORT_MODEL's documented coefficients to produce hours saved.
+    drivers = {
+        "Adoption Inquiry Triage": open_adoption_inquiries,
+        "Foster Match Recommendation": foster_need,
+        "Medical Funding Priority Alert": medical_priority_cases,
+        "Dog Bio/Social Post Generator": bio_social_need,
+        "Volunteer Task Reminder": active_volunteer_tasks,
+        "Weekly Founder Brief": 4,
+        "Unanswered Message Escalation": overdue_messages,
+    }
     base = pd.DataFrame(
         [
-            ("Adoption Inquiry Triage", max(open_adoption_inquiries, 1), open_adoption_inquiries * 0.18 + 8, 88),
-            ("Foster Match Recommendation", max(foster_need, 1), foster_need * 0.45 + 6, 86),
-            ("Medical Funding Priority Alert", max(medical_priority_cases, 1), medical_priority_cases * 0.14 + 5, 92),
-            ("Dog Bio/Social Post Generator", max(bio_social_need, 1), bio_social_need * 0.42 + 4, 82),
-            ("Volunteer Task Reminder", max(active_volunteer_tasks, 1), active_volunteer_tasks * 0.18 + 5, 74),
-            ("Weekly Founder Brief", 4, 7.0, 90),
-            ("Unanswered Message Escalation", max(overdue_messages, 1), overdue_messages * 0.15 + 4, 84),
+            (
+                name,
+                max(int(driver), 1),
+                driver * _RESCUEOPS_EFFORT_MODEL[name]["per_unit_hours"] + _RESCUEOPS_EFFORT_MODEL[name]["base_hours"],
+                _RESCUEOPS_EFFORT_MODEL[name]["mission_impact"],
+            )
+            for name, driver in drivers.items()
         ],
         columns=["automation_name", "volume", "estimated_hours_saved", "mission_impact_score"],
     )
@@ -273,7 +306,7 @@ def build_rescueops_automation_ranker(
         # and mission_impact_score is already on a 0-100-ish scale, so both feed the
         # scorer without per-domain min-max normalization.
         score = scoring.absolute_automation_score(
-            manual_hours=float(row["estimated_hours_saved"]),
+            net_hours_saved=float(row["estimated_hours_saved"]),
             impact_0_100=float(row["mission_impact_score"]),
             repeatability=spec["repeatability"],
             rule_clarity=spec["rule_clarity"],

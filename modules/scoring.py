@@ -54,10 +54,24 @@ ASSUMED_AUTOMATION_COVERAGE = 0.35
 # 100 and every term is additive.
 EASE_BY_COMPLEXITY = {"Low": 100, "Medium": 55, "High": 25}
 
-# Saturation anchor: monthly manual hours at which the effort term maxes out.
-EFFORT_SATURATION_HOURS = 40.0
-# Saturation anchor: monthly SLA breaches at which the impact term maxes out.
-SLA_SATURATION_BREACHES = 50.0
+# Diminishing-returns scale (in monthly hours saved) for the effort term. The
+# term is 1 - exp(-hours/scale), so it never hard-saturates: every additional
+# hour saved still raises the score, just with diminishing marginal weight. This
+# replaces an earlier hard ceiling that pinned most candidates to the same effort
+# value -- which made the "data-driven" ranking effectively constant-driven and
+# insensitive to volume. At scale=60: ~26h -> 35, ~60h -> 63, ~120h -> 86.
+EFFORT_SCALE_HOURS = 60.0
+# Diminishing-returns scale (in monthly breaches) for the SLA impact term.
+SLA_SCALE_BREACHES = 40.0
+
+
+def _diminishing(value: float, scale: float) -> float:
+    """Map a non-negative magnitude to 0-100 with diminishing returns.
+
+    Monotonic and strictly increasing (so doubling the input always raises the
+    score) but with a soft knee, so a huge outlier does not dwarf everything else.
+    """
+    return float(100.0 * (1.0 - np.exp(-max(0.0, value) / scale)))
 
 
 def _normalize(series: pd.Series) -> pd.Series:
@@ -80,7 +94,7 @@ def data_today(df: pd.DataFrame, date_col: str) -> pd.Timestamp:
 
 
 def absolute_automation_score(
-    manual_hours: float,
+    net_hours_saved: float,
     impact_0_100: float,
     repeatability: float,
     rule_clarity: float,
@@ -91,10 +105,15 @@ def absolute_automation_score(
     Anchored (not min-max normalized), so a score means the same thing regardless
     of which other candidates are present and is comparable across domains.
 
-    Weights sum to 1.0 and every term is additive; 100 is reachable at max inputs.
+    The effort term is driven by ``net_hours_saved`` -- the estimated monthly hours
+    an automation actually removes (gross manual hours x save rate). Both domains
+    feed the SAME quantity (net hours saved) into the SAME curve, which is what
+    makes a score of 80 mean the same thing across OpsPilot and RescueOps.
+
+    Weights sum to 1.0 and every term is additive; 100 is approached at large inputs.
       35% effort saved, 20% repeatability, 15% impact, 15% rule clarity, 15% ease.
     """
-    effort = min(100.0, (manual_hours / EFFORT_SATURATION_HOURS) * 100.0)
+    effort = _diminishing(net_hours_saved, EFFORT_SCALE_HOURS)
     ease = EASE_BY_COMPLEXITY.get(complexity, 55)
     score = (
         0.35 * effort
@@ -107,5 +126,9 @@ def absolute_automation_score(
 
 
 def sla_impact_score(sla_breaches: float) -> float:
-    """Map a monthly SLA-breach count to the 0-100 impact term used in scoring."""
-    return min(100.0, (float(sla_breaches) / SLA_SATURATION_BREACHES) * 100.0)
+    """Map a monthly SLA-breach count to the 0-100 impact term used in scoring.
+
+    Same diminishing-returns curve as the effort term so a very high breach count
+    does not pin every candidate to the same impact value.
+    """
+    return _diminishing(float(sla_breaches), SLA_SCALE_BREACHES)

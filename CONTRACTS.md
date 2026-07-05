@@ -21,9 +21,12 @@ Keys (stable): `dogs_in_care`, `dogs_needing_foster`, `dogs_adoption_ready`,
 ## roi dicts (roi_calculator.py) -- post-fix
 
 `calculate_opspilot_roi(...)` keys: `monthly_hours_saved`, `monthly_labor_savings`,
-`annual_labor_savings`, `estimated_cycle_time_improvement`,
-`new_cycle_time_estimate`, `sla_breach_reduction_estimate`,
-`qualitative_business_value`. (unchanged)
+`annual_labor_savings`, `monthly_net_savings`, `annual_net_savings`,
+`payback_months`, `first_year_roi_pct`, `qualitative_business_value`.
+REMOVED (undefensible under scrutiny): `estimated_cycle_time_improvement` and
+`new_cycle_time_estimate` (a slider echoed back as a finding) and
+`sla_breach_reduction_estimate` (an invented coefficient formula). Replaced with a
+real cost side: build cost, maintenance, payback, and first-year ROI.
 
 `calculate_rescueops_roi(...)` keys after Fix #6: `volunteer_hours_saved`,
 `monthly_volunteer_value`, `estimated_inquiries_handled_faster`,
@@ -63,9 +66,11 @@ sizing uses `aggregate_candidate_impact` (overlap allowed).
 
 - `PRIORITY_ORDER`, `_normalize`, `data_today(df, col)`.
 - `OPSPILOT_SAVE_RATES`, `ASSUMED_AUTOMATION_COVERAGE`.
-- `absolute_automation_score(manual_hours, impact_0_100, repeatability, rule_clarity, complexity) -> float`
-  and `sla_impact_score(sla_breaches) -> float`. Both ranker builders use these so
-  scores are comparable across domains.
+- `absolute_automation_score(net_hours_saved, impact_0_100, repeatability, rule_clarity, complexity) -> float`
+  and `sla_impact_score(sla_breaches) -> float`. Both ranker builders feed the SAME
+  quantity -- net monthly hours saved (gross manual hours x save rate) -- through a
+  diminishing-returns curve (no hard saturation), so scores respond to volume and are
+  genuinely comparable across domains.
 
 ## Data reliability
 

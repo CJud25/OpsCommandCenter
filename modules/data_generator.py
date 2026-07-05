@@ -10,10 +10,17 @@ import pandas as pd
 
 SEED = 42
 
+# Fixed "as of" date the synthetic timelines are anchored to. Using a constant
+# (not date.today()) makes generation fully deterministic: SEED=42 plus this anchor
+# reproduce the committed CSVs byte-for-byte on any day. The app reads recency from
+# the dataset's own max date, so KPIs stay stable regardless of this value.
+DATA_ANCHOR_DATE = date(2026, 7, 4)
 
-def ensure_data(data_dir: Path, force: bool = False) -> dict[str, Path]:
+
+def ensure_data(data_dir: Path, force: bool = False, as_of: date | None = None) -> dict[str, Path]:
     """Create the local demo datasets when they are missing."""
     data_dir.mkdir(parents=True, exist_ok=True)
+    anchor = as_of or DATA_ANCHOR_DATE
     paths = {
         "opspilot": data_dir / "opspilot_requests.csv",
         "dogs": data_dir / "rescueops_dogs.csv",
@@ -24,11 +31,11 @@ def ensure_data(data_dir: Path, force: bool = False) -> dict[str, Path]:
 
     if force or any(not path.exists() for path in paths.values()):
         rng = np.random.default_rng(SEED)
-        opspilot = generate_opspilot_requests(rng)
-        dogs = generate_rescueops_dogs(rng)
-        inquiries = generate_rescueops_inquiries(rng, dogs)
+        opspilot = generate_opspilot_requests(rng, as_of=anchor)
+        dogs = generate_rescueops_dogs(rng, as_of=anchor)
+        inquiries = generate_rescueops_inquiries(rng, dogs, as_of=anchor)
         volunteers = generate_rescueops_volunteers(rng)
-        medical = generate_rescueops_medical_costs(rng, dogs)
+        medical = generate_rescueops_medical_costs(rng, dogs, as_of=anchor)
 
         opspilot.to_csv(paths["opspilot"], index=False)
         dogs.to_csv(paths["dogs"], index=False)
@@ -87,8 +94,8 @@ def _business_name_pool() -> list[str]:
     return [f"{f} {l}" for f in first for l in last]
 
 
-def generate_opspilot_requests(rng: np.random.Generator, rows: int = 720) -> pd.DataFrame:
-    today = date.today()
+def generate_opspilot_requests(rng: np.random.Generator, rows: int = 720, *, as_of: date = DATA_ANCHOR_DATE) -> pd.DataFrame:
+    today = as_of
     request_types = [
         "Access Request",
         "Purchase Approval",
@@ -259,8 +266,8 @@ def generate_opspilot_requests(rng: np.random.Generator, rows: int = 720) -> pd.
     return pd.DataFrame(records)
 
 
-def generate_rescueops_dogs(rng: np.random.Generator, rows: int = 96) -> pd.DataFrame:
-    today = date.today()
+def generate_rescueops_dogs(rng: np.random.Generator, rows: int = 96, *, as_of: date = DATA_ANCHOR_DATE) -> pd.DataFrame:
+    today = as_of
     dog_names = [
         "Rosie",
         "Maple",
@@ -487,9 +494,9 @@ def generate_rescueops_dogs(rng: np.random.Generator, rows: int = 96) -> pd.Data
 
 
 def generate_rescueops_inquiries(
-    rng: np.random.Generator, dogs: pd.DataFrame, rows: int = 420
+    rng: np.random.Generator, dogs: pd.DataFrame, rows: int = 420, *, as_of: date = DATA_ANCHOR_DATE
 ) -> pd.DataFrame:
-    today = date.today()
+    today = as_of
     inquiry_types = [
         "Adoption Inquiry",
         "Foster Inquiry",
@@ -597,9 +604,9 @@ def generate_rescueops_volunteers(rng: np.random.Generator, rows: int = 86) -> p
 
 
 def generate_rescueops_medical_costs(
-    rng: np.random.Generator, dogs: pd.DataFrame, rows: int = 180
+    rng: np.random.Generator, dogs: pd.DataFrame, rows: int = 180, *, as_of: date = DATA_ANCHOR_DATE
 ) -> pd.DataFrame:
-    today = date.today()
+    today = as_of
     expense_types = [
         "Surgery",
         "Medication",
@@ -698,7 +705,13 @@ if __name__ == "__main__":
         default="data",
         help="Target directory for the generated CSV files (default: data).",
     )
+    parser.add_argument(
+        "--as-of",
+        default=None,
+        help=f"Anchor date (YYYY-MM-DD) for the synthetic timelines (default: {DATA_ANCHOR_DATE.isoformat()}).",
+    )
     args = parser.parse_args()
-    written = ensure_data(Path(args.data_dir), force=args.force)
+    as_of = date.fromisoformat(args.as_of) if args.as_of else None
+    written = ensure_data(Path(args.data_dir), force=args.force, as_of=as_of)
     for name, path in written.items():
         print(f"{name}: {path}")

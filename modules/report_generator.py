@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-import functools
 import html
-import os
 import re
 from datetime import date
 
@@ -37,7 +35,6 @@ def generate_opspilot_report(
     bottlenecks: pd.DataFrame,
     automations: pd.DataFrame,
     roi: dict | None = None,
-    recommendation_mode: str = "Rule-Based",
 ) -> str:
     top_bottlenecks = "\n".join(
         [
@@ -68,7 +65,6 @@ def generate_opspilot_report(
     return f"""# OpsPilot Command Center Leadership Brief
 
 Generated: {date.today().isoformat()}
-Recommendation mode: {recommendation_mode}
 
 ## Executive Summary
 Summit Services Group is experiencing delayed internal requests, approval bottlenecks, missing documentation, duplicate work, and limited workload visibility. OpsPilot identified {summary['open_requests']:,} open requests, a {summary['sla_breach_rate'] * 100:.0f}% SLA breach rate, and an estimated ${summary['estimated_monthly_waste']:,.0f} in monthly manual-work waste. The largest measured source of delay is the {top_stage} stage, and the strongest automation opportunity is {top_auto}.
@@ -167,7 +163,6 @@ def generate_rescueops_report(
     automations: pd.DataFrame,
     weekly_brief: str,
     roi: dict | None = None,
-    recommendation_mode: str = "Rule-Based",
 ) -> str:
     top_medical = "\n".join(
         [
@@ -196,7 +191,6 @@ def generate_rescueops_report(
     return f"""# RescueOps Leadership Brief
 
 Generated: {date.today().isoformat()}
-Recommendation mode: {recommendation_mode}
 
 ## Executive Summary
 Rosalie and Friends has {summary['dogs_in_care']} dogs in care, {summary['dogs_needing_foster']} dogs needing foster support, {summary['urgent_medical_cases']} urgent medical cases, and {summary['unanswered_messages']} unanswered messages. The highest-scoring medical case is {top_dog}, and the strongest automation opportunity is {top_auto}. RescueOps recommends prioritizing inquiry triage, foster matching, and medical funding visibility.
@@ -435,137 +429,16 @@ def markdown_to_text(markdown_text: str) -> str:
     return "\n".join(lines).strip()
 
 
-# ---------------------------------------------------------------------------
-# Optional AI polish. Safe when no key / SDK is present. Prefers Anthropic
-# (Claude) when ANTHROPIC_API_KEY is set and the SDK is importable, otherwise
-# falls back to the existing OpenAI path, otherwise returns None.
-#
-# The function is deterministic given its inputs and the process environment,
-# so app.py may wrap it in st.cache_data (do NOT import streamlit here). An
-# lru_cache-friendly convenience wrapper is provided below.
-# ---------------------------------------------------------------------------
-AI_STATUS_OK = "ok"
-AI_STATUS_NO_KEY = "no_key"
-AI_STATUS_NO_SDK = "no_sdk"
-AI_STATUS_AUTH_ERROR = "auth_error"
-AI_STATUS_NETWORK_ERROR = "network_error"
-AI_STATUS_EMPTY_RESPONSE = "empty_response"
-AI_STATUS_OTHER_ERROR = "other_error"
-
-
-def _classify_ai_error(exc: Exception) -> str:
-    name = type(exc).__name__.lower()
-    status = getattr(exc, "status_code", None)
-    if status in (401, 403):
-        return AI_STATUS_AUTH_ERROR
-    if "authentication" in name or "permissiondenied" in name or "auth" in name or "permission" in name:
-        return AI_STATUS_AUTH_ERROR
-    if "connection" in name or "timeout" in name or "network" in name:
-        return AI_STATUS_NETWORK_ERROR
-    return AI_STATUS_OTHER_ERROR
-
-
-def _anthropic_polish(prompt: str, system_message: str, timeout: float, max_tokens: int) -> tuple[str | None, str]:
-    try:
-        import anthropic  # type: ignore
-    except Exception:
-        return None, AI_STATUS_NO_SDK
-    try:
-        client = anthropic.Anthropic()
-        model = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-5")
-        message = client.with_options(timeout=timeout).messages.create(
-            model=model,
-            max_tokens=max_tokens,
-            system=system_message,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = "".join(
-            getattr(block, "text", "") for block in message.content if getattr(block, "type", None) == "text"
-        ).strip()
-        if not text:
-            return None, AI_STATUS_EMPTY_RESPONSE
-        return text, AI_STATUS_OK
-    except Exception as exc:  # noqa: BLE001 - classify below
-        return None, _classify_ai_error(exc)
-
-
-def _openai_polish(prompt: str, system_message: str, timeout: float, max_tokens: int) -> tuple[str | None, str]:
-    try:
-        from openai import OpenAI  # type: ignore
-    except Exception:
-        return None, AI_STATUS_NO_SDK
-    try:
-        client = OpenAI(timeout=timeout)
-        response = client.chat.completions.create(
-            model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
-            messages=[
-                {"role": "system", "content": system_message},
-                {"role": "user", "content": prompt},
-            ],
-            temperature=0.3,
-            max_tokens=max_tokens,
-        )
-        text = (response.choices[0].message.content or "").strip()
-        if not text:
-            return None, AI_STATUS_EMPTY_RESPONSE
-        return text, AI_STATUS_OK
-    except Exception as exc:  # noqa: BLE001 - classify below
-        return None, _classify_ai_error(exc)
-
-
-def optional_ai_polish_with_status(
-    prompt: str,
-    system_message: str,
-    timeout: float = 30.0,
-    max_tokens: int = 1500,
-) -> tuple[str | None, str]:
-    """Return (polished_text_or_None, status) so the UI can show a real reason.
-
-    Status is one of the AI_STATUS_* constants. Deterministic given its inputs
-    and the process environment.
-    """
-    anthropic_key = os.getenv("ANTHROPIC_API_KEY")
-    if anthropic_key:
-        text, status = _anthropic_polish(prompt, system_message, timeout, max_tokens)
-        # If Claude produced a result or failed for a real reason (auth/network/
-        # other), surface it. Only fall through to OpenAI when the Anthropic SDK
-        # is not installed.
-        if status != AI_STATUS_NO_SDK:
-            return text, status
-
-    if os.getenv("OPENAI_API_KEY"):
-        return _openai_polish(prompt, system_message, timeout, max_tokens)
-
-    return None, AI_STATUS_NO_KEY
-
-
-def optional_ai_polish(prompt: str, system_message: str) -> str | None:
-    """Backward-compatible wrapper: returns polished text or None.
-
-    Kept positional (prompt, system_message) for app.py. See
-    optional_ai_polish_with_status for the failure class.
-    """
-    text, _status = optional_ai_polish_with_status(prompt, system_message)
-    return text
-
-
-@functools.lru_cache(maxsize=64)
-def optional_ai_polish_cached(prompt: str, system_message: str) -> str | None:
-    """Process-lifetime cache of identical polish requests.
-
-    Inputs are plain strings so this is lru_cache-friendly. Note that a cached
-    None (e.g. a transient network failure) persists for the process lifetime;
-    call optional_ai_polish directly to force a fresh attempt.
-    """
-    return optional_ai_polish(prompt, system_message)
-
-
 def _opspilot_roi_text(roi: dict) -> str:
+    payback = roi.get("payback_months")
+    payback_text = (
+        f"about {payback:.1f} months" if payback is not None and payback != float("inf") else "not reached in year one"
+    )
     return (
         f"The proposed automation saves an estimated {roi['monthly_hours_saved']:,.1f} hours per month, "
-        f"or ${roi['monthly_labor_savings']:,.0f} monthly and ${roi['annual_labor_savings']:,.0f} annually. "
-        f"Expected cycle-time improvement is {roi['estimated_cycle_time_improvement']:.1f} days, with an estimated "
-        f"{roi['sla_breach_reduction_estimate']:.0f}% reduction in SLA breach risk. {roi['qualitative_business_value']}"
+        f"or ${roi['monthly_labor_savings']:,.0f} in monthly labor value and ${roi['annual_labor_savings']:,.0f} annually. "
+        f"Net of an assumed build and maintenance cost, first-year net savings are ${roi['annual_net_savings']:,.0f} "
+        f"with payback in {payback_text}. {roi['qualitative_business_value']}"
     )
 
 
