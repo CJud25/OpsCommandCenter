@@ -79,6 +79,15 @@ def main() -> int:
         _check("foster matching non-empty", len(foster_matching(dogs, volunteers)) > 0)
         _check("medical scoring non-empty", len(medical_priority_scoring(dogs, medical)) > 0)
 
+        # Empty-input regression: on real data with zero foster-need dogs / zero
+        # adoption inquiries, these must return a well-formed empty frame, not crash.
+        empty_dogs = dogs[dogs["current_status"] == "__no_such_status__"]
+        empty_inq = inquiries[inquiries["inquiry_type"] == "__no_such_type__"]
+        fm_empty = foster_matching(empty_dogs, volunteers)
+        _check("foster matching empty -> framed empty (no KeyError)", len(fm_empty) == 0 and "match_score" in fm_empty.columns)
+        tr_empty = triage_adoption_inquiries(empty_inq, dogs)
+        _check("triage empty -> framed empty (no KeyError)", len(tr_empty) == 0 and "triage_category" in tr_empty.columns)
+
         # --- rankers -----------------------------------------------------------
         r_ops = build_opspilot_automation_ranker(ops)
         r_res = build_rescueops_automation_ranker(dogs, inquiries, volunteers, medical)

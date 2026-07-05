@@ -68,9 +68,11 @@ sizing uses `aggregate_candidate_impact` (overlap allowed).
 - `OPSPILOT_SAVE_RATES`, `ASSUMED_AUTOMATION_COVERAGE`.
 - `absolute_automation_score(net_hours_saved, impact_0_100, repeatability, rule_clarity, complexity) -> float`
   and `sla_impact_score(sla_breaches) -> float`. Both ranker builders feed the SAME
-  quantity -- net monthly hours saved (gross manual hours x save rate) -- through a
-  diminishing-returns curve (no hard saturation), so scores respond to volume and are
-  genuinely comparable across domains.
+  shared, data-derived quantity -- net monthly hours saved (gross manual hours x save
+  rate) -- through one diminishing-returns curve (no hard saturation), so the effort
+  anchor is on one comparable scale across domains and scores respond to volume. The
+  impact term is domain-specific by design (measured SLA-breach signal for OpsPilot,
+  leadership mission weight for RescueOps).
 
 ## Data reliability
 
