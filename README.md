@@ -11,7 +11,7 @@ OpsPilot turns raw operational data into a ranked, ROI-backed automation roadmap
 
 Runs fully locally with no external API calls, so no data ever leaves the machine. All data is synthetic; this is a portfolio demonstration and every figure is illustrative.
 
-![Automation Ranker: automation-opportunity scores for both domains on one comparable 0-100 scale](assets/ranker.png)
+![Automation Ranker: automation-opportunity scores for both domains on one 0-100 scale, anchored on net hours saved](assets/ranker.png)
 
 ## Analytical Integrity Review
 

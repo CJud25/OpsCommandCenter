@@ -9,7 +9,9 @@ Values may change; the names and shapes below must not, because `app.py` and
 Keys (stable): `total_requests`, `open_requests`, `average_cycle_time`,
 `sla_breach_rate`, `oldest_open_request`, `estimated_manual_hours`,
 `estimated_monthly_waste`, `top_bottleneck_stage`, `top_automation_candidate`,
-`potential_monthly_savings`. May add `reference_date`.
+`potential_monthly_savings`. May add `reference_date`. `average_cycle_time` is the
+mean of `cycle_time_days` over CLOSED requests only (open rows carry live WIP age,
+which would inflate a completed-work duration).
 
 ## summarize_rescueops(dogs, inquiries, volunteers, medical) -> dict
 
