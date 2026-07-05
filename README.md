@@ -1,5 +1,9 @@
 # OpsPilot Command Center
 
+### [Live demo](https://opscommandcenter.streamlit.app/) &nbsp;|&nbsp; built with Streamlit
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://opscommandcenter.streamlit.app/)
+
 OpsPilot turns raw operational data into a ranked, ROI-backed automation roadmap -- and then acts on it -- proven across two very different operations: a business service desk and a nonprofit dog rescue.
 
 ![Automation Ranker](assets/ranker.png)
