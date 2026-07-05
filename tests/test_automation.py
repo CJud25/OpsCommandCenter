@@ -134,6 +134,26 @@ def main() -> int:
         escaped = (base / "evil.txt").exists() or (base.parent / "evil.txt").exists()
         _check("crafted request_id stays inside the outbox", _outbox_count(outbox) == 1 and not escaped)
 
+    # --- CSV formula-injection guard + idempotency consistency -----------------
+    with tempfile.TemporaryDirectory() as tmp:
+        base = Path(tmp)
+        data = base / "requests.csv"
+        outbox = base / "outbox"
+        audit = base / "audit_log.csv"
+        _write_csv(data, [
+            {"request_id": "=HYPERLINK(1)", "required_documents_missing": "true", "owner": "A", "priority": "Low", "submitted_date": "2026-06-01"},
+        ])
+        run(data, outbox, audit)
+        raw = audit.read_text(encoding="utf-8")
+        # No audit cell may begin a field with a live formula character.
+        cells_ok = all(
+            not cell.startswith(("=", "+", "@")) or cell.startswith("'")
+            for line in raw.splitlines()[1:] for cell in line.split(",")
+        )
+        _check("formula-like id is neutralized in the audit log", cells_ok and "'=HYPERLINK(1)" in raw)
+        r_again = run(data, outbox, audit)
+        _check("idempotency holds despite the injection guard", r_again["written"] == 0)
+
     if _failures:
         print(f"\nFAILED: {len(_failures)} check(s): {_failures}")
         return 1

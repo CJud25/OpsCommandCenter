@@ -48,6 +48,21 @@ def idempotency_key(request_id: str, rule_name: str) -> str:
     return f"{request_id}::{rule_name}"
 
 
+def _csv_safe(value: str) -> str:
+    """Neutralize spreadsheet formula injection in a CSV cell.
+
+    A value beginning with =, +, -, or @ is executed as a formula when the CSV is
+    opened in Excel/Sheets. Harmless for the synthetic ``REQ-#####`` ids, but the
+    audit log is designed to point at real data next, where a crafted id like
+    ``=HYPERLINK(...)`` would otherwise run. Prefixing with an apostrophe forces the
+    cell to be treated as text.
+    """
+    text = str(value)
+    if text and text[0] in ("=", "+", "-", "@"):
+        return "'" + text
+    return text
+
+
 def _safe_slug(value: str) -> str:
     """Reduce an untrusted field to a filename-safe slug.
 
@@ -79,6 +94,10 @@ def load_key_last_seen(audit_log: Path) -> dict[str, _dt.datetime]:
         reader = csv.DictReader(handle)
         for row in reader:
             key = (row.get("idempotency_key") or "").strip()
+            # Undo the CSV-injection guard (a leading apostrophe added by _csv_safe on
+            # write) so the stored key matches the freshly computed one on read.
+            if key.startswith("'"):
+                key = key[1:]
             if not key:
                 continue
             ts = _parse_ts((row.get("timestamp") or "").strip())
@@ -221,8 +240,16 @@ def run(
 
                 outbox_file.write_text(build_followup_message(row, rule_name), encoding="utf-8")
                 writer = _audit_writer()
+                # Neutralize spreadsheet formula injection in the untrusted id/key cells.
                 writer.writerow(
-                    [timestamp, request_id, rule_name, key, "followup_message_written", str(outbox_file)]
+                    [
+                        timestamp,
+                        _csv_safe(request_id),
+                        rule_name,
+                        _csv_safe(key),
+                        "followup_message_written",
+                        str(outbox_file),
+                    ]
                 )
                 audit_handle.flush()
                 written += 1
