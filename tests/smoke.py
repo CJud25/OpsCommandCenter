@@ -15,7 +15,7 @@ from pathlib import Path
 # tests/ is not a package; make the sibling pytest module importable by path.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from test_smoke import main  # noqa: E402
+from test_smoke import main
 
 if __name__ == "__main__":
     raise SystemExit(main())

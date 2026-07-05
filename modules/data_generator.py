@@ -91,7 +91,7 @@ def _business_name_pool() -> list[str]:
         "Scott",
         "Wright",
     ]
-    return [f"{f} {l}" for f in first for l in last]
+    return [f"{f} {l}" for f in first for l in last]  # noqa: E741
 
 
 def generate_opspilot_requests(rng: np.random.Generator, rows: int = 720, *, as_of: date = DATA_ANCHOR_DATE) -> pd.DataFrame:

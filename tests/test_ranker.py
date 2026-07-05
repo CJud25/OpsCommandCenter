@@ -32,17 +32,17 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 # Read-only reuse of the analyzers' load functions so bool coercion matches prod.
-from modules import classification, scoring  # noqa: E402,F401
-from modules.automation_ranker import (  # noqa: E402
+from modules import scoring
+from modules.automation_ranker import (
     OPSPILOT_AUTOMATION_SPECS,
     build_combined_automation_ranker,
     build_opspilot_automation_ranker,
     build_rescueops_automation_ranker,
     opspilot_monthly_impact,
 )
-from modules.opspilot_analyzer import load_opspilot_data  # noqa: E402
-from modules.rescueops_analyzer import load_rescueops_data  # noqa: E402
-from modules.roi_calculator import calculate_opspilot_roi, calculate_rescueops_roi  # noqa: E402
+from modules.opspilot_analyzer import load_opspilot_data
+from modules.rescueops_analyzer import load_rescueops_data
+from modules.roi_calculator import calculate_opspilot_roi, calculate_rescueops_roi
 
 DATA = ROOT / "data"
 

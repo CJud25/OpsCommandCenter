@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from automations.missing_document_followup import run  # noqa: E402
+from automations.missing_document_followup import run
 
 
 def _write_csv(path: Path, rows: list[dict]) -> None:

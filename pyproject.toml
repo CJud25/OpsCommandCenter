@@ -1,0 +1,15 @@
+[tool.ruff]
+# Match the line length used elsewhere in the portfolio; E501 is ignored below so
+# the descriptive strings in the analytics/report modules can stay unwrapped.
+line-length = 100
+
+[tool.ruff.lint]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# The test modules must extend sys.path to the repo root before importing the
+# local packages, so their module-level imports are intentionally not at the top.
+"tests/*" = ["E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
