@@ -28,16 +28,17 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Lint
+        run: ruff check .
 
       - name: Compile all modules
         run: python -m py_compile app.py modules/*.py automations/*.py tests/*.py
 
-      - name: Headless pipeline smoke test
-        run: python tests/smoke.py
-
-      - name: Ranker and ROI checks
-        run: python tests/test_ranker.py
-
-      - name: Micro-automation idempotency + safety checks
-        run: python tests/test_automation.py
+      # The pytest suite covers everything the old per-script steps did: the
+      # end-to-end data-generation + pipeline run (tests/test_smoke.py), the
+      # ranker/ROI property tests (tests/test_ranker.py), and the micro-automation
+      # idempotency/safety tests (tests/test_automation.py).
+      - name: Run tests
+        run: python -m pytest -q

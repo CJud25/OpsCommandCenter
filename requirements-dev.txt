@@ -1,0 +1,7 @@
+# Development + CI tooling: the pytest runner, coverage plugin, and the ruff
+# linter. Kept out of requirements.txt so a runtime install stays lean. Ranges
+# match the versions the suite was developed against (pytest 9.x, pytest-cov 7.x,
+# ruff 0.15.x).
+pytest>=8,<10
+pytest-cov>=5,<8
+ruff>=0.6,<1
