@@ -193,7 +193,7 @@ def generate_rescueops_report(
 Generated: {date.today().isoformat()}
 
 ## Executive Summary
-Rosalie and Friends has {summary['dogs_in_care']} dogs in care, {summary['dogs_needing_foster']} dogs needing foster support, {summary['urgent_medical_cases']} urgent medical cases, and {summary['unanswered_messages']} unanswered messages. The highest-scoring medical case is {top_dog}, and the strongest automation opportunity is {top_auto}. RescueOps recommends prioritizing inquiry triage, foster matching, and medical funding visibility.
+Life's Paw-pose has {summary['dogs_in_care']} dogs in care, {summary['dogs_needing_foster']} dogs needing foster support, {summary['urgent_medical_cases']} urgent medical cases, and {summary['unanswered_messages']} unanswered messages. The highest-scoring medical case is {top_dog}, and the strongest automation opportunity is {top_auto}. RescueOps recommends prioritizing inquiry triage, foster matching, and medical funding visibility.
 
 ## Current Operational Problem
 The rescue is volunteer-powered and must coordinate dogs, fosters, adoption inquiries, medical expenses, and donor priorities with limited capacity. The operational risk is not only cost. It is delayed response, missed foster fit, and slow movement through the rescue pipeline.

@@ -497,7 +497,7 @@ def weekly_founder_brief(
     return f"""## Weekly Founder Brief
 
 ### Executive Summary
-Rosalie and Friends currently has {summary['dogs_in_care']} dogs in care, {summary['dogs_needing_foster']} foster gaps, {summary['urgent_medical_cases']} urgent medical cases, and {summary['unanswered_messages']} unanswered messages. The highest priority dog from the structured tracker is {summary['highest_priority_dog']}.
+Life's Paw-pose currently has {summary['dogs_in_care']} dogs in care, {summary['dogs_needing_foster']} foster gaps, {summary['urgent_medical_cases']} urgent medical cases, and {summary['unanswered_messages']} unanswered messages. The highest priority dog from the structured tracker is {summary['highest_priority_dog']}.
 
 ### Dogs Needing Urgent Attention
 {urgent_dogs if urgent_dogs else "No high-priority dogs are currently flagged."}

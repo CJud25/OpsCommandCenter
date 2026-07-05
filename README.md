@@ -57,7 +57,7 @@ All data is synthetic and generated to be analytically honest -- scores and prio
 The app includes two demo modes:
 
 - OpsPilot: a general business operations process-improvement and automation command center. The fictional company, Summit Services Group, struggles with delayed internal requests, approval bottlenecks, missing documentation, duplicate work, and poor workload visibility.
-- RescueOps: a nonprofit dog rescue operations and automation command center. The fictional rescue, Rosalie and Friends, is an all-volunteer organization managing dogs, fosters, adoption inquiries, medical needs, volunteer tasks, and donation priorities.
+- RescueOps: a nonprofit dog rescue operations and automation command center. The fictional rescue, Life's Paw-pose, is an all-volunteer organization managing dogs, fosters, adoption inquiries, medical needs, volunteer tasks, and donation priorities.
 
 The goal is to show that one process-improvement framework transfers across very different operational domains -- the same analytics, scoring, and reporting code runs unchanged on both.
 

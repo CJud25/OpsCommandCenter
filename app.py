@@ -143,7 +143,7 @@ def render_home(
         )
     else:
         ui.insight_box(
-            "Rosalie and Friends",
+            "Life's Paw-pose",
             "An all-volunteer rescue managing dogs, fosters, adoption inquiries, medical needs, volunteer tasks, and donation priorities with limited manpower.",
             "success",
         )
@@ -320,7 +320,7 @@ def render_rescueops_demo(
 
     ui.page_header(
         "RescueOps Demo",
-        "Rosalie and Friends rescue operations and automation dashboard.",
+        "Life's Paw-pose rescue operations and automation dashboard.",
         "Nonprofit Operations",
     )
     ui.metric_cards(
