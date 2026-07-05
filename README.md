@@ -211,7 +211,7 @@ No real customer, employee, volunteer, donor, applicant, or animal rescue data i
 
 ## Disclaimer
 
-This project uses synthetic and mock data for portfolio demonstration purposes. ROI, savings, and mission-impact estimates are illustrative and should be validated with real operational data before business use.
+This project uses synthetic and mock data for portfolio demonstration purposes. ROI, savings, and mission-impact estimates are illustrative and should be validated with real operational data before business use. [`docs/calibration.md`](docs/calibration.md) lists the exact real-world fields and historical baselines each ROI input needs before any figure here can be trusted for a budget decision.
 
 ## License
 
