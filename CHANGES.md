@@ -104,9 +104,11 @@ process-improvement/executive credibility, dashboard UX) drove a second round.
    save rate, so the two views agree.
 3. Scoring saturation. The effort term used a hard 40-hour ceiling that pinned most
    OpsPilot candidates to the same value, so the ranking barely moved with the data.
-   Replaced with a diminishing-returns curve over NET hours saved, fed identically
-   by both domains. A new volume-sensitivity test proves doubling a candidate's rows
-   raises its score; the absoluteness check was rewritten to a direct property test.
+   Replaced with a diminishing-returns curve over NET monthly hours saved. OpsPilot
+   aggregates (lifetime totals over the dataset span) are scaled to a monthly basis
+   so both domains feed the curve the same quantity -- otherwise "comparable across
+   domains" would be false. A volume-sensitivity test proves doubling a candidate's
+   rows raises its score; absoluteness is checked by a direct property test.
 4. Micro-automation hardening: the audit row is now written and flushed immediately
    after each outbox file (crash-safe), plus `--dry-run`, a `--max-actions` circuit
    breaker, and `--window-days` for a reminder ladder. New `tests/test_automation.py`

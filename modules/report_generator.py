@@ -431,14 +431,17 @@ def markdown_to_text(markdown_text: str) -> str:
 
 def _opspilot_roi_text(roi: dict) -> str:
     payback = roi.get("payback_months")
-    payback_text = (
-        f"about {payback:.1f} months" if payback is not None and payback != float("inf") else "not reached in year one"
-    )
+    if payback is None or payback == float("inf"):
+        payback_text = "the build does not pay back within year one at these assumptions"
+    elif payback == 0:
+        payback_text = "payback is immediate (no build cost assumed)"
+    else:
+        payback_text = f"payback is about {payback:.1f} months"
     return (
         f"The proposed automation saves an estimated {roi['monthly_hours_saved']:,.1f} hours per month, "
         f"or ${roi['monthly_labor_savings']:,.0f} in monthly labor value and ${roi['annual_labor_savings']:,.0f} annually. "
-        f"Net of an assumed build and maintenance cost, first-year net savings are ${roi['annual_net_savings']:,.0f} "
-        f"with payback in {payback_text}. {roi['qualitative_business_value']}"
+        f"Net of an assumed build and maintenance cost, first-year net savings are ${roi['annual_net_savings']:,.0f} and "
+        f"{payback_text}. {roi['qualitative_business_value']}"
     )
 
 

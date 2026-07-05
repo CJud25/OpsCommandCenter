@@ -80,7 +80,10 @@ def main() -> int:
 
         # --- windowed re-trigger ------------------------------------------------
         r3 = run(data, outbox, audit, now=t0 + dt.timedelta(days=40), window_days=30)
-        _check("window elapsed -> request chased again", r3["written"] == 3 and _audit_rows(audit) == 6)
+        _check(
+            "window elapsed -> request chased again as a distinct file",
+            r3["written"] == 3 and _audit_rows(audit) == 6 and _outbox_count(outbox) == 6,
+        )
         r4 = run(data, outbox, audit, now=t0 + dt.timedelta(days=45), window_days=60)
         _check("still within window -> skipped", r4["written"] == 0)
 
@@ -101,6 +104,22 @@ def main() -> int:
         # --- circuit breaker ---------------------------------------------------
         rc = run(data, outbox, audit, max_actions=1)
         _check("max-actions caps the run", rc["written"] == 1 and rc["capped"] == 1 and _outbox_count(outbox) == 1)
+
+    # --- zero-byte audit file still gets a header (crash-recovery edge) ---------
+    with tempfile.TemporaryDirectory() as tmp:
+        base = Path(tmp)
+        data = base / "requests.csv"
+        outbox = base / "outbox"
+        audit = base / "audit_log.csv"
+        _write_csv(data, [
+            {"request_id": "REQ-1", "required_documents_missing": "true", "owner": "A", "priority": "Low", "submitted_date": "2026-06-01"},
+        ])
+        audit.write_text("", encoding="utf-8")  # simulate a crash-left empty file
+        run(data, outbox, audit)
+        # Header must be present, so DictReader parses one action row (not zero).
+        _check("empty audit file gets a header written", _audit_rows(audit) == 1)
+        r_again = run(data, outbox, audit)
+        _check("idempotent after empty-file recovery", r_again["written"] == 0 and _audit_rows(audit) == 1)
 
     # --- path traversal --------------------------------------------------------
     with tempfile.TemporaryDirectory() as tmp:

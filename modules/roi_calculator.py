@@ -37,12 +37,17 @@ def calculate_opspilot_roi(
     # estimate without a cost line is not an ROI; this makes the page title honest.
     monthly_net_savings = monthly_labor_savings - monthly_maintenance_cost
     annual_net_savings = monthly_net_savings * 12 - one_time_build_cost
-    payback_months = (
-        one_time_build_cost / monthly_net_savings if monthly_net_savings > 0 else float("inf")
-    )
-    first_year_roi_pct = (
-        annual_net_savings / one_time_build_cost * 100 if one_time_build_cost > 0 else 0.0
-    )
+    if one_time_build_cost <= 0:
+        # No build cost -> payback is immediate and percentage ROI is undefined.
+        payback_months = 0.0
+        first_year_roi_pct = None
+    elif monthly_net_savings > 0:
+        payback_months = one_time_build_cost / monthly_net_savings
+        first_year_roi_pct = annual_net_savings / one_time_build_cost * 100
+    else:
+        # Maintenance exceeds savings -> the build never pays back at these inputs.
+        payback_months = float("inf")
+        first_year_roi_pct = annual_net_savings / one_time_build_cost * 100
 
     return {
         "monthly_hours_saved": monthly_hours_saved,

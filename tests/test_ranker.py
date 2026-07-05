@@ -30,6 +30,7 @@ from modules.automation_ranker import (
     build_combined_automation_ranker,
     build_opspilot_automation_ranker,
     build_rescueops_automation_ranker,
+    opspilot_monthly_impact,
 )
 from modules.roi_calculator import calculate_opspilot_roi, calculate_rescueops_roi
 from modules import classification, scoring
@@ -110,12 +111,14 @@ def main() -> int:
     # unreliable here because candidate memberships overlap -- dropping one
     # candidate's rows also removes rows that belong to another.)
     baseline = r_ops.set_index("Automation Candidate")["Automation Score"]
-    _impact = classification.aggregate_candidate_impact(ops).set_index("automation_name")
+    # Use the same monthly-scaled aggregate the builder uses, so this checks the
+    # builder applies exactly the documented (monthly basis + curve) formula.
+    _impact = opspilot_monthly_impact(ops).set_index("automation_name")
     _iso_name = "SLA Escalation Alerts"
     _spec = OPSPILOT_AUTOMATION_SPECS[_iso_name]
     _expected = scoring.absolute_automation_score(
         net_hours_saved=float(_impact.loc[_iso_name, "manual_hours"]) * scoring.OPSPILOT_SAVE_RATES[_iso_name],
-        impact_0_100=scoring.sla_impact_score(int(_impact.loc[_iso_name, "sla_breaches"])),
+        impact_0_100=scoring.sla_impact_score(float(_impact.loc[_iso_name, "sla_breaches"])),
         repeatability=_spec["repeatability"],
         rule_clarity=_spec["rule_clarity"],
         complexity=_spec["complexity"],

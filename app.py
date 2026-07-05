@@ -507,7 +507,14 @@ def render_roi_page(
             hourly_rate, manual_minutes, monthly_volume, percent_automated, time_saved_pct, build_cost, maintenance_cost
         )
         payback = roi["payback_months"]
-        payback_display = f"{payback:.1f} months" if payback != float("inf") else "Not in year 1"
+        if payback == float("inf"):
+            payback_display = "Not recoverable"
+        elif payback == 0.0:
+            payback_display = "Immediate"
+        else:
+            payback_display = f"{payback:.1f} months"
+        roi_pct = roi["first_year_roi_pct"]
+        roi_display = "n/a" if roi_pct is None else f"{roi_pct:.0f}%"
         ui.metric_cards(
             [
                 ("Monthly Hours Saved", ui.number(roi["monthly_hours_saved"], 1), "Estimated labor capacity"),
@@ -515,7 +522,7 @@ def render_roi_page(
                 ("Annual Labor Savings", ui.money(roi["annual_labor_savings"]), "Gross run-rate"),
                 ("First-Year Net Savings", ui.money(roi["annual_net_savings"]), "After build + maintenance"),
                 ("Payback Period", payback_display, "Time to recover build cost"),
-                ("First-Year ROI", f"{roi['first_year_roi_pct']:.0f}%", "Return on build cost"),
+                ("First-Year ROI", roi_display, "Return on build cost"),
             ],
             columns=3,
         )
@@ -725,7 +732,7 @@ def sla_breach_rate_chart(df: pd.DataFrame):
         color_discrete_sequence=COLOR_SEQUENCE,
         custom_data=["volume"],
     )
-    fig.update_traces(hovertemplate="%{y}: %{x:.1f}%% breach rate<br>%{customdata[0]:,} requests<extra></extra>")
+    fig.update_traces(hovertemplate="%{y}: %{x:.1f}% breach rate<br>%{customdata[0]:,} requests<extra></extra>")
     fig.update_yaxes(categoryorder="total ascending", title="")
     fig.update_xaxes(title="SLA Breach Rate (%)")
     return style_chart(fig)

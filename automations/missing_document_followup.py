@@ -148,7 +148,6 @@ def run(
 
     last_seen = load_key_last_seen(audit_log)
     handled = handled_keys(last_seen, now, window_days)
-    audit_exists = audit_log.exists()
 
     scanned = 0
     missing = 0
@@ -156,18 +155,32 @@ def run(
     skipped = 0
     capped = 0
 
-    # Crash-safety: open the audit log once and append each action row immediately
-    # after its outbox file is written (and flush), so a mid-run failure never
-    # leaves a written follow-up unrecorded -- which would cause a re-send next run.
-    audit_handle = None
-    audit_writer = None
     if not dry_run:
         outbox_dir.mkdir(parents=True, exist_ok=True)
-        audit_handle = audit_log.open("a", newline="", encoding="utf-8")
-        audit_writer = csv.writer(audit_handle)
-        if not audit_exists:
-            audit_writer.writerow(AUDIT_HEADER)
-            audit_handle.flush()
+
+    # Crash-safety: append each action row immediately after its outbox file is
+    # written (and flush), so a mid-run failure never leaves a written follow-up
+    # unrecorded -- which would cause a re-send next run. The audit file/handle is
+    # opened lazily on the FIRST action, so a run with zero actions creates nothing,
+    # and the header is decided by actual file contents (missing or empty), not mere
+    # existence -- a zero-byte leftover still gets a header.
+    audit_handle = None
+    audit_writer = None
+
+    def _audit_writer():
+        nonlocal audit_handle, audit_writer
+        if audit_handle is None:
+            need_header = (not audit_log.exists()) or audit_log.stat().st_size == 0
+            audit_handle = audit_log.open("a", newline="", encoding="utf-8")
+            audit_writer = csv.writer(audit_handle)
+            if need_header:
+                audit_writer.writerow(AUDIT_HEADER)
+                audit_handle.flush()
+        return audit_writer
+
+    # When a re-trigger window is in effect, a later chase must produce a distinct
+    # artifact rather than silently overwriting the first message.
+    name_suffix = f"_{now.date().isoformat()}" if window_days is not None else ""
 
     try:
         with data_path.open("r", newline="", encoding="utf-8") as handle:
@@ -197,7 +210,7 @@ def run(
                 # cannot double-write within a single run.
                 handled.add(key)
 
-                outbox_file = outbox_dir / f"{_safe_slug(request_id)}_{_safe_slug(rule_name)}.txt"
+                outbox_file = outbox_dir / f"{_safe_slug(request_id)}_{_safe_slug(rule_name)}{name_suffix}.txt"
                 # Defense in depth: never write outside the outbox directory.
                 if not outbox_file.resolve().is_relative_to(outbox_dir.resolve()):
                     raise ValueError(f"Refusing to write outside outbox: {outbox_file}")
@@ -207,7 +220,8 @@ def run(
                     continue
 
                 outbox_file.write_text(build_followup_message(row, rule_name), encoding="utf-8")
-                audit_writer.writerow(
+                writer = _audit_writer()
+                writer.writerow(
                     [timestamp, request_id, rule_name, key, "followup_message_written", str(outbox_file)]
                 )
                 audit_handle.flush()

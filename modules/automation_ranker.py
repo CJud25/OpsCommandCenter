@@ -191,18 +191,44 @@ _RESCUEOPS_EFFORT_MODEL = {
 }
 
 
+def _monthly_factor(df: pd.DataFrame) -> float:
+    """Scale factor from dataset-lifetime totals to a ~monthly basis.
+
+    ``classification.aggregate_candidate_impact`` sums over every request in the
+    dataset, which spans many weeks. Dividing by the span (in 30-day months) puts
+    OpsPilot effort and SLA-breach figures on the same MONTHLY footing as the
+    RescueOps estimates and the monthly-calibrated scoring curve.
+    """
+    submitted = pd.to_datetime(df["submitted_date"])
+    span_days = max(int((submitted.max() - submitted.min()).days), 1)
+    return 30.0 / span_days
+
+
+def opspilot_monthly_impact(df: pd.DataFrame) -> pd.DataFrame:
+    """Per-candidate opportunity on a MONTHLY basis (manual_hours and sla_breaches
+    scaled from lifetime totals). This is the quantity fed to the scorer and shown
+    as "Estimated Hours Saved", so OpsPilot and RescueOps are genuinely comparable.
+    """
+    factor = _monthly_factor(df)
+    impact = classification.aggregate_candidate_impact(df).copy()
+    impact["manual_hours"] = impact["manual_hours"] * factor
+    impact["sla_breaches"] = impact["sla_breaches"] * factor
+    return impact
+
+
 def build_opspilot_automation_ranker(df: pd.DataFrame) -> pd.DataFrame:
     # Fix #9: absolute, cross-domain-comparable scoring. Candidacy comes from the
     # classification layer (derived from raw request fields) -- we never read the
     # generator's ``automation_candidate_type`` column, which Workstream A removes.
-    impact = classification.aggregate_candidate_impact(df)
+    # Aggregates are scaled to a monthly basis (see opspilot_monthly_impact).
+    impact = opspilot_monthly_impact(df)
 
     sized: list[dict] = [
         {
             "automation_name": row["automation_name"],
             "volume": int(row["volume"]),
             "manual_hours": float(row["manual_hours"]),
-            "sla_breaches": int(row["sla_breaches"]),
+            "sla_breaches": float(row["sla_breaches"]),
         }
         for _, row in impact.iterrows()
     ]
@@ -222,10 +248,9 @@ def build_opspilot_automation_ranker(df: pd.DataFrame) -> pd.DataFrame:
     for item in sized:
         spec = OPSPILOT_AUTOMATION_SPECS[item["automation_name"]]
         impact_score = scoring.sla_impact_score(item["sla_breaches"])
-        # Net hours actually removed = gross manual hours x save rate. This is the
-        # SAME quantity RescueOps feeds the scorer, so the two domains are directly
-        # comparable (they were not when OpsPilot fed gross hours and RescueOps fed
-        # net). It also drives the "Estimated Hours Saved" column below.
+        # Monthly net hours removed = monthly gross manual hours x save rate. This is
+        # the SAME quantity RescueOps feeds the scorer (monthly net hours), so the two
+        # domains are directly comparable. It also drives "Estimated Hours Saved".
         net_hours_saved = item["manual_hours"] * scoring.OPSPILOT_SAVE_RATES[item["automation_name"]]
         score = scoring.absolute_automation_score(
             net_hours_saved=net_hours_saved,
