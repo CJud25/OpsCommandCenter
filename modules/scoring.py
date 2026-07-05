@@ -102,13 +102,15 @@ def absolute_automation_score(
 ) -> float:
     """Automation opportunity score on an absolute 0-100 scale.
 
-    Anchored (not min-max normalized), so a score means the same thing regardless
-    of which other candidates are present and is comparable across domains.
+    Anchored (not min-max normalized), so a score does not shift with which other
+    candidates are present, and every domain is scored on the SAME 0-100 curve.
 
-    The effort term is driven by ``net_hours_saved`` -- the estimated monthly hours
-    an automation actually removes (gross manual hours x save rate). Both domains
-    feed the SAME quantity (net hours saved) into the SAME curve, which is what
-    makes a score of 80 mean the same thing across OpsPilot and RescueOps.
+    The effort term (35% weight) is driven by ``net_hours_saved`` -- the estimated
+    monthly hours an automation actually removes (gross manual hours x save rate).
+    Both domains feed this SAME shared, data-derived quantity into the SAME curve;
+    that shared effort anchor is what keeps OpsPilot and RescueOps on one comparable
+    scale. The impact term (15%) is domain-specific by design: a measured SLA-breach
+    signal for OpsPilot vs. a leadership-set mission weight for RescueOps.
 
     Weights sum to 1.0 and every term is additive; 100 is approached at large inputs.
       35% effort saved, 20% repeatability, 15% impact, 15% rule clarity, 15% ease.

@@ -1,5 +1,13 @@
 # Changes: Analytical Integrity and Delivery Pass
 
+> **Portfolio-review pass (2026-07-05).** A follow-up review fixed: the "Average Cycle
+> Time" KPI and its by-request-type chart now compute over CLOSED requests only (was all
+> rows, which mixed in open-request WIP age); empty-input guards on `foster_matching` and
+> `triage_adoption_inquiries`, plus a zero-eligible-volunteer crash fix and unmatched-dog
+> handling; and the cross-domain comparability wording was tightened (net hours saved is
+> the shared, data-derived anchor; the impact term is domain-specific by design). All
+> harness suites stay green.
+
 This revision took the OpsPilot Command Center MVP from "runs and looks complete"
 to "survives a data-literate reviewer's scrutiny." Every analytic was audited;
 anything that could not defend itself was removed or rebuilt, and the tool gained

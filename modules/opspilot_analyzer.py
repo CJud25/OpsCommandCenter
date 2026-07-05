@@ -29,6 +29,7 @@ def summarize_opspilot(
     df: pd.DataFrame, assumed_hourly_rate: float = 45.0, bottlenecks: pd.DataFrame | None = None
 ) -> dict:
     open_df = df[df["current_status"] != "Closed"]
+    closed_df = df[df["current_status"] == "Closed"]
     # Anchor the 30-day recency window to the newest record in the dataset, not the
     # wall clock, so the "monthly waste" figure does not decay to $0 as the committed
     # synthetic data ages.
@@ -56,9 +57,12 @@ def summarize_opspilot(
     return {
         "total_requests": int(len(df)),
         "open_requests": int(len(open_df)),
-        # Closed-request cycle time (cycle_time_days). This is the completed-work
-        # duration, distinct from oldest_open_request which is open-request age.
-        "average_cycle_time": float(df["cycle_time_days"].mean()),
+        # Closed-request cycle time: mean cycle_time_days over CLOSED rows only.
+        # Open rows carry current WIP age (== days_open) in cycle_time_days, so a
+        # mean over every row conflates completed-work duration with open-request
+        # age and overstates the figure. This is the completed-work duration,
+        # distinct from oldest_open_request (open-request age). 0.0 with no closed rows.
+        "average_cycle_time": float(closed_df["cycle_time_days"].mean()) if len(closed_df) else 0.0,
         "sla_breach_rate": float(df["sla_breached"].mean()),
         "oldest_open_request": int(open_df["days_open"].max() if len(open_df) else 0),
         "estimated_manual_hours": float(manual_hours),
@@ -151,8 +155,12 @@ def get_opspilot_chart_data(df: pd.DataFrame, bottlenecks: pd.DataFrame) -> dict
         "requests_by_stage": (
             df.groupby("process_stage").size().reset_index(name="requests").sort_values("requests", ascending=False)
         ),
+        # Closed rows only — same reason as summarize_opspilot's average_cycle_time:
+        # open rows carry live WIP age in cycle_time_days, which would inflate a chart
+        # labeled "Avg Cycle Time" (a completed-work duration).
         "avg_cycle_by_type": (
-            df.groupby("request_type")["cycle_time_days"].mean().reset_index(name="avg_cycle_time").sort_values(
+            df[df["current_status"] == "Closed"]
+            .groupby("request_type")["cycle_time_days"].mean().reset_index(name="avg_cycle_time").sort_values(
                 "avg_cycle_time", ascending=False
             )
         ),

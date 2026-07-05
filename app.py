@@ -455,7 +455,7 @@ def render_automation_ranker(
 
     ui.insight_box(
         "Scoring Formula",
-        "Automation score weighs effort saved, repeatability, impact, rule clarity, and an ease-of-implementation credit on an absolute 0-100 scale, so it is comparable across domains and stable as candidates change.",
+        "Automation score weighs effort saved, repeatability, impact, rule clarity, and an ease-of-implementation credit on an absolute 0-100 scale. Net hours saved -- the shared, data-derived anchor -- is scored on one curve across domains (the impact term is domain-specific by design), and scores stay stable as candidates change.",
         "info",
     )
     if not view.empty:

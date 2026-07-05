@@ -11,7 +11,7 @@ OpsPilot turns raw operational data into a ranked, ROI-backed automation roadmap
 
 Runs fully locally with no external API calls, so no data ever leaves the machine. All data is synthetic; this is a portfolio demonstration and every figure is illustrative.
 
-![Automation Ranker: automation-opportunity scores for both domains on one comparable 0-100 scale](assets/ranker.png)
+![Automation Ranker: automation-opportunity scores for both domains on one 0-100 scale, anchored on net hours saved](assets/ranker.png)
 
 ## Analytical Integrity Review
 
@@ -23,7 +23,7 @@ Before shipping, every analytic in this app was put through an adversarial revie
 | ROI metrics | 4 headline metrics, 3 fabricated or circular: one echoed the user's own cycle-time slider back as a finding, one was an invented SLA-reduction formula with coefficients from nowhere | Those two are deleted; the labor-savings model stays and gains a real cost side -- build cost, maintenance, payback period, first-year ROI -- with an Assumptions panel and sensitivity band | A benefits number with no cost line is not an ROI; a figure that survives the CFO's first question is worth ten that do not |
 | Priority and automation scores | "Analysis" re-displayed labels hardcoded into the demo-data generator | Analyzer computes scores from raw fields -- the same code works on real data | Insight must be earned from the data, not smuggled in with it |
 | KPI freshness | "Last 30 days" metrics silently decayed to $0 as the committed demo data aged | KPIs anchored to the dataset's own timeline; stable on any day it is opened | A dashboard that quietly reads zero destroys trust in everything else on it |
-| Opportunity score | Relative min-max normalization -- unstable, volume double-counted, not comparable across domains; a later hard ceiling then pinned most candidates to one effort value, so the ranking barely moved with the data | Absolute anchors on net monthly hours saved, through a diminishing-returns curve (no hard ceiling), so both domains share one scale and the score responds to volume -- proven by a property test | A score of 80 means the same thing in both operations, and doubling the work actually changes the ranking |
+| Opportunity score | Relative min-max normalization -- unstable, volume double-counted, not comparable across domains; a later hard ceiling then pinned most candidates to one effort value, so the ranking barely moved with the data | Absolute anchors on net monthly hours saved, through a diminishing-returns curve (no hard ceiling), so both domains share one scale and the score responds to volume -- proven by a property test | Net hours saved -- the shared, data-derived anchor -- is scored on one 0-100 curve, so both operations sit on the same scale (the impact term is domain-specific by design), and doubling the work actually changes the ranking |
 | Home vs ROI savings | The home-page savings figure and the ROI page used different effective save rates, so the two views disagreed | The ROI page defaults its time-saved lever to the same blended save rate the home page uses -- the two tell one story | "Why does your dashboard say one number and your ROI page another?" is a credibility-ender |
 | Severity ordering | Alphabetical sort ranked "Medium" above "Critical" | Severity-ordered | In operations, an ordering error becomes a response-time error |
 | Implementation blueprints | 8 of 14 sections were identical boilerplate across every candidate | Candidate-specific plans, including idempotency and failure handling | A plan a team could actually execute, not a template |
@@ -31,7 +31,7 @@ Before shipping, every analytic in this app was put through an adversarial revie
 
 ## What Each Module Does
 
-- `modules/scoring.py`: shared scoring primitives -- absolute automation-score anchors, SLA impact, save rates, and the dataset-anchored recency helper so scores mean the same thing across both domains.
+- `modules/scoring.py`: shared scoring primitives -- absolute automation-score anchors, SLA impact, save rates, and the dataset-anchored recency helper so the shared effort anchor (net hours saved) is scored on one comparable scale across both domains.
 - `modules/classification.py`: rule-based OpsPilot candidate membership and impact aggregation from raw fields, with unique primary attribution so portfolio hours are counted once.
 - `modules/data_generator.py`: generates the synthetic CSVs with realistic operational issues, emitting raw facts only (no pre-baked scores or labels).
 - `modules/opspilot_analyzer.py`: OpsPilot request analytics -- summary KPIs, measured bottleneck detection by delay contribution, and chart data.

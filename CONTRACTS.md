@@ -9,7 +9,9 @@ Values may change; the names and shapes below must not, because `app.py` and
 Keys (stable): `total_requests`, `open_requests`, `average_cycle_time`,
 `sla_breach_rate`, `oldest_open_request`, `estimated_manual_hours`,
 `estimated_monthly_waste`, `top_bottleneck_stage`, `top_automation_candidate`,
-`potential_monthly_savings`. May add `reference_date`.
+`potential_monthly_savings`. May add `reference_date`. `average_cycle_time` is the
+mean of `cycle_time_days` over CLOSED requests only (open rows carry live WIP age,
+which would inflate a completed-work duration).
 
 ## summarize_rescueops(dogs, inquiries, volunteers, medical) -> dict
 
@@ -68,9 +70,11 @@ sizing uses `aggregate_candidate_impact` (overlap allowed).
 - `OPSPILOT_SAVE_RATES`, `ASSUMED_AUTOMATION_COVERAGE`.
 - `absolute_automation_score(net_hours_saved, impact_0_100, repeatability, rule_clarity, complexity) -> float`
   and `sla_impact_score(sla_breaches) -> float`. Both ranker builders feed the SAME
-  quantity -- net monthly hours saved (gross manual hours x save rate) -- through a
-  diminishing-returns curve (no hard saturation), so scores respond to volume and are
-  genuinely comparable across domains.
+  shared, data-derived quantity -- net monthly hours saved (gross manual hours x save
+  rate) -- through one diminishing-returns curve (no hard saturation), so the effort
+  anchor is on one comparable scale across domains and scores respond to volume. The
+  impact term is domain-specific by design (measured SLA-breach signal for OpsPilot,
+  leadership mission weight for RescueOps).
 
 ## Data reliability
 

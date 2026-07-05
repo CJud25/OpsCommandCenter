@@ -166,6 +166,17 @@ def triage_adoption_inquiries(inquiries: pd.DataFrame, dogs: pd.DataFrame) -> pd
         on="dog_name",
         how="left",
     )
+    # No adoption-type inquiries -> return an explicitly-columned empty frame. On an
+    # empty frame, joined.apply(..., result_type="expand") yields no columns, so the
+    # triaged[0] access below would raise KeyError; guard so the same code runs
+    # unchanged on real inquiry data that happens to contain no adoption inquiries.
+    if joined.empty:
+        for col in [
+            "triage_category", "priority_score", "recommended_action",
+            "overdue", "follow_up_questions", "review_flag",
+        ]:
+            joined[col] = pd.Series(dtype="object")
+        return joined
     # Classification is computed here from raw request + dog fields (ported from the
     # generator's adoption cascade) rather than read from a pre-baked column, so the
     # same logic runs unchanged on real inquiry data.
@@ -191,6 +202,14 @@ _ADOPTION_ACTIONS = {
 def _adoption_triage(row: pd.Series) -> tuple[str, int, str]:
     """Classify a single adoption inquiry into (triage_category, priority_score,
     recommended_action) from the joined raw request + dog fields."""
+    # If the inquiry names a dog not in the roster, the left-merged dog fields are all
+    # NaN. bool(NaN) is truthy, which would otherwise misclassify an unmatched inquiry
+    # as a "Strong Match" — instead route it to Missing Information so the dog gets
+    # identified first (matters once O3 makes sparse real inquiry data a supported input).
+    if pd.isna(row.get("adoption_ready")):
+        base = 60
+        priority_score = int(min(base + min(int(row["days_waiting"]) * 4, 24), 100))
+        return "Missing Information", priority_score, _ADOPTION_ACTIONS["Missing Information"]
     incompatible_children = bool(row["has_children"]) and row.get("good_with_children") == "No"
     incompatible_pets = bool(row["has_other_pets"]) and row.get("good_with_dogs") == "No"
     if incompatible_children or incompatible_pets:
@@ -245,7 +264,11 @@ def foster_matching(dogs: pd.DataFrame, volunteers: pd.DataFrame) -> pd.DataFram
     rows: list[dict] = []
     for _, dog in need.iterrows():
         needs_medical = dog["medical_status"] in _MEDICAL_FOSTER_DOG
-        pool = candidates[candidates["volunteer_id"].map(lambda vid: remaining.get(vid, 0) > 0)].copy()
+        # .astype(bool) forces boolean-mask semantics: when `candidates` is empty the
+        # mapped Series is empty/object-dtype, and df[object_series] would fall back to
+        # (invalid) column selection -> a 0-column frame that KeyErrors on the medical
+        # filter below. Coercing to bool keeps all columns on the empty pool.
+        pool = candidates[candidates["volunteer_id"].map(lambda vid: remaining.get(vid, 0) > 0).astype(bool)].copy()
         # Medical capability is a HARD constraint for Emergency/Surgery dogs: a
         # volunteer who cannot handle medical is ineligible, not merely penalized.
         if needs_medical:
@@ -284,6 +307,16 @@ def foster_matching(dogs: pd.DataFrame, volunteers: pd.DataFrame) -> pd.DataFram
             }
         )
 
+    # No dogs currently need foster -> return an explicitly-columned empty frame so
+    # the same code runs unchanged on real data (an empty frame has no "match_score"
+    # column to sort by, which would otherwise raise KeyError).
+    if not rows:
+        return pd.DataFrame(
+            columns=[
+                "dog_name", "best_foster_match", "match_score",
+                "reason_for_match", "caution_notes", "recommended_next_step",
+            ]
+        )
     return pd.DataFrame(rows).sort_values("match_score", ascending=False)
 
 
