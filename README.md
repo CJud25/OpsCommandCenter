@@ -23,6 +23,15 @@ streamlit run app.py              # dashboard; generates the synthetic data on f
 python -m pytest -q               # 20 tests, ~1s, no network
 ```
 
+## Screens
+
+| | |
+|---|---|
+| ![OpsPilot Command Center — executive overview with cross-domain KPI tiles](docs/img/command-center.png) | ![ROI & Business Case — labor-savings model with a real cost and payback side](docs/img/roi-business-case.png) |
+| Executive overview: one framework scoring a business service desk and a nonprofit rescue side by side | ROI & Business Case: benefits net of build and maintenance cost |
+
+_All figures are illustrative and computed from synthetic data — see [Calibration](docs/calibration.md) for the real-world inputs a live deployment would need._
+
 ## Analytical Integrity Review
 
 Before shipping, every analytic in this app was put through an adversarial review. Anything that could not survive an executive's first skeptical question was removed or rebuilt. Here is what changed.
