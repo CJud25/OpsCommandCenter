@@ -13,7 +13,7 @@ Runs fully locally with no external API calls, so no data ever leaves the machin
 
 ![Automation Ranker: automation-opportunity scores for both domains on one 0-100 scale, anchored on net hours saved](assets/ranker.png)
 
-**Verified:** `py -m pytest -q` runs **20 tests** (green in CI on Python 3.12 and 3.13); measured line coverage of the analytics + automation modules is **75%** (`py -m pytest --cov=modules --cov=automations`). Coverage is measured, not asserted -- the headless suite deliberately excludes the Streamlit UI layer.
+**Verified:** `py -m pytest -q` runs **20 tests** (green in CI on Python 3.12 and 3.13); measured line coverage of the analytics + automation modules is **75%** (`py -m pytest --cov=modules --cov=automations`). Coverage is measured, not asserted -- the headless suite deliberately excludes the Streamlit UI entrypoint (`app.py`); the shared UI helpers in `modules/ui_components.py` are counted at 0%, which keeps the figure conservative rather than inflated.
 
 ### Run it in 3 commands
 
