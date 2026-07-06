@@ -18,7 +18,7 @@ Runs fully locally with no external API calls, so no data ever leaves the machin
 ### Run it in 3 commands
 
 ```bash
-pip install -r requirements.txt   # runtime deps (add -r requirements-dev.txt for the test tools)
+pip install -r requirements.txt -r requirements-dev.txt   # app runtime + test tools
 streamlit run app.py              # dashboard; generates the synthetic data on first run
 python -m pytest -q               # 20 tests, ~1s, no network
 ```
@@ -132,7 +132,7 @@ The app generates all required CSV files automatically in the `data/` folder on 
 python -m modules.data_generator --force
 ```
 
-Generation is deterministic (fixed seed and anchor date), so a regenerated dataset matches the committed one byte for byte. On Windows you can substitute the `py` launcher for `python` in any command below.
+Generation is deterministic (fixed seed and anchor date): regenerating reproduces the committed dataset's **content** exactly — `git diff` shows no change and re-committing is a no-op. (On Windows the generator writes CRLF while the committed files are checked out LF via `.gitattributes`, so `git status` may list the CSVs as modified even though the content is byte-identical once git normalizes line endings.) On Windows you can substitute the `py` launcher for `python` in any command below.
 
 ## Run the Tests
 
