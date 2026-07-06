@@ -7,3 +7,9 @@ audit_log.csv
 .venv/
 venv/
 .DS_Store
+# Test / coverage artifacts
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.ruff_cache/

@@ -13,6 +13,25 @@ Runs fully locally with no external API calls, so no data ever leaves the machin
 
 ![Automation Ranker: automation-opportunity scores for both domains on one 0-100 scale, anchored on net hours saved](assets/ranker.png)
 
+**Verified:** `py -m pytest -q` runs **20 tests** (green in CI on Python 3.12 and 3.13); measured line coverage of the analytics + automation modules is **75%** (`py -m pytest --cov=modules --cov=automations`). Coverage is measured, not asserted -- the headless suite deliberately excludes the Streamlit UI entrypoint (`app.py`); the shared UI helpers in `modules/ui_components.py` are counted at 0%, which keeps the figure conservative rather than inflated.
+
+### Run it in 3 commands
+
+```bash
+pip install -r requirements.txt -r requirements-dev.txt   # app runtime + test tools
+streamlit run app.py              # dashboard; generates the synthetic data on first run
+python -m pytest -q               # 20 tests, ~1s, no network
+```
+
+## Screens
+
+| | |
+|---|---|
+| ![OpsPilot Command Center — executive overview with cross-domain KPI tiles](docs/img/command-center.png) | ![ROI & Business Case — labor-savings model with a real cost and payback side](docs/img/roi-business-case.png) |
+| Executive overview: one framework scoring a business service desk and a nonprofit rescue side by side | ROI & Business Case: benefits net of build and maintenance cost |
+
+_All figures are illustrative and computed from synthetic data — see [Calibration](docs/calibration.md) for the real-world inputs a live deployment would need._
+
 ## Analytical Integrity Review
 
 Before shipping, every analytic in this app was put through an adversarial review. Anything that could not survive an executive's first skeptical question was removed or rebuilt. Here is what changed.
@@ -113,9 +132,20 @@ The app generates all required CSV files automatically in the `data/` folder on 
 python -m modules.data_generator --force
 ```
 
-Generation is deterministic (fixed seed and anchor date), so a regenerated dataset matches the committed one byte for byte. On Windows you can substitute the `py` launcher for `python` in any command below.
+Generation is deterministic (fixed seed and anchor date): regenerating reproduces the committed dataset's **content** exactly — `git diff` shows no change and re-committing is a no-op. (On Windows the generator writes CRLF while the committed files are checked out LF via `.gitattributes`, so `git status` may list the CSVs as modified even though the content is byte-identical once git normalizes line endings.) On Windows you can substitute the `py` launcher for `python` in any command below.
 
 ## Run the Tests
+
+The suite is standard pytest. From the repo root:
+
+```bash
+pip install -r requirements-dev.txt   # pytest, pytest-cov, ruff
+python -m pytest -q                    # all 20 tests
+python -m pytest --cov=modules --cov=automations --cov-report=term-missing
+```
+
+The three source files still run directly as scripts (`python tests/test_ranker.py`)
+for a quick check without pytest installed:
 
 ```bash
 python tests/smoke.py            # headless end-to-end pipeline
@@ -190,7 +220,7 @@ No real customer, employee, volunteer, donor, applicant, or animal rescue data i
 
 ## Disclaimer
 
-This project uses synthetic and mock data for portfolio demonstration purposes. ROI, savings, and mission-impact estimates are illustrative and should be validated with real operational data before business use.
+This project uses synthetic and mock data for portfolio demonstration purposes. ROI, savings, and mission-impact estimates are illustrative and should be validated with real operational data before business use. [`docs/calibration.md`](docs/calibration.md) lists the exact real-world fields and historical baselines each ROI input needs before any figure here can be trusted for a budget decision.
 
 ## License
 

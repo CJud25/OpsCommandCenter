@@ -545,7 +545,7 @@ def render_roi_page(
                 "Labor savings only; qualitative benefits (fewer errors, faster response) are not dollarized.",
             ]
         )
-        st.caption("ROI is an estimate for demo purposes and should be validated against real operational data.")
+        st.caption("ROI is an estimate for demo purposes and should be validated against real operational data. See docs/calibration.md for the exact inputs it needs.")
 
     with tab_rescue:
         recent_inquiries = monthly_inquiry_volume(inquiries)
@@ -588,7 +588,7 @@ def render_roi_page(
                 "Value is volunteer-time and response-capacity only; medical funding needs are tracked separately.",
             ]
         )
-        st.caption("Mission impact is an estimate for demo purposes and should be validated with actual rescue operations data.")
+        st.caption("Mission impact is an estimate for demo purposes and should be validated with actual rescue operations data. See docs/calibration.md for the exact inputs it needs.")
 
 
 def render_report_generator(
